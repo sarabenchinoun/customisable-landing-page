@@ -1,0 +1,36 @@
+{
+  "name": "new",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "bunx @biomejs/biome check .",
+		"lint:fix": "bunx @biomejs/biome check --apply .",
+		"lint:classes": "bun lint -- --apply-unsafe",
+		"validate": "run-p typecheck lint build",
+		"typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+		"cva": "beta",
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "sharp": "^0.33.3",
+
+    "tailwind-merge": "^2.3.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.7.3",
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "npm-run-all": "^4.1.5",
+
+		"postcss": "^8.4.38",
+    "tailwindcss": "^3.4.1"
+  },
+  "trustedDependencies": ["@biomejs/biome", "esbuild", "sharp"]
+}
