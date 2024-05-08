@@ -1,18 +1,21 @@
 import type { Metadata } from "next";
-import { Advent_Pro, Ropa_Sans } from "next/font/google";
+import { Inter, Lexend } from "next/font/google";
 
 import { cx } from "@/lib/utils";
 import "./globals.css";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
 
-const adventPro = Advent_Pro({
-	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+const inter = Inter({
 	subsets: ["latin"],
-	variable: "--font-advent-pro",
+	display: "swap",
+	variable: "--font-inter",
 });
-const ropaSans = Ropa_Sans({
-	weight: ["400"],
+
+const lexend = Lexend({
 	subsets: ["latin"],
-	variable: "--font-ropa-sans",
+	display: "swap",
+	variable: "--font-lexend",
 });
 
 export const metadata: Metadata = {
@@ -69,7 +72,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className="h-full antialiased">
+		<html lang="en" className="h-full scroll-smooth bg-white antialiased">
 			<head>
 				<meta
 					name="viewport"
@@ -77,13 +80,11 @@ export default function RootLayout({
 				/>
 			</head>
 			<body
-				className={cx(
-					adventPro.variable,
-					ropaSans.variable,
-					"flex min-h-full flex-col",
-				)}
+				className={cx(inter.variable, lexend.variable, "flex h-full flex-col")}
 			>
+				<Header />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);

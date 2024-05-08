@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config: Config = {
 	content: [
@@ -25,8 +24,8 @@ const config: Config = {
 				},
 			},
 			fontFamily: {
-				heading: ["var(--font-advent-pro)", ...fontFamily.sans],
-				body: ["var(--font-ropa-sans)", ...fontFamily.sans],
+				sans: "var(--font-inter)",
+				display: "var(--font-lexend)",
 			},
 		},
 	},
