@@ -1,3 +1,4 @@
+import headlessuiPlugin from "@headlessui/tailwindcss";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -22,6 +23,19 @@ const config: Config = {
 					900: "#78350f",
 					950: "#451a03",
 				},
+				gray: {
+					50: "#fafafa",
+					100: "#f5f5f5",
+					200: "#e5e5e5",
+					300: "#d4d4d4",
+					400: "#a3a3a3",
+					500: "#737373",
+					600: "#525252",
+					700: "#404040",
+					800: "#262626",
+					900: "#171717",
+					950: "#030712",
+				},
 			},
 			fontFamily: {
 				sans: "var(--font-inter)",
@@ -29,6 +43,6 @@ const config: Config = {
 			},
 		},
 	},
-	plugins: [],
+	plugins: [headlessuiPlugin],
 };
 export default config;

@@ -34,7 +34,7 @@ function MobileNavIcon({ open }: { open: boolean }) {
 	return (
 		<svg
 			aria-hidden="true"
-			className="h-3.5 w-3.5 overflow-visible stroke-slate-700"
+			className="h-3.5 w-3.5 overflow-visible stroke-gray-700"
 			fill="none"
 			strokeWidth={2}
 			strokeLinecap="round"
@@ -75,7 +75,7 @@ function MobileNavigation() {
 					leaveFrom="opacity-100"
 					leaveTo="opacity-0"
 				>
-					<PopoverOverlay className="fixed inset-0 bg-slate-300/50" />
+					<PopoverOverlay className="fixed inset-0 bg-gray-300/50" />
 				</TransitionChild>
 				<TransitionChild
 					enter="duration-150 ease-out"
@@ -85,11 +85,11 @@ function MobileNavigation() {
 					leaveFrom="opacity-100 scale-100"
 					leaveTo="opacity-0 scale-95"
 				>
-					<PopoverPanel className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg text-slate-900 tracking-tight shadow-xl ring-1 ring-slate-900/5">
+					<PopoverPanel className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-gray-900 text-lg tracking-tight shadow-xl ring-1 ring-gray-900/5">
 						<MobileNavLink href="#features">Features</MobileNavLink>
 						<MobileNavLink href="#testimonials">Testimonials</MobileNavLink>
 						<MobileNavLink href="#pricing">Pricing</MobileNavLink>
-						<hr className="m-2 border-slate-300/40" />
+						<hr className="m-2 border-gray-300/40" />
 						<MobileNavLink href="/login">Sign in</MobileNavLink>
 					</PopoverPanel>
 				</TransitionChild>
@@ -104,7 +104,7 @@ export function Header() {
 			<Container>
 				<nav className="relative z-50 flex justify-between">
 					<div className="flex items-center md:gap-x-12">
-						<Link href="#" aria-label="Home">
+						<Link href="/" aria-label="Home">
 							<Logo className="h-10 w-auto" />
 						</Link>
 						<div className="hidden md:flex md:gap-x-6">
@@ -114,7 +114,7 @@ export function Header() {
 						</div>
 					</div>
 					<div className="flex items-center gap-x-5 md:gap-x-8">
-						<Button href="#cta" color="blue">
+						<Button href="#cta" color="primary">
 							<span>
 								Get started <span className="hidden lg:inline">today</span>
 							</span>

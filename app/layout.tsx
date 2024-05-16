@@ -1,7 +1,6 @@
+import clsx from "clsx";
 import type { Metadata } from "next";
 import { Inter, Lexend } from "next/font/google";
-
-import { cx } from "@/lib/utils";
 import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -72,16 +71,21 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className="h-full scroll-smooth bg-white antialiased">
+		<html
+			lang="en"
+			className={clsx(
+				"h-full scroll-smooth bg-white antialiased",
+				inter.variable,
+				lexend.variable,
+			)}
+		>
 			<head>
 				<meta
 					name="viewport"
 					content="width=device-width, initial-scale=1, viewport-fit=cover"
 				/>
 			</head>
-			<body
-				className={cx(inter.variable, lexend.variable, "flex h-full flex-col")}
-			>
+			<body className="flex h-full flex-col">
 				<Header />
 				{children}
 				<Footer />
