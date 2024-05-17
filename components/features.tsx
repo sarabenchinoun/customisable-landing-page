@@ -67,15 +67,6 @@ export function FeaturesOne() {
 			aria-label="Features for running your books"
 			className="relative overflow-hidden bg-primary-700 pt-20 pb-28 sm:py-32"
 		>
-			{/* <Image
-				className="absolute top-1/2 left-1/2 max-w-none translate-x-[-44%] translate-y-[-42%]"
-				src={backgroundImage}
-				alt=""
-				width={2245}
-				height={1636}
-				unoptimized
-			/> */}
-			<BottomBackground left />
 			<Container className="relative">
 				<div className="max-w-2xl md:mx-auto xl:max-w-none md:text-center">
 					<h2 className="font-display text-3xl text-white tracking-tight md:text-5xl sm:text-4xl">
@@ -155,7 +146,8 @@ export function FeaturesOne() {
 						</>
 					)}
 				</TabGroup>
-			</Container>
+			</Container>{" "}
+			<BottomBackground left light />
 		</section>
 	);
 }

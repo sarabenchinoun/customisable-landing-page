@@ -1,14 +1,19 @@
-import { colors } from "@/lib/config";
+import { backgroundColors } from "@/lib/config";
 import clsx from "clsx";
 
 export function BottomBackground({
+	light,
 	left,
 	className,
-}: { left?: boolean; className?: string }) {
+}: {
+	light?: boolean;
+	left?: boolean;
+	className?: string;
+}) {
 	return (
 		<div
 			className={clsx(
-				"z-10 absolute inset-x-0 top-[calc(100%-13rem)] transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]",
+				"absolute inset-x-0 top-[calc(100%-13rem)] z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]",
 				className,
 			)}
 		>
@@ -37,8 +42,21 @@ export function BottomBackground({
 						y2="474.645"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stopColor={colors.secondary} />
-						<stop offset={1} stopColor={colors.secondary} />
+						<stop
+							stopColor={
+								light
+									? backgroundColors.primary.dark
+									: backgroundColors.primary.light
+							}
+						/>
+						<stop
+							offset={1}
+							stopColor={
+								light
+									? backgroundColors.secondary.dark
+									: backgroundColors.secondary.light
+							}
+						/>
 					</linearGradient>
 				</defs>
 			</svg>
@@ -47,13 +65,21 @@ export function BottomBackground({
 }
 
 export function TopBackground({
+	center,
+	light,
 	right,
 	className,
-}: { right?: boolean; className?: string }) {
+}: {
+	center?: boolean;
+	light?: boolean;
+	right?: boolean;
+	className?: string;
+}) {
 	return (
 		<div
 			className={clsx(
-				"-z-10 absolute inset-x-0 top-[-10rem] transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]",
+				"absolute top-[-10rem] transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]",
+				center ? "right-0" : "inset-x-0",
 				className,
 			)}
 		>
@@ -80,8 +106,21 @@ export function TopBackground({
 						y2="474.645"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop stopColor={colors.primary} />
-						<stop offset={1} stopColor={colors.secondary} />
+						<stop
+							stopColor={
+								light
+									? backgroundColors.primary.dark
+									: backgroundColors.primary.light
+							}
+						/>
+						<stop
+							offset={1}
+							stopColor={
+								light
+									? backgroundColors.secondary.dark
+									: backgroundColors.secondary.light
+							}
+						/>
 					</linearGradient>
 				</defs>
 			</svg>

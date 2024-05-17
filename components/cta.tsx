@@ -1,8 +1,6 @@
-import Image from "next/image";
-
-import backgroundImage from "@/assets/background-call-to-action.jpg";
 import { Button } from "@/components/button";
 import { Container } from "@/components/container";
+import { TopBackground } from "./background";
 
 export function CTA() {
 	return (
@@ -10,14 +8,7 @@ export function CTA() {
 			id="get-started-today"
 			className="relative overflow-hidden bg-primary-600 py-32"
 		>
-			<Image
-				className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 max-w-none"
-				src={backgroundImage}
-				alt=""
-				width={2347}
-				height={1244}
-				unoptimized
-			/>
+			<TopBackground light center />
 			<Container className="relative">
 				<div className="mx-auto max-w-lg text-center">
 					<h2 className="font-display text-3xl text-white tracking-tight sm:text-4xl">

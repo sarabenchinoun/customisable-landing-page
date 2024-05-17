@@ -1,7 +1,5 @@
-import Image from "next/image";
-
-import backgroundImage from "@/assets/background-faqs.jpg";
 import { Container } from "@/components/container";
+import { TopBackground } from "./background";
 
 const faqs = [
 	[
@@ -64,14 +62,7 @@ export function Faqs() {
 			aria-labelledby="faq-title"
 			className="relative overflow-hidden bg-gray-50 py-20 sm:py-32"
 		>
-			<Image
-				className="-translate-y-1/4 absolute top-0 left-1/2 max-w-none translate-x-[-30%]"
-				src={backgroundImage}
-				alt=""
-				width={1558}
-				height={946}
-				unoptimized
-			/>
+			<TopBackground />
 			<Container className="relative">
 				<div className="mx-auto max-w-2xl lg:mx-0">
 					<h2
