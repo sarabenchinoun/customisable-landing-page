@@ -67,7 +67,7 @@ export function FeaturesOne() {
 			aria-label="Features for running your books"
 			className="relative overflow-hidden bg-primary-700 pt-20 pb-28 sm:py-32"
 		>
-			<Container className="relative">
+			<Container className="relative z-20">
 				<div className="max-w-2xl md:mx-auto xl:max-w-none md:text-center">
 					<h2 className="font-display text-3xl text-white tracking-tight md:text-5xl sm:text-4xl">
 						Everything you need to run your books.
