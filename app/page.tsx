@@ -18,7 +18,6 @@ export default function Home() {
 	return (
 		<main>
 			<Hero />
-
 			<LogoClouds />
 			<FeaturesOne />
 			<FeaturesTwo />

@@ -1,45 +1,13 @@
 "use client";
 
-import screenshotContacts from "@/assets/screenshots/contacts.png";
-import screenshotExpenses from "@/assets/screenshots/expenses.png";
-import screenshotInventory from "@/assets/screenshots/inventory.png";
-import screenshotPayroll from "@/assets/screenshots/payroll.png";
-import screenshotProfitLoss from "@/assets/screenshots/profit-loss.png";
-import screenshotReporting from "@/assets/screenshots/reporting.png";
-import screenshotVatReturns from "@/assets/screenshots/vat-returns.png";
 import { Container } from "@/components/container";
+import { detailedFeaturesSection, featuresSection } from "@/lib/config";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import clsx from "clsx";
 import Image, { type ImageProps } from "next/image";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useState } from "react";
 import { BottomBackground } from "./background";
-
-const features = [
-	{
-		title: "Payroll",
-		description:
-			"Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
-		image: screenshotPayroll,
-	},
-	{
-		title: "Claim expenses",
-		description:
-			"All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
-		image: screenshotExpenses,
-	},
-	{
-		title: "VAT handling",
-		description:
-			"We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
-		image: screenshotVatReturns,
-	},
-	{
-		title: "Reporting",
-		description:
-			"Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.",
-		image: screenshotReporting,
-	},
-];
+import { Icon, type IconProps } from "./icon";
 
 export function FeaturesOne() {
 	const [tabOrientation, setTabOrientation] = useState<
@@ -70,7 +38,7 @@ export function FeaturesOne() {
 			<Container className="relative z-20">
 				<div className="max-w-2xl md:mx-auto xl:max-w-none md:text-center">
 					<h2 className="font-display text-3xl text-white tracking-tight md:text-5xl sm:text-4xl">
-						Everything you need to run your books.
+						{featuresSection.title}
 					</h2>
 					<p className="mt-6 text-lg text-primary-100 tracking-tight">
 						Well everything you need if you aren’t that picky about minor
@@ -85,7 +53,7 @@ export function FeaturesOne() {
 						<>
 							<div className="-mx-4 flex overflow-x-auto pb-4 lg:col-span-5 sm:mx-0 sm:overflow-visible sm:pb-0">
 								<TabList className="relative z-10 flex gap-x-4 whitespace-nowrap px-4 lg:mx-0 sm:mx-auto lg:block lg:gap-x-0 lg:gap-y-1 lg:whitespace-normal sm:px-0">
-									{features.map((feature, featureIndex) => (
+									{featuresSection.features.map((feature, featureIndex) => (
 										<div
 											key={feature.title}
 											className={clsx(
@@ -123,7 +91,7 @@ export function FeaturesOne() {
 								</TabList>
 							</div>
 							<TabPanels className="lg:col-span-7">
-								{features.map((feature) => (
+								{featuresSection.features.map((feature) => (
 									<TabPanel key={feature.title} unmount={false}>
 										<div className="relative lg:hidden sm:px-6">
 											<div className="-inset-x-4 absolute top-[-6.5rem] bottom-[-4.25rem] bg-white/10 ring-1 ring-white/10 ring-inset sm:inset-x-0 sm:rounded-t-xl" />
@@ -152,101 +120,13 @@ export function FeaturesOne() {
 	);
 }
 
-interface Feature {
+export interface Feature {
 	name: React.ReactNode;
 	summary: string;
 	description: string;
 	image: ImageProps["src"];
-	icon: React.ComponentType;
+	icon: IconProps["name"];
 }
-
-const detailedFeatures: Array<Feature> = [
-	{
-		name: "Reporting",
-		summary: "Stay on top of things with always up-to-date reporting features.",
-		description:
-			"We talked about reporting in the section above but we needed three items here, so mentioning it one more time for posterity.",
-		image: screenshotProfitLoss,
-		icon: function ReportingIcon() {
-			const id = useId();
-			return (
-				<>
-					<defs>
-						<linearGradient
-							id={id}
-							x1="11.5"
-							y1={18}
-							x2={36}
-							y2="15.5"
-							gradientUnits="userSpaceOnUse"
-						>
-							<stop offset=".194" stopColor="#fff" />
-							<stop offset={1} stopColor="#6692F1" />
-						</linearGradient>
-					</defs>
-					<path
-						d="m30 15-4 5-4-11-4 18-4-11-4 7-4-5"
-						stroke={`url(#${id})`}
-						strokeWidth={2}
-						strokeLinecap="round"
-						strokeLinejoin="round"
-					/>
-				</>
-			);
-		},
-	},
-	{
-		name: "Inventory",
-		summary:
-			"Never lose track of what’s in stock with accurate inventory tracking.",
-		description:
-			"We don’t offer this as part of our software but that statement is inarguably true. Accurate inventory tracking would help you for sure.",
-		image: screenshotInventory,
-		icon: function InventoryIcon() {
-			return (
-				<>
-					<path
-						opacity=".5"
-						d="M8 17a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2Z"
-						fill="#fff"
-					/>
-					<path
-						opacity=".3"
-						d="M8 24a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2Z"
-						fill="#fff"
-					/>
-					<path
-						d="M8 10a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2Z"
-						fill="#fff"
-					/>
-				</>
-			);
-		},
-	},
-	{
-		name: "Contacts",
-		summary:
-			"Organize all of your contacts, service providers, and invoices in one place.",
-		description:
-			"This also isn’t actually a feature, it’s just some friendly advice. We definitely recommend that you do this, you’ll feel really organized and professional.",
-		image: screenshotContacts,
-		icon: function ContactsIcon() {
-			return (
-				<>
-					<path
-						opacity=".5"
-						d="M25.778 25.778c.39.39 1.027.393 1.384-.028A11.952 11.952 0 0 0 30 18c0-6.627-5.373-12-12-12S6 11.373 6 18c0 2.954 1.067 5.659 2.838 7.75.357.421.993.419 1.384.028.39-.39.386-1.02.036-1.448A9.959 9.959 0 0 1 8 18c0-5.523 4.477-10 10-10s10 4.477 10 10a9.959 9.959 0 0 1-2.258 6.33c-.35.427-.354 1.058.036 1.448Z"
-						fill="#fff"
-					/>
-					<path
-						d="M12 28.395V28a6 6 0 0 1 12 0v.395A11.945 11.945 0 0 1 18 30c-2.186 0-4.235-.584-6-1.605ZM21 16.5c0-1.933-.5-3.5-3-3.5s-3 1.567-3 3.5 1.343 3.5 3 3.5 3-1.567 3-3.5Z"
-						fill="#fff"
-					/>
-				</>
-			);
-		},
-	},
-];
 
 function Feature({
 	feature,
@@ -264,13 +144,11 @@ function Feature({
 		>
 			<div
 				className={clsx(
-					"w-9 rounded-lg",
+					"flex h-9 w-9 items-center justify-center rounded-lg",
 					isActive ? "bg-primary-600" : "bg-gray-500",
 				)}
 			>
-				<svg aria-hidden="true" className="h-9 w-9" fill="none">
-					<feature.icon />
-				</svg>
+				<Icon name={feature.icon} aria-hidden="true" className="h-7 w-7" />
 			</div>
 			<h3
 				className={clsx(
@@ -291,7 +169,7 @@ function Feature({
 function FeaturesMobile() {
 	return (
 		<div className="-mx-4 sm:-mx-6 mt-20 flex flex-col gap-y-10 overflow-hidden px-4 lg:hidden sm:px-6">
-			{detailedFeatures.map((feature) => (
+			{detailedFeaturesSection.features.map((feature) => (
 				<div key={feature.summary}>
 					<Feature feature={feature} className="mx-auto max-w-2xl" isActive />
 					<div className="relative mt-10 pb-10">
@@ -317,7 +195,7 @@ function FeaturesDesktop() {
 			{({ selectedIndex }) => (
 				<>
 					<TabList className="grid grid-cols-3 gap-x-8">
-						{detailedFeatures.map((feature, featureIndex) => (
+						{detailedFeaturesSection.features.map((feature, featureIndex) => (
 							<Feature
 								key={feature.summary}
 								feature={{
@@ -336,7 +214,7 @@ function FeaturesDesktop() {
 					</TabList>
 					<TabPanels className="relative mt-20 overflow-hidden rounded-4xl bg-gray-200 px-14 py-16 xl:px-16">
 						<div className="-mx-5 flex">
-							{detailedFeatures.map((feature, featureIndex) => (
+							{detailedFeaturesSection.features.map((feature, featureIndex) => (
 								<TabPanel
 									static
 									key={feature.summary}
@@ -376,11 +254,10 @@ export function FeaturesTwo() {
 			<Container>
 				<div className="mx-auto max-w-2xl md:text-center">
 					<h2 className="font-display text-3xl text-gray-900 tracking-tight sm:text-4xl">
-						Simplify everyday business tasks.
+						{detailedFeaturesSection.title}
 					</h2>
 					<p className="mt-4 text-gray-700 text-lg tracking-tight">
-						Because you’d probably be a little confused if we suggested you
-						complicate your everyday business tasks instead.
+						{detailedFeaturesSection.description}
 					</p>
 				</div>
 				<FeaturesMobile />
