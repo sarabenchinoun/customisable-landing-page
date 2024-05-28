@@ -16,6 +16,33 @@ import screenshotVatReturns from "@/assets/screenshots/vat-returns.png";
 import { Icons, type LucideIcon } from "@/components/icons";
 import type { StaticImageData } from "next/image";
 
+export const radiusTheme = {
+	fun: {
+		1: "8px",
+		2: "12px",
+		3: "16px",
+		4: "24px",
+		5: "32px",
+		6: "9999px",
+	},
+	cool: {
+		1: "4px",
+		2: "6px",
+		3: "8px",
+		4: "12px",
+		5: "16px",
+		6: "8px",
+	},
+	classic: {
+		1: "0px",
+		2: "0px",
+		3: "0px",
+		4: "0px",
+		5: "0px",
+		6: "0px",
+	},
+};
+
 const primaryColor = {
 	50: "#fffbeb",
 	100: "#fef3c7",
@@ -47,6 +74,8 @@ export const logoColors = {
 };
 
 // Change the Logo component or uncomment the image in components/header.tsx and add it to the public folder
+
+// Change the font in the layout
 
 export const navigation = [
 	{ href: "#features", label: "Features" },

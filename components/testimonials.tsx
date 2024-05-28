@@ -31,7 +31,7 @@ export function Testimonials() {
 							<ul className="flex flex-col gap-y-6 sm:gap-y-8">
 								{column.map((testimonial, testimonialIndex) => (
 									<li key={`${testimonialIndex * 1}`}>
-										<figure className="relative rounded-2xl bg-white p-6 shadow-gray-900/10 shadow-xl">
+										<figure className="relative rounded-3 bg-white p-6 shadow-gray-900/10 shadow-xl">
 											<QuoteIcon className="absolute top-6 left-6 fill-gray-100" />
 											<blockquote className="relative">
 												<p className="text-gray-900 text-lg tracking-tight">
@@ -47,7 +47,7 @@ export function Testimonials() {
 														{testimonial.author.role}
 													</div>
 												</div>
-												<div className="overflow-hidden rounded-full bg-gray-50">
+												<div className="overflow-hidden rounded-6 bg-gray-50">
 													<div className="flex h-14 w-14 items-center justify-center object-cover font-medium text-2xl text-gray-900">
 														{testimonial.author.name
 															.split(" ")

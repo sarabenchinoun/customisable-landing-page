@@ -86,7 +86,7 @@ function MobileNavigation() {
 					leaveFrom="opacity-100 scale-100"
 					leaveTo="opacity-0 scale-95"
 				>
-					<PopoverPanel className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-gray-900 text-lg tracking-tight shadow-xl ring-1 ring-gray-900/5">
+					<PopoverPanel className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-3 bg-white p-4 text-gray-900 text-lg tracking-tight shadow-xl ring-1 ring-gray-900/5">
 						{navigation.map((item) => (
 							<MobileNavLink key={item.href} href={item.href}>
 								{item.label}
