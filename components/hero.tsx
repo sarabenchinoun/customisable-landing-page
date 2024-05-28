@@ -1,12 +1,11 @@
 import { Button } from "@/components/button";
 import { Container } from "@/components/container";
-import { hero } from "@/lib/config";
-import { Icon } from "./icon";
+import { hero, iconTheme } from "@/lib/config";
 
 export function Hero() {
 	return (
 		<Container id="hero" className="pt-20 text-center lg:pt-32">
-			<h1 className="mx-auto max-w-4xl font-display font-medium text-5xl text-gray-900 tracking-tight sm:text-7xl">
+			<h1 className="mx-auto max-w-4xl font-heading font-medium text-5xl text-gray-900 tracking-tight sm:text-7xl">
 				{hero.title.preHighlighted}{" "}
 				<span className="relative whitespace-nowrap text-primary-600">
 					<svg
@@ -25,7 +24,7 @@ export function Hero() {
 				{hero.description}
 			</p>
 			<div className="mt-10 flex justify-center gap-x-6">
-				<Button href={hero.primaryButton.href}>
+				<Button href={hero.primaryButton.href} target="_blank">
 					{hero.primaryButton.label}
 				</Button>
 				{hero.secondaryButton.visible && (
@@ -35,8 +34,8 @@ export function Hero() {
 						variant="outline"
 					>
 						{hero.secondaryButton.icon && (
-							<Icon
-								name={hero.secondaryButton.icon}
+							<hero.secondaryButton.icon
+								strokeWidth={iconTheme.strokeWidth}
 								className="h-3 w-3 flex-none fill-primary-600 text-primary-600 group-active:fill-current"
 							/>
 						)}

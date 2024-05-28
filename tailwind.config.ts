@@ -38,8 +38,8 @@ const config: Config = {
 				},
 			},
 			fontFamily: {
-				sans: "var(--font-inter)",
-				display: "var(--font-lexend)",
+				heading: "var(--font-heading)",
+				body: "var(--font-body)",
 			},
 		},
 	},

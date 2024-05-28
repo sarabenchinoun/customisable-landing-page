@@ -13,7 +13,7 @@ import screenshotPayroll from "@/assets/screenshots/payroll.png";
 import screenshotProfitLoss from "@/assets/screenshots/profit-loss.png";
 import screenshotReporting from "@/assets/screenshots/reporting.png";
 import screenshotVatReturns from "@/assets/screenshots/vat-returns.png";
-import type { IconProps } from "@/components/icon";
+import { Icons, type LucideIcon } from "@/components/icons";
 import type { StaticImageData } from "next/image";
 
 const primaryColor = {
@@ -59,6 +59,26 @@ export const ctaAction = {
 	label: "Get in touch",
 };
 
+export const footer = {
+	companyName: "TaxPal",
+	social: [
+		{
+			href: "#",
+			icon: Icons.Instagram,
+			label: "Instagram",
+		},
+		{
+			href: "#",
+			icon: Icons.Facebook,
+			label: "Facebook",
+		},
+	],
+};
+
+export const iconTheme = {
+	strokeWidth: 1.2,
+};
+
 export const hero = {
 	title: {
 		preHighlighted: "Accounting",
@@ -75,7 +95,7 @@ export const hero = {
 		visible: true,
 		label: "Watch video",
 		href: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-		icon: "play",
+		icon: Icons.Play,
 	},
 } as const;
 
@@ -135,7 +155,7 @@ interface DetailedFeaturesSectionProps {
 		summary: string;
 		description: string;
 		image: StaticImageData;
-		icon: IconProps["name"];
+		icon: LucideIcon;
 	}[];
 }
 export const detailedFeaturesSection: DetailedFeaturesSectionProps = {
@@ -150,7 +170,7 @@ export const detailedFeaturesSection: DetailedFeaturesSectionProps = {
 			description:
 				"We talked about reporting in the section above but we needed three items here, so mentioning it one more time for posterity.",
 			image: screenshotProfitLoss,
-			icon: "play",
+			icon: Icons.Map,
 		},
 		{
 			name: "Inventory",
@@ -159,7 +179,7 @@ export const detailedFeaturesSection: DetailedFeaturesSectionProps = {
 			description:
 				"We don’t offer this as part of our software but that statement is inarguably true. Accurate inventory tracking would help you for sure.",
 			image: screenshotInventory,
-			icon: "box",
+			icon: Icons.ParkingMeter,
 		},
 		{
 			name: "Contacts",
@@ -168,7 +188,190 @@ export const detailedFeaturesSection: DetailedFeaturesSectionProps = {
 			description:
 				"This also isn’t actually a feature, it’s just some friendly advice. We definitely recommend that you do this, you’ll feel really organized and professional.",
 			image: screenshotContacts,
-			icon: "users",
+			icon: Icons.Users,
 		},
+	],
+};
+
+export const ctaSection = {
+	title: "Get started today",
+	description:
+		"It`s time to take control of your books. Buy our software so you can feel like you`re doing something productive.",
+	ctaAction,
+};
+
+export const TestimonialsSection = {
+	title: "Loved by businesses worldwide.",
+	description:
+		"Our software is so simple that people can’t help but fall in love with it. Simplicity is easy when you just skip tons of mission-critical features.",
+	testimonials: [
+		[
+			{
+				content:
+					"TaxPal is so easy to use I can’t help but wonder if it’s really doing the things the government expects me to do.",
+				author: {
+					name: "Sheryl Berge",
+					role: "CEO at Lynch LLC",
+				},
+			},
+			{
+				content:
+					"I’m trying to get a hold of someone in support, I’m in a lot of trouble right now and they are saying it has something to do with my books. Please get back to me right away.",
+				author: {
+					name: "Amy Hahn",
+					role: "Director at Velocity Industries",
+				},
+			},
+		],
+		[
+			{
+				content:
+					"The best part about TaxPal is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.",
+				author: {
+					name: "Leland Kiehn",
+					role: "Founder of Kiehn and Sons",
+				},
+			},
+			{
+				content:
+					"There are so many things I had to do with my old software that I just don’t do at all with TaxPal. Suspicious but I can’t say I don’t love it.",
+				author: {
+					name: "Erin Powlowski",
+					role: "COO at Armstrong Inc",
+				},
+			},
+		],
+		[
+			{
+				content:
+					"I used to have to remit tax to the EU and with TaxPal I somehow don’t have to do that anymore. Nervous to travel there now though.",
+				author: {
+					name: "Peter Renolds",
+					role: "Founder of West Inc",
+				},
+			},
+			{
+				content:
+					"This is the fourth email I’ve sent to your support team. I am literally being held in jail for tax fraud. Please answer your damn emails, this is important.",
+				author: {
+					name: "Amy Hahn",
+					role: "Director at Velocity Industries",
+				},
+			},
+		],
+	],
+};
+
+export const pricingSection = {
+	title: {
+		preHighlighted: "",
+		highlighted: "Simple pricing,",
+		postHighlighted: "for everyone.",
+	},
+	description:
+		"It doesn’t matter what size your business is, our software won’t work well for you.",
+	plans: [
+		{
+			featured: false,
+			name: "Starter",
+			price: "$9",
+			description:
+				"Good for anyone who is self-employed and just getting started.",
+			href: ctaAction.href,
+			features: [
+				"Send 10 quotes and invoices",
+				"Connect up to 2 bank accounts",
+				"Track up to 15 expenses per month",
+				"Manual payroll support",
+				"Export up to 3 reports",
+			],
+		},
+		{
+			featured: true,
+			name: "Small business",
+			price: "$15",
+			description: "Perfect for small businesses that are looking to grow.",
+			features: [
+				"Send 50 quotes and invoices",
+				"Connect up to 10 bank accounts",
+				"Track up to 50 expenses per month",
+				"Manual payroll support",
+				"Export up to 10 reports",
+			],
+			href: "/register",
+		},
+		{
+			featured: false,
+			name: "Enterprise",
+			price: "$29",
+			description: "Great for larger businesses that are looking to scale.",
+			features: [
+				"Send unlimited quotes and invoices",
+				"Connect unlimited bank accounts",
+				"Track unlimited expenses",
+				"Manual payroll support",
+				"Export unlimited reports",
+			],
+			href: "/register",
+		},
+	],
+};
+
+export const faqsSection = {
+	title: "Frequently asked questions",
+	description:
+		"If you can’t find what you’re looking for, email our support team and if you’re lucky someone will get back to you.",
+	faqs: [
+		[
+			{
+				question: "Does TaxPal handle VAT?",
+				answer:
+					"Well no, but if you move your company offshore you can probably ignore it.",
+			},
+			{
+				question: "Can I pay for my subscription via purchase order?",
+				answer: "Absolutely, we are happy to take your money in all forms.",
+			},
+			{
+				question: "How do I apply for a job at TaxPal?",
+				answer:
+					"We only hire our customers, so subscribe for a minimum of 6 months and then let’s talk.",
+			},
+		],
+		[
+			{
+				question: "What was that testimonial about tax fraud all about?",
+				answer:
+					"TaxPal is just a software application, ultimately your books are your responsibility.",
+			},
+			{
+				question:
+					"TaxPal sounds horrible but why do I still feel compelled to purchase?",
+				answer:
+					"This is the power of excellent visual design. You just can’t resist it, no matter how poorly it actually functions.",
+			},
+			{
+				question:
+					"I found other companies called TaxPal, are you sure you can use this name?",
+				answer:
+					"Honestly not sure at all. We haven’t actually incorporated or anything, we just thought it sounded cool and made this website.",
+			},
+		],
+		[
+			{
+				question: "How do you generate reports?",
+				answer:
+					"You just tell us what data you need a report for, and we get our kids to create beautiful charts for you using only the finest crayons.",
+			},
+			{
+				question: "Can we expect more inventory features?",
+				answer: "In life it’s really better to never expect anything at all.",
+			},
+			{
+				question: "I lost my password, how do I get into my account?",
+				answer:
+					"Send us an email and we will send you a copy of our latest password spreadsheet so you can find your information.",
+			},
+		],
 	],
 };

@@ -2,6 +2,7 @@ import clsx from "clsx";
 
 import { Button } from "@/components/button";
 import { Container } from "@/components/container";
+import { pricingSection } from "@/lib/config";
 
 function SwirlyDoodle(props: React.ComponentPropsWithoutRef<"svg">) {
 	return (
@@ -72,7 +73,7 @@ function Plan({
 				featured ? "order-first bg-primary-600 py-8 lg:order-none" : "lg:py-8",
 			)}
 		>
-			<h3 className="mt-5 font-display text-lg text-white">{name}</h3>
+			<h3 className="mt-5 font-heading text-lg text-white">{name}</h3>
 			<p
 				className={clsx(
 					"mt-2 text-base",
@@ -81,7 +82,7 @@ function Plan({
 			>
 				{description}
 			</p>
-			<p className="order-first font-display font-light text-5xl text-white tracking-tight">
+			<p className="order-first font-heading font-light text-5xl text-white tracking-tight">
 				{price}
 			</p>
 			<ul
@@ -104,6 +105,7 @@ function Plan({
 				color="white"
 				className="mt-8"
 				aria-label={`Get started with the ${name} plan for ${price}`}
+				target="_blank"
 			>
 				Get started
 			</Button>
@@ -120,61 +122,24 @@ export function Pricing() {
 		>
 			<Container>
 				<div className="md:text-center">
-					<h2 className="font-display text-3xl text-white tracking-tight sm:text-4xl">
+					<h2 className="font-heading text-3xl text-white tracking-tight sm:text-4xl">
+						{pricingSection.title.preHighlighted}
 						<span className="relative whitespace-nowrap">
 							<SwirlyDoodle className="absolute top-1/2 left-0 h-[1em] w-full fill-primary-400" />
-							<span className="relative">Simple pricing,</span>
+							<span className="relative">
+								{pricingSection.title.highlighted}
+							</span>
 						</span>{" "}
-						for everyone.
+						{pricingSection.title.postHighlighted}
 					</h2>
 					<p className="mt-4 text-gray-400 text-lg">
-						It doesn’t matter what size your business is, our software won’t
-						work well for you.
+						{pricingSection.description}
 					</p>
 				</div>
 				<div className="-mx-4 lg:-mx-8 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto xl:mx-0 lg:max-w-none lg:grid-cols-3 xl:gap-x-8">
-					<Plan
-						name="Starter"
-						price="$9"
-						description="Good for anyone who is self-employed and just getting started."
-						href="/register"
-						features={[
-							"Send 10 quotes and invoices",
-							"Connect up to 2 bank accounts",
-							"Track up to 15 expenses per month",
-							"Manual payroll support",
-							"Export up to 3 reports",
-						]}
-					/>
-					<Plan
-						featured
-						name="Small business"
-						price="$15"
-						description="Perfect for small / medium sized businesses."
-						href="/register"
-						features={[
-							"Send 25 quotes and invoices",
-							"Connect up to 5 bank accounts",
-							"Track up to 50 expenses per month",
-							"Automated payroll support",
-							"Export up to 12 reports",
-							"Bulk reconcile transactions",
-							"Track in multiple currencies",
-						]}
-					/>
-					<Plan
-						name="Enterprise"
-						price="$39"
-						description="For even the biggest enterprise companies."
-						href="/register"
-						features={[
-							"Send unlimited quotes and invoices",
-							"Connect up to 15 bank accounts",
-							"Track up to 200 expenses per month",
-							"Automated payroll support",
-							"Export up to 25 reports, including TPS",
-						]}
-					/>
+					{pricingSection.plans.map((plan, index) => (
+						<Plan key={`${plan.name}-${index}`} {...plan} />
+					))}
 				</div>
 			</Container>
 		</section>

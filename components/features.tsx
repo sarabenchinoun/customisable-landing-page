@@ -1,13 +1,17 @@
 "use client";
 
 import { Container } from "@/components/container";
-import { detailedFeaturesSection, featuresSection } from "@/lib/config";
+import {
+	detailedFeaturesSection,
+	featuresSection,
+	iconTheme,
+} from "@/lib/config";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import clsx from "clsx";
 import Image, { type ImageProps } from "next/image";
 import { useEffect, useState } from "react";
 import { BottomBackground } from "./background";
-import { Icon, type IconProps } from "./icon";
+import type { LucideIcon } from "./icons";
 
 export function FeaturesOne() {
 	const [tabOrientation, setTabOrientation] = useState<
@@ -37,12 +41,11 @@ export function FeaturesOne() {
 		>
 			<Container className="relative z-20">
 				<div className="max-w-2xl md:mx-auto xl:max-w-none md:text-center">
-					<h2 className="font-display text-3xl text-white tracking-tight md:text-5xl sm:text-4xl">
+					<h2 className="font-heading text-3xl text-white tracking-tight md:text-5xl sm:text-4xl">
 						{featuresSection.title}
 					</h2>
 					<p className="mt-6 text-lg text-primary-100 tracking-tight">
-						Well everything you need if you aren’t that picky about minor
-						details like tax compliance.
+						{featuresSection.description}
 					</p>
 				</div>
 				<TabGroup
@@ -66,7 +69,7 @@ export function FeaturesOne() {
 											<h3>
 												<Tab
 													className={clsx(
-														"font-display text-lg ui-not-focus-visible:outline-none",
+														"font-heading text-lg ui-not-focus-visible:outline-none",
 														selectedIndex === featureIndex
 															? "text-primary-600 lg:text-white"
 															: "text-primary-100 hover:text-white lg:text-white",
@@ -125,7 +128,7 @@ export interface Feature {
 	summary: string;
 	description: string;
 	image: ImageProps["src"];
-	icon: IconProps["name"];
+	icon: LucideIcon;
 }
 
 function Feature({
@@ -144,11 +147,15 @@ function Feature({
 		>
 			<div
 				className={clsx(
-					"flex h-9 w-9 items-center justify-center rounded-lg",
-					isActive ? "bg-primary-600" : "bg-gray-500",
+					"flex h-9 w-9 items-center justify-center rounded-lg p-2",
+					isActive ? "bg-primary-600" : "bg-gray-300",
 				)}
 			>
-				<Icon name={feature.icon} aria-hidden="true" className="h-7 w-7" />
+				<feature.icon
+					aria-hidden="true"
+					strokeWidth={iconTheme.strokeWidth}
+					className={clsx("h-8 w-8", isActive ? "text-white" : "text-gray-900")}
+				/>
 			</div>
 			<h3
 				className={clsx(
@@ -158,7 +165,7 @@ function Feature({
 			>
 				{feature.name}
 			</h3>
-			<p className="mt-2 font-display text-gray-900 text-xl">
+			<p className="mt-2 font-heading text-gray-900 text-xl">
 				{feature.summary}
 			</p>
 			<p className="mt-4 text-gray-600 text-sm">{feature.description}</p>
@@ -253,7 +260,7 @@ export function FeaturesTwo() {
 		>
 			<Container>
 				<div className="mx-auto max-w-2xl md:text-center">
-					<h2 className="font-display text-3xl text-gray-900 tracking-tight sm:text-4xl">
+					<h2 className="font-heading text-3xl text-gray-900 tracking-tight sm:text-4xl">
 						{detailedFeaturesSection.title}
 					</h2>
 					<p className="mt-4 text-gray-700 text-lg tracking-tight">

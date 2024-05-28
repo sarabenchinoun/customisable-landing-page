@@ -1,59 +1,6 @@
 import { Container } from "@/components/container";
+import { faqsSection } from "@/lib/config";
 import { TopBackground } from "./background";
-
-const faqs = [
-	[
-		{
-			question: "Does TaxPal handle VAT?",
-			answer:
-				"Well no, but if you move your company offshore you can probably ignore it.",
-		},
-		{
-			question: "Can I pay for my subscription via purchase order?",
-			answer: "Absolutely, we are happy to take your money in all forms.",
-		},
-		{
-			question: "How do I apply for a job at TaxPal?",
-			answer:
-				"We only hire our customers, so subscribe for a minimum of 6 months and then let’s talk.",
-		},
-	],
-	[
-		{
-			question: "What was that testimonial about tax fraud all about?",
-			answer:
-				"TaxPal is just a software application, ultimately your books are your responsibility.",
-		},
-		{
-			question:
-				"TaxPal sounds horrible but why do I still feel compelled to purchase?",
-			answer:
-				"This is the power of excellent visual design. You just can’t resist it, no matter how poorly it actually functions.",
-		},
-		{
-			question:
-				"I found other companies called TaxPal, are you sure you can use this name?",
-			answer:
-				"Honestly not sure at all. We haven’t actually incorporated or anything, we just thought it sounded cool and made this website.",
-		},
-	],
-	[
-		{
-			question: "How do you generate reports?",
-			answer:
-				"You just tell us what data you need a report for, and we get our kids to create beautiful charts for you using only the finest crayons.",
-		},
-		{
-			question: "Can we expect more inventory features?",
-			answer: "In life it’s really better to never expect anything at all.",
-		},
-		{
-			question: "I lost my password, how do I get into my account?",
-			answer:
-				"Send us an email and we will send you a copy of our latest password spreadsheet so you can find your information.",
-		},
-	],
-];
 
 export function Faqs() {
 	return (
@@ -67,22 +14,21 @@ export function Faqs() {
 				<div className="mx-auto max-w-2xl lg:mx-0">
 					<h2
 						id="faq-title"
-						className="font-display text-3xl text-gray-900 tracking-tight sm:text-4xl"
+						className="font-heading text-3xl text-gray-900 tracking-tight sm:text-4xl"
 					>
-						Frequently asked questions
+						{faqsSection.title}
 					</h2>
 					<p className="mt-4 text-gray-700 text-lg tracking-tight">
-						If you can’t find what you’re looking for, email our support team
-						and if you’re lucky someone will get back to you.
+						{faqsSection.description}
 					</p>
 				</div>
 				<ul className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
-					{faqs.map((column, columnIndex) => (
+					{faqsSection.faqs.map((column, columnIndex) => (
 						<li key={`${columnIndex * 1}`}>
 							<ul className="flex flex-col gap-y-8">
 								{column.map((faq, faqIndex) => (
 									<li key={`${faqIndex * 1}`}>
-										<h3 className="font-display text-gray-900 text-lg leading-7">
+										<h3 className="font-heading text-gray-900 text-lg leading-7">
 											{faq.question}
 										</h3>
 										<p className="mt-4 text-gray-700 text-sm">{faq.answer}</p>

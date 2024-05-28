@@ -1,20 +1,19 @@
 import clsx from "clsx";
 import type { Metadata } from "next";
-import { Inter, Lexend } from "next/font/google";
+import { Ropa_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 
-const inter = Inter({
+const heading = Space_Grotesk({
+	weight: ["300", "400", "500", "600", "700"],
 	subsets: ["latin"],
-	display: "swap",
-	variable: "--font-inter",
+	variable: "--font-heading",
 });
-
-const lexend = Lexend({
+const body = Ropa_Sans({
+	weight: ["400"],
 	subsets: ["latin"],
-	display: "swap",
-	variable: "--font-lexend",
+	variable: "--font-body",
 });
 
 export const runtime = "edge";
@@ -77,8 +76,8 @@ export default function RootLayout({
 			lang="en"
 			className={clsx(
 				"h-full scroll-smooth bg-white antialiased",
-				inter.variable,
-				lexend.variable,
+				heading.variable,
+				body.variable,
 			)}
 		>
 			<head>
@@ -87,7 +86,7 @@ export default function RootLayout({
 					content="width=device-width, initial-scale=1, viewport-fit=cover"
 				/>
 			</head>
-			<body className="flex h-full flex-col">
+			<body className="flex h-full flex-col font-body">
 				<Header />
 				{children}
 				<Footer />

@@ -1,61 +1,5 @@
 import { Container } from "@/components/container";
-
-const testimonials = [
-	[
-		{
-			content:
-				"TaxPal is so easy to use I can’t help but wonder if it’s really doing the things the government expects me to do.",
-			author: {
-				name: "Sheryl Berge",
-				role: "CEO at Lynch LLC",
-			},
-		},
-		{
-			content:
-				"I’m trying to get a hold of someone in support, I’m in a lot of trouble right now and they are saying it has something to do with my books. Please get back to me right away.",
-			author: {
-				name: "Amy Hahn",
-				role: "Director at Velocity Industries",
-			},
-		},
-	],
-	[
-		{
-			content:
-				"The best part about TaxPal is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.",
-			author: {
-				name: "Leland Kiehn",
-				role: "Founder of Kiehn and Sons",
-			},
-		},
-		{
-			content:
-				"There are so many things I had to do with my old software that I just don’t do at all with TaxPal. Suspicious but I can’t say I don’t love it.",
-			author: {
-				name: "Erin Powlowski",
-				role: "COO at Armstrong Inc",
-			},
-		},
-	],
-	[
-		{
-			content:
-				"I used to have to remit tax to the EU and with TaxPal I somehow don’t have to do that anymore. Nervous to travel there now though.",
-			author: {
-				name: "Peter Renolds",
-				role: "Founder of West Inc",
-			},
-		},
-		{
-			content:
-				"This is the fourth email I’ve sent to your support team. I am literally being held in jail for tax fraud. Please answer your damn emails, this is important.",
-			author: {
-				name: "Amy Hahn",
-				role: "Director at Velocity Industries",
-			},
-		},
-	],
-];
+import { TestimonialsSection } from "@/lib/config";
 
 function QuoteIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 	return (
@@ -74,17 +18,15 @@ export function Testimonials() {
 		>
 			<Container>
 				<div className="mx-auto max-w-2xl md:text-center">
-					<h2 className="font-display text-3xl text-gray-900 tracking-tight sm:text-4xl">
-						Loved by businesses worldwide.
+					<h2 className="font-heading text-3xl text-gray-900 tracking-tight sm:text-4xl">
+						{TestimonialsSection.title}
 					</h2>
 					<p className="mt-4 text-gray-700 text-lg tracking-tight">
-						Our software is so simple that people can’t help but fall in love
-						with it. Simplicity is easy when you just skip tons of
-						mission-critical features.
+						{TestimonialsSection.description}
 					</p>
 				</div>
 				<ul className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 lg:mt-20 lg:max-w-none lg:grid-cols-3 sm:gap-8">
-					{testimonials.map((column, columnIndex) => (
+					{TestimonialsSection.testimonials.map((column, columnIndex) => (
 						<li key={`${columnIndex * 1}`}>
 							<ul className="flex flex-col gap-y-6 sm:gap-y-8">
 								{column.map((testimonial, testimonialIndex) => (
@@ -98,7 +40,7 @@ export function Testimonials() {
 											</blockquote>
 											<figcaption className="relative mt-6 flex items-center justify-between border-gray-100 border-t pt-6">
 												<div>
-													<div className="font-display text-base text-gray-900">
+													<div className="font-heading text-base text-gray-900">
 														{testimonial.author.name}
 													</div>
 													<div className="mt-1 text-gray-500 text-sm">
