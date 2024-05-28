@@ -16,5 +16,5 @@
 		["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
 	],
 	"typescript.tsdk": "node_modules/typescript/lib",
-	"cSpell.words": ["brynglo", "brynglologo", "clsx", "iconify", "ropa"]
+	"cSpell.words": ["brynglo", "brynglologo", "clsx", "ropa"]
 }

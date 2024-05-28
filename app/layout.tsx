@@ -17,6 +17,8 @@ const lexend = Lexend({
 	variable: "--font-lexend",
 });
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
 	title: {
 		default: "HoneyCup Labs",

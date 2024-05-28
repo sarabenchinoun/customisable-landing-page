@@ -8,6 +8,8 @@ import { Pricing } from "@/components/pricing";
 import { Testimonials } from "@/components/testimonials";
 import type { Metadata } from "next";
 
+export const runtime = "edge";
+
 export const metadata: Metadata = {
 	title: "HoneyCup Labs | Home",
 	description:
