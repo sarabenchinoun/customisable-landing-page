@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { Button } from "@/components/button";
 import { Container } from "@/components/container";
 import { pricingSection } from "@/lib/config";
+import { Heading } from "./heading";
 
 function SwirlyDoodle(props: React.ComponentPropsWithoutRef<"svg">) {
 	return (
@@ -73,7 +74,9 @@ function Plan({
 				featured ? "order-first bg-primary-600 py-8 lg:order-none" : "lg:py-8",
 			)}
 		>
-			<h3 className="mt-5 font-heading text-lg text-white">{name}</h3>
+			<Heading as="h3" size="4" theme="white" className="mt-5">
+				{name}
+			</Heading>
 			<p
 				className={clsx(
 					"mt-2 text-base",
@@ -122,16 +125,16 @@ export function Pricing() {
 		>
 			<Container>
 				<div className="md:text-center">
-					<h2 className="font-heading text-3xl text-white tracking-tight sm:text-4xl">
+					<Heading as="h2" theme="white">
 						{pricingSection.title.preHighlighted}
 						<span className="relative whitespace-nowrap">
 							<SwirlyDoodle className="absolute top-1/2 left-0 h-[1em] w-full fill-primary-400" />
 							<span className="relative">
 								{pricingSection.title.highlighted}
 							</span>
-						</span>{" "}
+						</span>
 						{pricingSection.title.postHighlighted}
-					</h2>
+					</Heading>
 					<p className="mt-4 text-gray-400 text-lg">
 						{pricingSection.description}
 					</p>

@@ -11,7 +11,9 @@ import clsx from "clsx";
 import Image, { type ImageProps } from "next/image";
 import { useEffect, useState } from "react";
 import { BottomBackground } from "./background";
+import { Heading } from "./heading";
 import type { LucideIcon } from "./icons";
+import { Text } from "./text";
 
 export function FeaturesOne() {
 	const [tabOrientation, setTabOrientation] = useState<
@@ -41,12 +43,12 @@ export function FeaturesOne() {
 		>
 			<Container className="relative z-20">
 				<div className="max-w-2xl md:mx-auto xl:max-w-none md:text-center">
-					<h2 className="font-heading text-3xl text-white tracking-tight md:text-5xl sm:text-4xl">
+					<Heading as="h2" theme="white">
 						{featuresSection.title}
-					</h2>
-					<p className="mt-6 text-lg text-primary-100 tracking-tight">
+					</Heading>
+					<Text size="4" theme="primary" className="mt-6">
 						{featuresSection.description}
-					</p>
+					</Text>
 				</div>
 				<TabGroup
 					className="mt-16 grid grid-cols-1 items-center gap-y-2 pt-10 md:mt-20 lg:grid-cols-12 sm:gap-y-6 lg:pt-0"
@@ -66,10 +68,10 @@ export function FeaturesOne() {
 													: "hover:bg-white/10 lg:hover:bg-white/5",
 											)}
 										>
-											<h3>
+											<Heading as="h3" size="4" align="left">
 												<Tab
 													className={clsx(
-														"font-heading text-lg ui-not-focus-visible:outline-none",
+														"ui-not-focus-visible:outline-none",
 														selectedIndex === featureIndex
 															? "text-primary-600 lg:text-white"
 															: "text-primary-100 hover:text-white lg:text-white",
@@ -78,17 +80,19 @@ export function FeaturesOne() {
 													<span className="absolute inset-0 rounded-button lg:rounded-r-none lg:rounded-l-button" />
 													{feature.title}
 												</Tab>
-											</h3>
-											<p
+											</Heading>
+											<Text
+												size="2"
+												align="left"
 												className={clsx(
-													"mt-2 hidden text-sm lg:block",
+													"mt-2 hidden lg:block",
 													selectedIndex === featureIndex
 														? "text-white"
 														: "text-primary-100 group-hover:text-white",
 												)}
 											>
 												{feature.description}
-											</p>
+											</Text>
 										</div>
 									))}
 								</TabList>
@@ -157,14 +161,18 @@ function Feature({
 					className={clsx("h-8 w-8", isActive ? "text-white" : "text-gray-900")}
 				/>
 			</div>
-			<h3
+			<Heading
+				as="h3"
+				weight="medium"
+				size="2"
+				align="left"
 				className={clsx(
-					"mt-6 font-medium text-sm",
+					"mt-6",
 					isActive ? "text-primary-600" : "text-gray-600",
 				)}
 			>
 				{feature.name}
-			</h3>
+			</Heading>
 			<p className="mt-2 font-heading text-gray-900 text-xl">
 				{feature.summary}
 			</p>
@@ -260,9 +268,15 @@ export function FeaturesTwo() {
 		>
 			<Container>
 				<div className="mx-auto max-w-2xl md:text-center">
-					<h2 className="font-heading text-3xl text-gray-900 tracking-tight sm:text-4xl">
+					<Heading
+						as="h2"
+						align="center"
+						size="9"
+						theme="gray"
+						letterSpacing="tight"
+					>
 						{detailedFeaturesSection.title}
-					</h2>
+					</Heading>
 					<p className="mt-4 text-gray-700 text-lg tracking-tight">
 						{detailedFeaturesSection.description}
 					</p>

@@ -12,7 +12,6 @@ import {
 import clsx from "clsx";
 import type React from "react";
 import { Button } from "./button";
-import {} from "./drawer";
 import { Icons } from "./icons";
 import { ThemeWrapper } from "./theme-wrapper";
 
@@ -37,21 +36,6 @@ export function DemoLayout({ children }: { children: React.ReactNode }) {
 export function ThemeCustomiser() {
 	return (
 		<div className="fixed right-4 bottom-4 z-50">
-			{/* <div className="block md:hidden">
-				<Drawer>
-					<DrawerTrigger asChild>
-						<div className="rounded-icon bg-primary-600 p-2">
-							<Icons.Paintbrush
-								strokeWidth={iconTheme.strokeWidth}
-								className="h-6 w-6 text-white"
-							/>
-						</div>
-					</DrawerTrigger>
-					<DrawerContent className="border border-gray-300 bg-white p-6 pt-0 ui-not-focus-visible:outline-none">
-						<Customizer />
-					</DrawerContent>
-				</Drawer>
-			</div> */}
 			<Popover>
 				<PopoverButton className="relative inline-flex items-center ui-not-focus-visible:outline-none">
 					<div className="rounded-icon bg-primary-600 p-2">
@@ -100,7 +84,7 @@ function Customizer() {
 					onClick={() => {
 						setConfig({
 							...config,
-							theme: "amber",
+							theme: "blue",
 						});
 					}}
 				>

@@ -1,5 +1,6 @@
 import { Container } from "@/components/container";
 import { TestimonialsSection } from "@/lib/config";
+import { Heading } from "./heading";
 
 function QuoteIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 	return (
@@ -18,9 +19,7 @@ export function Testimonials() {
 		>
 			<Container>
 				<div className="mx-auto max-w-2xl md:text-center">
-					<h2 className="font-heading text-3xl text-gray-900 tracking-tight sm:text-4xl">
-						{TestimonialsSection.title}
-					</h2>
+					<Heading as="h2">{TestimonialsSection.title}</Heading>
 					<p className="mt-4 text-gray-700 text-lg tracking-tight">
 						{TestimonialsSection.description}
 					</p>

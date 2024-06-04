@@ -8,8 +8,8 @@ type Config = {
 };
 
 const configAtom = atomWithStorage<Config>("config", {
-	theme: "amber",
-	radius: 0.5,
+	theme: "blue",
+	radius: 3,
 });
 
 export function useConfig() {

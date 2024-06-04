@@ -1,11 +1,12 @@
 import { Button } from "@/components/button";
 import { Container } from "@/components/container";
 import { hero, iconTheme } from "@/lib/config";
+import { Heading } from "./heading";
 
 export function Hero() {
 	return (
 		<Container id="hero" className="pt-20 text-center lg:pt-32">
-			<h1 className="mx-auto max-w-4xl font-heading font-medium text-5xl text-gray-900 tracking-tight sm:text-7xl">
+			<Heading as="h1" weight="medium" size="10" className="mx-auto max-w-4xl">
 				{hero.title.preHighlighted}{" "}
 				<span className="relative whitespace-nowrap text-primary-600">
 					<svg
@@ -19,7 +20,7 @@ export function Hero() {
 					<span className="relative">{hero.title.highlighted}</span>
 				</span>{" "}
 				{hero.title.postHighlighted}
-			</h1>
+			</Heading>
 			<p className="mx-auto mt-6 max-w-2xl text-gray-700 text-lg tracking-tight">
 				{hero.description}
 			</p>
