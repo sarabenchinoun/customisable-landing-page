@@ -2,6 +2,7 @@ import clsx from "clsx";
 import type { Metadata } from "next";
 import { Ropa_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { DemoLayout } from "@/components/demo-layout";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 
@@ -87,9 +88,11 @@ export default function RootLayout({
 				/>
 			</head>
 			<body className="flex h-full flex-col font-body">
-				<Header />
-				{children}
-				<Footer />
+				<DemoLayout>
+					<Header />
+					{children}
+					<Footer />
+				</DemoLayout>
 			</body>
 		</html>
 	);

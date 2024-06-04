@@ -1,4 +1,3 @@
-import { backgroundColors } from "@/lib/config";
 import clsx from "clsx";
 
 export function BottomBackground({
@@ -43,19 +42,15 @@ export function BottomBackground({
 						gradientUnits="userSpaceOnUse"
 					>
 						<stop
-							stopColor={
-								light
-									? backgroundColors.primary.dark
-									: backgroundColors.primary.light
-							}
+							className={clsx(
+								light ? "stop-primary-light" : "stop-primary-dark",
+							)}
 						/>
 						<stop
 							offset={1}
-							stopColor={
-								light
-									? backgroundColors.secondary.dark
-									: backgroundColors.secondary.light
-							}
+							className={clsx(
+								light ? "stop-secondary-light" : "stop-secondary-dark",
+							)}
 						/>
 					</linearGradient>
 				</defs>
@@ -107,19 +102,15 @@ export function TopBackground({
 						gradientUnits="userSpaceOnUse"
 					>
 						<stop
-							stopColor={
-								light
-									? backgroundColors.primary.dark
-									: backgroundColors.primary.light
-							}
+							className={clsx(
+								light ? "stop-primary-light" : "stop-primary-dark",
+							)}
 						/>
 						<stop
 							offset={1}
-							stopColor={
-								light
-									? backgroundColors.secondary.dark
-									: backgroundColors.secondary.light
-							}
+							className={clsx(
+								light ? "stop-secondary-light" : "stop-secondary-dark",
+							)}
 						/>
 					</linearGradient>
 				</defs>
