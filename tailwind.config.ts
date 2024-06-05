@@ -41,14 +41,6 @@ const config: Config = {
 				heading: "var(--font-heading)",
 				body: "var(--font-body)",
 			},
-			// borderRadius: {
-			// 	1: "4px",
-			// 	2: "6px",
-			// 	3: "8px",
-			// 	4: "12px",
-			// 	5: "16px",
-			// 	6: "8px",
-			// },
 			borderRadius: {
 				button: "var(--button-radius)",
 				icon: "var(--icon-radius)",
@@ -56,7 +48,6 @@ const config: Config = {
 				"card-sm": "var(--card-sm-radius)",
 				"card-md": "var(--card-md-radius)",
 				"card-lg": "var(--card-lg-radius)",
-				image: "var(--image-radius)",
 			},
 		},
 	},
