@@ -2,19 +2,21 @@ import { Button } from "@/components/button";
 import { Container } from "@/components/container";
 import { ctaSection } from "@/lib/config";
 import { TopBackground } from "./background";
+import { Heading } from "./heading";
+import { Text } from "./text";
 
 export function CTA() {
 	return (
 		<section id="cta" className="relative overflow-hidden bg-primary-600 py-32">
 			<TopBackground light center />
 			<Container className="relative">
-				<div className="mx-auto max-w-lg text-center">
-					<h2 className="font-heading text-3xl text-white tracking-tight sm:text-4xl">
+				<div className="mx-auto flex max-w-lg flex-col items-center justify-center">
+					<Heading as="h2" theme="white">
 						{ctaSection.title}
-					</h2>
-					<p className="mt-4 text-lg text-white tracking-tight">
+					</Heading>
+					<Text theme="white" size="4" className="mt-4" align="center">
 						{ctaSection.description}
-					</p>
+					</Text>
 					<Button
 						href={ctaSection.ctaAction.href}
 						color="white"

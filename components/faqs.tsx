@@ -1,6 +1,8 @@
 import { Container } from "@/components/container";
 import { faqsSection } from "@/lib/config";
 import { TopBackground } from "./background";
+import { Heading } from "./heading";
+import { Text } from "./text";
 
 export function Faqs() {
 	return (
@@ -12,15 +14,12 @@ export function Faqs() {
 			<TopBackground />
 			<Container className="relative">
 				<div className="mx-auto max-w-2xl lg:mx-0">
-					<h2
-						id="faq-title"
-						className="font-heading text-3xl text-gray-900 tracking-tight sm:text-4xl"
-					>
+					<Heading as="h2" align="left">
 						{faqsSection.title}
-					</h2>
-					<p className="mt-4 text-gray-700 text-lg tracking-tight">
+					</Heading>
+					<Text size="4" className="mt-4">
 						{faqsSection.description}
-					</p>
+					</Text>
 				</div>
 				<ul className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
 					{faqsSection.faqs.map((column, columnIndex) => (
@@ -28,10 +27,12 @@ export function Faqs() {
 							<ul className="flex flex-col gap-y-8">
 								{column.map((faq, faqIndex) => (
 									<li key={`${faqIndex * 1}`}>
-										<h3 className="font-heading text-gray-900 text-lg leading-7">
+										<Heading as="h3" size="4" align="left">
 											{faq.question}
-										</h3>
-										<p className="mt-4 text-gray-700 text-sm">{faq.answer}</p>
+										</Heading>
+										<Text size="2" className="mt-4">
+											{faq.answer}
+										</Text>
 									</li>
 								))}
 							</ul>

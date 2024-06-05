@@ -1,5 +1,7 @@
 import { Container } from "@/components/container";
 import { TestimonialsSection } from "@/lib/config";
+import { Heading } from "./heading";
+import { Text } from "./text";
 
 function QuoteIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 	return (
@@ -18,12 +20,10 @@ export function Testimonials() {
 		>
 			<Container>
 				<div className="mx-auto max-w-2xl md:text-center">
-					<h2 className="font-heading text-3xl text-gray-900 tracking-tight sm:text-4xl">
-						{TestimonialsSection.title}
-					</h2>
-					<p className="mt-4 text-gray-700 text-lg tracking-tight">
+					<Heading as="h2">{TestimonialsSection.title}</Heading>
+					<Text size="4" align="center" className="mt-4">
 						{TestimonialsSection.description}
-					</p>
+					</Text>
 				</div>
 				<ul className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 lg:mt-20 lg:max-w-none lg:grid-cols-3 sm:gap-8">
 					{TestimonialsSection.testimonials.map((column, columnIndex) => (
@@ -31,12 +31,12 @@ export function Testimonials() {
 							<ul className="flex flex-col gap-y-6 sm:gap-y-8">
 								{column.map((testimonial, testimonialIndex) => (
 									<li key={`${testimonialIndex * 1}`}>
-										<figure className="relative rounded-3 bg-white p-6 shadow-gray-900/10 shadow-xl">
+										<figure className="relative rounded-card-md bg-white p-6 shadow-gray-900/10 shadow-xl">
 											<QuoteIcon className="absolute top-6 left-6 fill-gray-100" />
 											<blockquote className="relative">
-												<p className="text-gray-900 text-lg tracking-tight">
+												<Text size="4" highContrast>
 													{testimonial.content}
-												</p>
+												</Text>
 											</blockquote>
 											<figcaption className="relative mt-6 flex items-center justify-between border-gray-100 border-t pt-6">
 												<div>
@@ -47,7 +47,7 @@ export function Testimonials() {
 														{testimonial.author.role}
 													</div>
 												</div>
-												<div className="overflow-hidden rounded-6 bg-gray-50">
+												<div className="overflow-hidden rounded-button bg-gray-50">
 													<div className="flex h-14 w-14 items-center justify-center object-cover font-medium text-2xl text-gray-900">
 														{testimonial.author.name
 															.split(" ")

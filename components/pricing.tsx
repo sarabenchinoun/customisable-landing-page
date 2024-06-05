@@ -3,6 +3,8 @@ import clsx from "clsx";
 import { Button } from "@/components/button";
 import { Container } from "@/components/container";
 import { pricingSection } from "@/lib/config";
+import { Heading } from "./heading";
+import { Text } from "./text";
 
 function SwirlyDoodle(props: React.ComponentPropsWithoutRef<"svg">) {
 	return (
@@ -69,22 +71,26 @@ function Plan({
 	return (
 		<section
 			className={clsx(
-				"flex flex-col rounded-4 px-6 sm:px-8",
+				"flex flex-col rounded-card-md px-6 sm:px-8",
 				featured ? "order-first bg-primary-600 py-8 lg:order-none" : "lg:py-8",
 			)}
 		>
-			<h3 className="mt-5 font-heading text-lg text-white">{name}</h3>
-			<p
-				className={clsx(
-					"mt-2 text-base",
-					featured ? "text-white" : "text-gray-400",
-				)}
+			<Heading align="left" as="h3" size="4" theme="white" className="mt-5">
+				{name}
+			</Heading>
+			<Text
+				className={clsx("mt-2", featured ? "text-white" : "!text-gray-400")}
 			>
 				{description}
-			</p>
-			<p className="order-first font-heading font-light text-5xl text-white tracking-tight">
+			</Text>
+			<Text
+				size="9"
+				theme="white"
+				weight="light"
+				className="order-first font-heading tracking-tight"
+			>
 				{price}
-			</p>
+			</Text>
 			<ul
 				role="list"
 				className={clsx(
@@ -122,19 +128,19 @@ export function Pricing() {
 		>
 			<Container>
 				<div className="md:text-center">
-					<h2 className="font-heading text-3xl text-white tracking-tight sm:text-4xl">
+					<Heading as="h2" theme="white">
 						{pricingSection.title.preHighlighted}
 						<span className="relative whitespace-nowrap">
 							<SwirlyDoodle className="absolute top-1/2 left-0 h-[1em] w-full fill-primary-400" />
 							<span className="relative">
 								{pricingSection.title.highlighted}
 							</span>
-						</span>{" "}
+						</span>
 						{pricingSection.title.postHighlighted}
-					</h2>
-					<p className="mt-4 text-gray-400 text-lg">
+					</Heading>
+					<Text align="center" size="4" className="!text-gray-400 mt-4">
 						{pricingSection.description}
-					</p>
+					</Text>
 				</div>
 				<div className="-mx-4 lg:-mx-8 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto xl:mx-0 lg:max-w-none lg:grid-cols-3 xl:gap-x-8">
 					{pricingSection.plans.map((plan, index) => (

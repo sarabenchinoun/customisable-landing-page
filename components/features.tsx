@@ -11,7 +11,9 @@ import clsx from "clsx";
 import Image, { type ImageProps } from "next/image";
 import { useEffect, useState } from "react";
 import { BottomBackground } from "./background";
+import { Heading } from "./heading";
 import type { LucideIcon } from "./icons";
+import { Text } from "./text";
 
 export function FeaturesOne() {
 	const [tabOrientation, setTabOrientation] = useState<
@@ -41,12 +43,12 @@ export function FeaturesOne() {
 		>
 			<Container className="relative z-20">
 				<div className="max-w-2xl md:mx-auto xl:max-w-none md:text-center">
-					<h2 className="font-heading text-3xl text-white tracking-tight md:text-5xl sm:text-4xl">
+					<Heading as="h2" theme="white">
 						{featuresSection.title}
-					</h2>
-					<p className="mt-6 text-lg text-primary-100 tracking-tight">
+					</Heading>
+					<Text size="4" theme="primary" className="mt-6" align="center">
 						{featuresSection.description}
-					</p>
+					</Text>
 				</div>
 				<TabGroup
 					className="mt-16 grid grid-cols-1 items-center gap-y-2 pt-10 md:mt-20 lg:grid-cols-12 sm:gap-y-6 lg:pt-0"
@@ -60,35 +62,40 @@ export function FeaturesOne() {
 										<div
 											key={feature.title}
 											className={clsx(
-												"group relative rounded-6 px-4 py-1 lg:rounded-r-none lg:rounded-l-2 lg:p-6",
+												"group relative rounded-button px-4 py-1 lg:rounded-r-none lg:rounded-l-button lg:p-6",
 												selectedIndex === featureIndex
 													? "bg-white lg:bg-white/10 lg:ring-1 lg:ring-white/10 lg:ring-inset"
 													: "hover:bg-white/10 lg:hover:bg-white/5",
 											)}
 										>
-											<h3>
+											<Heading
+												as="h3"
+												size="4"
+												align="left"
+												className="!text-nowrap"
+											>
 												<Tab
 													className={clsx(
-														"font-heading text-lg ui-not-focus-visible:outline-none",
+														"ui-not-focus-visible:outline-none",
 														selectedIndex === featureIndex
 															? "text-primary-600 lg:text-white"
 															: "text-primary-100 hover:text-white lg:text-white",
 													)}
 												>
-													<span className="absolute inset-0 rounded-6 lg:rounded-r-none lg:rounded-l-2" />
+													<span className="absolute inset-0 rounded-button lg:rounded-r-none lg:rounded-l-button" />
 													{feature.title}
 												</Tab>
-											</h3>
-											<p
+											</Heading>
+											<Text
 												className={clsx(
-													"mt-2 hidden text-sm lg:block",
+													"mt-2 hidden lg:block",
 													selectedIndex === featureIndex
 														? "text-white"
 														: "text-primary-100 group-hover:text-white",
 												)}
 											>
 												{feature.description}
-											</p>
+											</Text>
 										</div>
 									))}
 								</TabList>
@@ -97,12 +104,15 @@ export function FeaturesOne() {
 								{featuresSection.features.map((feature) => (
 									<TabPanel key={feature.title} unmount={false}>
 										<div className="relative lg:hidden sm:px-6">
-											<div className="-inset-x-4 absolute top-[-6.5rem] bottom-[-4.25rem] bg-white/10 ring-1 ring-white/10 ring-inset sm:inset-x-0 sm:rounded-t-1" />
-											<p className="relative mx-auto max-w-2xl text-base text-white sm:text-center">
+											<div className="-inset-x-4 absolute top-[-6.5rem] bottom-[-4.25rem] bg-white/10 ring-1 ring-white/10 ring-inset sm:inset-x-0 sm:rounded-t-card-lg" />
+											<Text
+												theme="white"
+												className="relative mx-auto max-w-2xl sm:text-center"
+											>
 												{feature.description}
-											</p>
+											</Text>
 										</div>
-										<div className="mt-10 w-[45rem] overflow-hidden rounded-2 bg-gray-50 shadow-primary-900/20 shadow-xl lg:mt-0 lg:w-[67.8125rem] sm:w-auto">
+										<div className="mt-10 w-[45rem] overflow-hidden rounded-card-md bg-gray-50 shadow-primary-800 shadow-xl lg:mt-0 lg:w-[67.8125rem] sm:w-auto">
 											<Image
 												className="w-full"
 												src={feature.image}
@@ -147,7 +157,7 @@ function Feature({
 		>
 			<div
 				className={clsx(
-					"flex h-9 w-9 items-center justify-center rounded-1 p-2",
+					"flex h-9 w-9 items-center justify-center rounded-icon p-2",
 					isActive ? "bg-primary-600" : "bg-gray-300",
 				)}
 			>
@@ -157,18 +167,24 @@ function Feature({
 					className={clsx("h-8 w-8", isActive ? "text-white" : "text-gray-900")}
 				/>
 			</div>
-			<h3
+			<Heading
+				as="h3"
+				weight="medium"
+				size="2"
+				align="left"
 				className={clsx(
-					"mt-6 font-medium text-sm",
+					"mt-6",
 					isActive ? "text-primary-600" : "text-gray-600",
 				)}
 			>
 				{feature.name}
-			</h3>
-			<p className="mt-2 font-heading text-gray-900 text-xl">
+			</Heading>
+			<Text size="5" highContrast className="mt-2 font-heading">
 				{feature.summary}
-			</p>
-			<p className="mt-4 text-gray-600 text-sm">{feature.description}</p>
+			</Text>
+			<Text lowContrast size="2" className="mt-4">
+				{feature.description}
+			</Text>
 		</div>
 	);
 }
@@ -181,7 +197,7 @@ function FeaturesMobile() {
 					<Feature feature={feature} className="mx-auto max-w-2xl" isActive />
 					<div className="relative mt-10 pb-10">
 						<div className="-inset-x-4 sm:-inset-x-6 absolute top-8 bottom-0 bg-gray-200" />
-						<div className="relative mx-auto w-[52.75rem] overflow-hidden rounded-2 bg-white shadow-gray-900/5 shadow-lg ring-1 ring-gray-500/10">
+						<div className="relative mx-auto w-[52.75rem] overflow-hidden rounded-card-md bg-white shadow-gray-900/5 shadow-lg ring-1 ring-gray-500/10">
 							<Image
 								className="w-full"
 								src={feature.image}
@@ -219,7 +235,7 @@ function FeaturesDesktop() {
 							/>
 						))}
 					</TabList>
-					<TabPanels className="relative mt-20 overflow-hidden rounded-5 bg-gray-200 px-14 py-16 xl:px-16">
+					<TabPanels className="relative mt-20 overflow-hidden rounded-card-lg bg-gray-200 px-14 py-16 xl:px-16">
 						<div className="-mx-5 flex">
 							{detailedFeaturesSection.features.map((feature, featureIndex) => (
 								<TabPanel
@@ -232,7 +248,7 @@ function FeaturesDesktop() {
 									style={{ transform: `translateX(-${selectedIndex * 100}%)` }}
 									aria-hidden={featureIndex !== selectedIndex}
 								>
-									<div className="w-[52.75rem] overflow-hidden rounded-2 bg-white shadow-gray-900/5 shadow-lg ring-1 ring-gray-500/10">
+									<div className="w-[52.75rem] overflow-hidden rounded-card-md bg-white shadow-gray-900/5 shadow-lg ring-1 ring-gray-500/10">
 										<Image
 											className="w-full"
 											src={feature.image}
@@ -243,7 +259,7 @@ function FeaturesDesktop() {
 								</TabPanel>
 							))}
 						</div>
-						<div className="pointer-events-none absolute inset-0 rounded-5 ring-1 ring-gray-900/10 ring-inset" />
+						<div className="pointer-events-none absolute inset-0 rounded-card-lg ring-1 ring-gray-900/10 ring-inset" />
 					</TabPanels>
 				</>
 			)}
@@ -259,13 +275,20 @@ export function FeaturesTwo() {
 			className="pt-20 pb-14 sm:pt-32 lg:pb-32 sm:pb-20"
 		>
 			<Container>
-				<div className="mx-auto max-w-2xl md:text-center">
-					<h2 className="font-heading text-3xl text-gray-900 tracking-tight sm:text-4xl">
+				<div className="mx-auto max-w-2xl">
+					<Heading
+						as="h2"
+						align="left"
+						size="9"
+						theme="gray"
+						letterSpacing="tight"
+						className="md:text-center"
+					>
 						{detailedFeaturesSection.title}
-					</h2>
-					<p className="mt-4 text-gray-700 text-lg tracking-tight">
+					</Heading>
+					<Text size="4" className="mt-4 md:text-center">
 						{detailedFeaturesSection.description}
-					</p>
+					</Text>
 				</div>
 				<FeaturesMobile />
 				<FeaturesDesktop />
