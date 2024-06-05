@@ -37,7 +37,18 @@
     stop-color: var(--color-secondary-100);
   }
 
- 
+  #theme-wrapper[data-font='playful'] {
+    --font-heading: var(--playfull-heading);
+    --font-body: var(--playfull-body);
+  }
+  #theme-wrapper[data-font='modern'] {
+    --font-heading: var(--modern-heading);
+    --font-body: var(--modern-body);
+  }
+  #theme-wrapper[data-font='elegant'] {
+    --font-heading: var(--elegant-heading);
+    --font-body: var(--elegant-body);
+  }
   #theme-wrapper[data-radius='1'] {
     --button-radius: calc(var(--radius-6) * 0);
     --icon-radius: calc(var(--radius-3) * 0);

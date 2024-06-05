@@ -2,7 +2,10 @@
 
 import { useConfig } from "@/hooks/use-config";
 import { iconTheme } from "@/lib/config";
-import { themes } from "@/lib/themes";
+import { type Theme, themes } from "@/lib/themes";
+import template from "lodash.template";
+import { z } from "zod";
+
 import {
 	Popover,
 	PopoverButton,
@@ -10,19 +13,12 @@ import {
 	Transition,
 } from "@headlessui/react";
 import clsx from "clsx";
-import type React from "react";
+import * as React from "react";
 import { Button } from "./button";
 import { Icons } from "./icons";
 import { ThemeWrapper } from "./theme-wrapper";
 
 export function DemoLayout({ children }: { children: React.ReactNode }) {
-	// const [mounted, setMounted] = React.useState(false);
-	// // const [config] = useConfig();
-
-	// React.useEffect(() => {
-	// 	setMounted(true);
-	// }, []);
-
 	return (
 		<div className="flex min-h-screen flex-col">
 			<ThemeWrapper>
@@ -55,7 +51,7 @@ export function ThemeCustomiser() {
 				>
 					<PopoverPanel className="absolute right-0 bottom-14 z-50 w-screen max-w-max">
 						<div className="w-full max-w-md flex-auto overflow-hidden rounded-card-lg border border-gray-300 bg-white p-4 shadow-lg">
-							<Customizer />
+							<CustomizerConfig />
 						</div>
 					</PopoverPanel>
 				</Transition>
@@ -64,7 +60,7 @@ export function ThemeCustomiser() {
 	);
 }
 
-function Customizer() {
+function CustomizerConfig() {
 	const [config, setConfig] = useConfig();
 
 	return (
@@ -175,7 +171,129 @@ function Customizer() {
 						})}
 					</div>
 				</div>
+				<div className="space-y-1.5">
+					<label className="text-xs">Font</label>
+					<div className="flex gap-2">
+						{[
+							{ value: "elegant", label: "Elegant" },
+							{ value: "modern", label: "Modern" },
+							{ value: "playful", label: "Playful" },
+						].map((value) => {
+							return (
+								<Button
+									key={value.value}
+									variant="outline"
+									onClick={() => {
+										setConfig({
+											...config,
+											font: value.value,
+										});
+									}}
+									className={clsx(
+										config.font === value.value &&
+											"ring-gray-500 hover:ring-gray-500",
+									)}
+								>
+									{value.label}
+								</Button>
+							);
+						})}
+					</div>
+				</div>
+				<div className="space-y-1.5 flex justify-between items-center">
+					<label className="text-xs">Copy Chosen Theme</label>
+					<div className="flex gap-2">
+						<CopyCodeButton />
+					</div>
+				</div>
 			</div>
 		</div>
 	);
 }
+
+function CopyCodeButton() {
+	const [config] = useConfig();
+	const activeTheme = themes.find((theme) => theme.name === config.theme);
+	const [hasCopied, setHasCopied] = React.useState(false);
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	React.useEffect(() => {
+		setTimeout(() => {
+			setHasCopied(false);
+		}, 2000);
+	}, [hasCopied]);
+
+	return (
+		<>
+			{activeTheme && (
+				<Button
+					variant="solid"
+					onClick={() => {
+						copyToClipboardWithMeta(
+							getThemeCode(activeTheme, config.radius, config.font),
+							{
+								name: "copy_theme_code",
+								properties: {
+									theme: activeTheme.name,
+									radius: config.radius,
+									font: config.font,
+								},
+							},
+						);
+						setHasCopied(true);
+					}}
+				>
+					{hasCopied ? (
+						<Icons.Check className="mr-2 h-4 w-4" />
+					) : (
+						<Icons.Copy className="mr-2 h-4 w-4" />
+					)}
+					Copy
+				</Button>
+			)}
+		</>
+	);
+}
+
+const eventSchema = z.object({
+	name: z.enum(["copy_theme_code"]),
+	properties: z
+		.record(z.union([z.string(), z.number(), z.boolean(), z.null()]))
+		.optional(),
+});
+
+export type Event = z.infer<typeof eventSchema>;
+
+export function trackEvent(input: Event): void {
+	const event = eventSchema.parse(input);
+	if (event) {
+		event.name;
+		event.properties;
+	}
+}
+
+async function copyToClipboardWithMeta(value: string, event?: Event) {
+	navigator.clipboard.writeText(value);
+	if (event) {
+		trackEvent(event);
+	}
+}
+
+function getThemeCode(theme: Theme, radius: number, font: string) {
+	if (!theme) {
+		return "";
+	}
+
+	return template(BASE_STYLES_WITH_VARIABLES)({
+		colors: theme.name,
+		radius,
+		font,
+	});
+}
+
+const BASE_STYLES_WITH_VARIABLES = `
+@layer base {
+  :root {
+  }
+}
+`;

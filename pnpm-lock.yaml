@@ -26,6 +26,9 @@ importers:
       jotai:
         specifier: ^2.8.2
         version: 2.8.2(@types/react@18.3.3)(react@18.3.1)
+      lodash.template:
+        specifier: ^4.5.0
+        version: 4.5.0
       lucide-react:
         specifier: ^0.378.0
         version: 0.378.0(react@18.3.1)
@@ -47,10 +50,16 @@ importers:
       vaul:
         specifier: ^0.9.1
         version: 0.9.1(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.7.3
         version: 1.7.3
+      '@types/lodash.template':
+        specifier: ^4.5.3
+        version: 4.5.3
       '@types/node':
         specifier: 20.12.2
         version: 20.12.2
@@ -592,6 +601,12 @@ packages:
   '@tanstack/virtual-core@3.5.0':
     resolution: {integrity: sha512-KnPRCkQTyqhanNC0K63GBG3wA8I+D1fQuVnAvcBF8f13akOKeQp1gSbu6f77zCxhEk727iV5oQnbHLYzHrECLg==}
 
+  '@types/lodash.template@4.5.3':
+    resolution: {integrity: sha512-Mo0UYKLu1oXgkV9TVoXZLlXXjyIXlW7ZQRxi/4gQJmzJr63dmicE8gG0OkPjYTKBrBic852q0JzqrtNUWLBIyA==}
+
+  '@types/lodash@4.17.4':
+    resolution: {integrity: sha512-wYCP26ZLxaT3R39kiN2+HcJ4kTd3U1waI/cY7ivWYqFP6pW3ZNpvi6Wd6PHZx7T/t8z0vlkXMg3QYLa7DZ/IJQ==}
+
   '@types/node@20.12.2':
     resolution: {integrity: sha512-zQ0NYO87hyN6Xrclcqp7f8ZbXNbRfoGWNcMvHTPQp9UUrwI0mI7XBz+cu7/W6/VClYo2g63B0cjull/srU7LgQ==}
 
@@ -1058,6 +1073,15 @@ packages:
   load-json-file@4.0.0:
     resolution: {integrity: sha512-Kx8hMakjX03tiGTLAIdJ+lL0htKnXjEZN6hk/tozf/WOuYGdZBJrZ+rCJRbVCugsjB3jMLn9746NsQIf5VjBMw==}
     engines: {node: '>=4'}
+
+  lodash._reinterpolate@3.0.0:
+    resolution: {integrity: sha512-xYHt68QRoYGjeeM/XOE1uJtvXQAgvszfBhjV4yvsQH0u2i9I6cI6c6/eG4Hh3UAOVn0y/xAXwmTzEay49Q//HA==}
+
+  lodash.template@4.5.0:
+    resolution: {integrity: sha512-84vYFxIkmidUiFxidA/KjjH9pAycqW+h980j7Fuz5qxRtO9pgB7MDFTdys1N7A5mcucRiDyEq4fusljItR1T/A==}
+
+  lodash.templatesettings@4.2.0:
+    resolution: {integrity: sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==}
 
   loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
@@ -1581,6 +1605,9 @@ packages:
     engines: {node: '>= 14'}
     hasBin: true
 
+  zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+
 snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
@@ -2021,6 +2048,12 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
 
   '@tanstack/virtual-core@3.5.0': {}
+
+  '@types/lodash.template@4.5.3':
+    dependencies:
+      '@types/lodash': 4.17.4
+
+  '@types/lodash@4.17.4': {}
 
   '@types/node@20.12.2':
     dependencies:
@@ -2536,6 +2569,17 @@ snapshots:
       parse-json: 4.0.0
       pify: 3.0.0
       strip-bom: 3.0.0
+
+  lodash._reinterpolate@3.0.0: {}
+
+  lodash.template@4.5.0:
+    dependencies:
+      lodash._reinterpolate: 3.0.0
+      lodash.templatesettings: 4.2.0
+
+  lodash.templatesettings@4.2.0:
+    dependencies:
+      lodash._reinterpolate: 3.0.0
 
   loose-envify@1.4.0:
     dependencies:
@@ -3126,3 +3170,5 @@ snapshots:
       strip-ansi: 7.1.0
 
   yaml@2.4.2: {}
+
+  zod@3.23.8: {}
