@@ -4,6 +4,7 @@ import { Container } from "@/components/container";
 import { Logo } from "@/components/logo";
 import { NavLink } from "@/components/nav-link";
 import { footer, iconTheme, navigation } from "@/lib/config";
+import { Text } from "./text";
 
 export function Footer() {
 	return (
@@ -38,10 +39,10 @@ export function Footer() {
 							</Link>
 						))}
 					</div>
-					<p className="mt-6 text-gray-500 text-sm sm:mt-0">
+					<Text size="2" className="!text-gray-500 mt-6 sm:mt-0">
 						Copyright &copy; {new Date().getFullYear()} {footer.companyName}.
 						All rights reserved.
-					</p>
+					</Text>
 				</div>
 			</Container>
 		</footer>

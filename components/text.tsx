@@ -5,7 +5,7 @@ import type { VariantProps } from "cva";
 import * as React from "react";
 
 const textVariants = cva({
-	base: "font-body",
+	base: "text-pretty font-body",
 	variants: {
 		theme: {
 			primary: "text-primary-100",
@@ -56,7 +56,7 @@ const textVariants = cva({
 	defaultVariants: {
 		weight: "regular",
 		size: "3",
-		align: "center",
+		align: "left",
 		highContrast: false,
 		lineHeight: "normal",
 		theme: "gray",
@@ -78,7 +78,7 @@ const Text = React.forwardRef<React.ElementRef<"span">, TextProps>(
 	(
 		{
 			children,
-			align = "center",
+			align = "left",
 			weight = "regular",
 			lineHeight = "normal",
 			lowContrast = false,

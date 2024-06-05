@@ -14,7 +14,7 @@ export function CTA() {
 					<Heading as="h2" theme="white">
 						{ctaSection.title}
 					</Heading>
-					<Text theme="white" size="4" className="mt-4">
+					<Text theme="white" size="4" className="mt-4" align="center">
 						{ctaSection.description}
 					</Text>
 					<Button

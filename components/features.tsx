@@ -46,7 +46,7 @@ export function FeaturesOne() {
 					<Heading as="h2" theme="white">
 						{featuresSection.title}
 					</Heading>
-					<Text size="4" theme="primary" className="mt-6">
+					<Text size="4" theme="primary" className="mt-6" align="center">
 						{featuresSection.description}
 					</Text>
 				</div>
@@ -68,7 +68,12 @@ export function FeaturesOne() {
 													: "hover:bg-white/10 lg:hover:bg-white/5",
 											)}
 										>
-											<Heading as="h3" size="4" align="left">
+											<Heading
+												as="h3"
+												size="4"
+												align="left"
+												className="!text-nowrap"
+											>
 												<Tab
 													className={clsx(
 														"ui-not-focus-visible:outline-none",
@@ -82,8 +87,6 @@ export function FeaturesOne() {
 												</Tab>
 											</Heading>
 											<Text
-												size="2"
-												align="left"
 												className={clsx(
 													"mt-2 hidden lg:block",
 													selectedIndex === featureIndex
@@ -102,9 +105,12 @@ export function FeaturesOne() {
 									<TabPanel key={feature.title} unmount={false}>
 										<div className="relative lg:hidden sm:px-6">
 											<div className="-inset-x-4 absolute top-[-6.5rem] bottom-[-4.25rem] bg-white/10 ring-1 ring-white/10 ring-inset sm:inset-x-0 sm:rounded-t-card-lg" />
-											<p className="relative mx-auto max-w-2xl text-base text-white sm:text-center">
+											<Text
+												theme="white"
+												className="relative mx-auto max-w-2xl sm:text-center"
+											>
 												{feature.description}
-											</p>
+											</Text>
 										</div>
 										<div className="mt-10 w-[45rem] overflow-hidden rounded-card-md bg-gray-50 shadow-primary-800 shadow-xl lg:mt-0 lg:w-[67.8125rem] sm:w-auto">
 											<Image
@@ -173,10 +179,12 @@ function Feature({
 			>
 				{feature.name}
 			</Heading>
-			<p className="mt-2 font-heading text-gray-900 text-xl">
+			<Text size="5" highContrast className="mt-2 font-heading">
 				{feature.summary}
-			</p>
-			<p className="mt-4 text-gray-600 text-sm">{feature.description}</p>
+			</Text>
+			<Text lowContrast size="2" className="mt-4">
+				{feature.description}
+			</Text>
 		</div>
 	);
 }
@@ -267,19 +275,20 @@ export function FeaturesTwo() {
 			className="pt-20 pb-14 sm:pt-32 lg:pb-32 sm:pb-20"
 		>
 			<Container>
-				<div className="mx-auto max-w-2xl md:text-center">
+				<div className="mx-auto max-w-2xl">
 					<Heading
 						as="h2"
-						align="center"
+						align="left"
 						size="9"
 						theme="gray"
 						letterSpacing="tight"
+						className="md:text-center"
 					>
 						{detailedFeaturesSection.title}
 					</Heading>
-					<p className="mt-4 text-gray-700 text-lg tracking-tight">
+					<Text size="4" className="mt-4 md:text-center">
 						{detailedFeaturesSection.description}
-					</p>
+					</Text>
 				</div>
 				<FeaturesMobile />
 				<FeaturesDesktop />

@@ -2,6 +2,7 @@ import { Button } from "@/components/button";
 import { Container } from "@/components/container";
 import { hero, iconTheme } from "@/lib/config";
 import { Heading } from "./heading";
+import { Text } from "./text";
 
 export function Hero() {
 	return (
@@ -21,9 +22,13 @@ export function Hero() {
 				</span>{" "}
 				{hero.title.postHighlighted}
 			</Heading>
-			<p className="mx-auto mt-6 max-w-2xl text-gray-700 text-lg tracking-tight">
+			<Text
+				size="4"
+				align="center"
+				className="mx-auto mt-6 max-w-2xl tracking-tight"
+			>
 				{hero.description}
-			</p>
+			</Text>
 			<div className="mt-10 flex justify-center gap-x-6">
 				<Button href={hero.primaryButton.href} target="_blank">
 					{hero.primaryButton.label}

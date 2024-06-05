@@ -4,6 +4,7 @@ import { Button } from "@/components/button";
 import { Container } from "@/components/container";
 import { pricingSection } from "@/lib/config";
 import { Heading } from "./heading";
+import { Text } from "./text";
 
 function SwirlyDoodle(props: React.ComponentPropsWithoutRef<"svg">) {
 	return (
@@ -74,20 +75,22 @@ function Plan({
 				featured ? "order-first bg-primary-600 py-8 lg:order-none" : "lg:py-8",
 			)}
 		>
-			<Heading as="h3" size="4" theme="white" className="mt-5">
+			<Heading align="left" as="h3" size="4" theme="white" className="mt-5">
 				{name}
 			</Heading>
-			<p
-				className={clsx(
-					"mt-2 text-base",
-					featured ? "text-white" : "text-gray-400",
-				)}
+			<Text
+				className={clsx("mt-2", featured ? "text-white" : "!text-gray-400")}
 			>
 				{description}
-			</p>
-			<p className="order-first font-heading font-light text-5xl text-white tracking-tight">
+			</Text>
+			<Text
+				size="9"
+				theme="white"
+				weight="light"
+				className="order-first font-heading tracking-tight"
+			>
 				{price}
-			</p>
+			</Text>
 			<ul
 				role="list"
 				className={clsx(
@@ -135,9 +138,9 @@ export function Pricing() {
 						</span>
 						{pricingSection.title.postHighlighted}
 					</Heading>
-					<p className="mt-4 text-gray-400 text-lg">
+					<Text align="center" size="4" className="!text-gray-400 mt-4">
 						{pricingSection.description}
-					</p>
+					</Text>
 				</div>
 				<div className="-mx-4 lg:-mx-8 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto xl:mx-0 lg:max-w-none lg:grid-cols-3 xl:gap-x-8">
 					{pricingSection.plans.map((plan, index) => (

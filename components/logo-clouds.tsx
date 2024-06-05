@@ -2,12 +2,15 @@ import Image from "next/image";
 
 import { Container } from "@/components/container";
 import { logoClouds } from "@/lib/config";
+import { Text } from "./text";
 
 export function LogoClouds() {
 	return (
 		<Container id="logo-clouds" className="pb-16 text-center">
 			<div className="mt-36 lg:mt-44">
-				<p className="text-base text-gray-900">{logoClouds.title}</p>
+				<Text highContrast align="center">
+					{logoClouds.title}
+				</Text>
 				<ul className="mt-8 flex items-center justify-center gap-x-8 xl:flex-row sm:flex-col sm:gap-x-0 xl:gap-x-12 sm:gap-y-10 xl:gap-y-0">
 					{logoClouds.companies.map((group, groupIndex) => (
 						<li key={`group ${groupIndex * 1}`}>

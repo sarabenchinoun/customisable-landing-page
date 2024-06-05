@@ -17,7 +17,7 @@ export function Faqs() {
 					<Heading as="h2" align="left">
 						{faqsSection.title}
 					</Heading>
-					<Text size="4" align="left" className="mt-4">
+					<Text size="4" className="mt-4">
 						{faqsSection.description}
 					</Text>
 				</div>
@@ -30,7 +30,7 @@ export function Faqs() {
 										<Heading as="h3" size="4" align="left">
 											{faq.question}
 										</Heading>
-										<Text size="2" align="left" className="mt-4">
+										<Text size="2" className="mt-4">
 											{faq.answer}
 										</Text>
 									</li>

@@ -1,6 +1,7 @@
 import { Container } from "@/components/container";
 import { TestimonialsSection } from "@/lib/config";
 import { Heading } from "./heading";
+import { Text } from "./text";
 
 function QuoteIcon(props: React.ComponentPropsWithoutRef<"svg">) {
 	return (
@@ -20,9 +21,9 @@ export function Testimonials() {
 			<Container>
 				<div className="mx-auto max-w-2xl md:text-center">
 					<Heading as="h2">{TestimonialsSection.title}</Heading>
-					<p className="mt-4 text-gray-700 text-lg tracking-tight">
+					<Text size="4" align="center" className="mt-4">
 						{TestimonialsSection.description}
-					</p>
+					</Text>
 				</div>
 				<ul className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 lg:mt-20 lg:max-w-none lg:grid-cols-3 sm:gap-8">
 					{TestimonialsSection.testimonials.map((column, columnIndex) => (
@@ -33,9 +34,9 @@ export function Testimonials() {
 										<figure className="relative rounded-card-md bg-white p-6 shadow-gray-900/10 shadow-xl">
 											<QuoteIcon className="absolute top-6 left-6 fill-gray-100" />
 											<blockquote className="relative">
-												<p className="text-gray-900 text-lg tracking-tight">
+												<Text size="4" highContrast>
 													{testimonial.content}
-												</p>
+												</Text>
 											</blockquote>
 											<figcaption className="relative mt-6 flex items-center justify-between border-gray-100 border-t pt-6">
 												<div>
