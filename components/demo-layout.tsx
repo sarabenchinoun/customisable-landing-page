@@ -2,7 +2,12 @@
 
 import { useConfig } from "@/hooks/use-config";
 import { iconTheme } from "@/lib/config";
-import { type Theme, themes } from "@/lib/themes";
+import {
+	type RadiusSystem,
+	type Theme,
+	radiusSystem,
+	themes,
+} from "@/lib/themes";
 import template from "lodash.template";
 import { z } from "zod";
 
@@ -15,6 +20,7 @@ import {
 import clsx from "clsx";
 import * as React from "react";
 import { Button } from "./button";
+import { Heading } from "./heading";
 import { Icons } from "./icons";
 import { ThemeWrapper } from "./theme-wrapper";
 
@@ -67,9 +73,9 @@ function CustomizerConfig() {
 		<div className="flex flex-col space-y-4 md:space-y-6">
 			<div className="flex items-start pt-4 md:pt-0">
 				<div className="space-y-1 pr-2">
-					<div className="font-heading font-semibold leading-none tracking-tight">
+					<Heading align="left" size="4">
 						Customize
-					</div>
+					</Heading>
 					<div className="text-muted-foreground text-xs">
 						Pick a style and color for your components.
 					</div>
@@ -146,9 +152,9 @@ function CustomizerConfig() {
 					<label className="text-xs">Radius</label>
 					<div className="flex gap-2">
 						{[
-							{ value: 1, label: "None" },
-							{ value: 2, label: "Medium" },
-							{ value: 3, label: "Large" },
+							{ value: 0, label: "None" },
+							{ value: 0.75, label: "Medium" },
+							{ value: 1.5, label: "Large" },
 						].map((value) => {
 							return (
 								<Button
@@ -200,8 +206,8 @@ function CustomizerConfig() {
 						})}
 					</div>
 				</div>
-				<div className="space-y-1.5 flex justify-between items-center">
-					<label className="text-xs">Copy Chosen Theme</label>
+				<div className="mt-2 flex items-center justify-between space-y-1.5">
+					<label className="text-xs">Copy Your Chosen Theme</label>
 					<div className="flex gap-2">
 						<CopyCodeButton />
 					</div>
@@ -227,10 +233,15 @@ function CopyCodeButton() {
 		<>
 			{activeTheme && (
 				<Button
-					variant="solid"
+					variant="outline"
 					onClick={() => {
 						copyToClipboardWithMeta(
-							getThemeCode(activeTheme, config.radius, config.font),
+							getThemeCode(
+								activeTheme,
+								config.radius,
+								radiusSystem,
+								config.font,
+							),
 							{
 								name: "copy_theme_code",
 								properties: {
@@ -279,21 +290,54 @@ async function copyToClipboardWithMeta(value: string, event?: Event) {
 	}
 }
 
-function getThemeCode(theme: Theme, radius: number, font: string) {
+function getThemeCode(
+	theme: Theme,
+	radius: number,
+	radiusSystem: RadiusSystem,
+	font: string,
+) {
 	if (!theme) {
 		return "";
 	}
 
 	return template(BASE_STYLES_WITH_VARIABLES)({
-		colors: theme.name,
+		colors: theme.colorCodes,
 		radius,
+		radiusSystem,
 		font,
 	});
 }
+// --button-radius: calc(var(--radius-6) * 0);
+// --icon-radius: calc(var(--radius-3) * 0);
+// --link-radius: calc(var(--radius-1) * 0);
+// --card-lg-radius: calc(var(--radius-6) * 0);
+// --card-md-radius: calc(var(--radius-5) * 0);
+// --card-sm-radius: calc(var(--radius-4) * 0);
 
 const BASE_STYLES_WITH_VARIABLES = `
 @layer base {
   :root {
+		--color-primary-50:  <%- colors["50"] %>;
+		--color-primary-100: <%- colors["100"] %>;
+		--color-primary-200: <%- colors["200"] %>;
+		--color-primary-300: <%- colors["300"] %>;
+		--color-primary-400: <%- colors["400"] %>;
+		--color-primary-500: <%- colors["500"] %>;
+		--color-primary-600: <%- colors["600"] %>;
+		--color-primary-700: <%- colors["700"] %>;
+		--color-primary-800: <%- colors["800"] %>;
+		--color-primary-900: <%- colors["900"] %>;
+		--color-primary-950: <%- colors["950"] %>;
+		
+		--button-radius: <%- radiusSystem["6"] * radius %>px;
+		--icon-radius: <%- radiusSystem["3"] * radius %>px;
+		--link-radius: <%- radiusSystem["1"] * radius %>px;
+		--card-lg-radius: <%- radiusSystem["6"] * radius %>px;
+		--card-md-radius: <%- radiusSystem["5"] * radius %>px;
+		--card-sm-radius: <%- radiusSystem["4"] * radius %>px;
+
+		--font-heading: var(--<%- font %>-heading);
+		--font-body: var(--<%- font %>-body);
   }
 }
 `;
