@@ -302,17 +302,12 @@ function getThemeCode(
 
 	return template(BASE_STYLES_WITH_VARIABLES)({
 		colors: theme.colorCodes,
+		gray: theme.grayScale,
 		radius,
 		radiusSystem,
 		font,
 	});
 }
-// --button-radius: calc(var(--radius-6) * 0);
-// --icon-radius: calc(var(--radius-3) * 0);
-// --link-radius: calc(var(--radius-1) * 0);
-// --card-lg-radius: calc(var(--radius-6) * 0);
-// --card-md-radius: calc(var(--radius-5) * 0);
-// --card-sm-radius: calc(var(--radius-4) * 0);
 
 const BASE_STYLES_WITH_VARIABLES = `
 @layer base {
@@ -328,6 +323,18 @@ const BASE_STYLES_WITH_VARIABLES = `
 		--color-primary-800: <%- colors["800"] %>;
 		--color-primary-900: <%- colors["900"] %>;
 		--color-primary-950: <%- colors["950"] %>;
+
+		--color-gray-50:  <%- gray["50"] %>;
+		--color-gray-100: <%- gray["100"] %>;
+		--color-gray-200: <%- gray["200"] %>;
+		--color-gray-300: <%- gray["300"] %>;
+		--color-gray-400: <%- gray["400"] %>;
+		--color-gray-500: <%- gray["500"] %>;
+		--color-gray-600: <%- gray["600"] %>;
+		--color-gray-700: <%- gray["700"] %>;
+		--color-gray-800: <%- gray["800"] %>;
+		--color-gray-900: <%- gray["900"] %>;
+		--color-gray-950: <%- gray["950"] %>;
 		
 		--button-radius: <%- radiusSystem["6"] * radius %>px;
 		--icon-radius: <%- radiusSystem["3"] * radius %>px;
