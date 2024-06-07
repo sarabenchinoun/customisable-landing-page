@@ -1,3 +1,7 @@
+// hero
+import hero2 from "@/assets/hero/hero2.jpg";
+
+// logoClouds
 import logoLaravel from "@/assets/logos/laravel.svg";
 import logoMirage from "@/assets/logos/mirage.svg";
 import logoStatamic from "@/assets/logos/statamic.svg";
@@ -15,33 +19,6 @@ import screenshotReporting from "@/assets/screenshots/reporting.png";
 import screenshotVatReturns from "@/assets/screenshots/vat-returns.png";
 import { Icons, type LucideIcon } from "@/components/icons";
 import type { StaticImageData } from "next/image";
-
-// export const radiusTheme = {
-// 	fun: {
-// 		1: "8px",
-// 		2: "12px",
-// 		3: "16px",
-// 		4: "24px",
-// 		5: "32px",
-// 		6: "9999px",
-// 	},
-// 	cool: {
-// 		1: "4px",
-// 		2: "6px",
-// 		3: "8px",
-// 		4: "12px",
-// 		5: "16px",
-// 		6: "8px",
-// 	},
-// 	classic: {
-// 		1: "0px",
-// 		2: "0px",
-// 		3: "0px",
-// 		4: "0px",
-// 		5: "0px",
-// 		6: "0px",
-// 	},
-// };
 
 // Change the Logo component or uncomment the image in components/header.tsx and add it to the public folder
 
@@ -96,6 +73,7 @@ export const hero = {
 		href: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
 		icon: Icons.Play,
 	},
+	image: hero2,
 } as const;
 
 export const logoClouds = {

@@ -2,11 +2,13 @@ import {} from "@/components/background";
 import { CTA } from "@/components/cta";
 import { Faqs } from "@/components/faqs";
 import { FeaturesOne, FeaturesTwo } from "@/components/features";
-import { Hero } from "@/components/hero";
+import { HeroOne, HeroTwo } from "@/components/hero";
 import { LogoClouds } from "@/components/logo-clouds";
 import { Pricing } from "@/components/pricing";
 import { Testimonials } from "@/components/testimonials";
-import ToggleSectionWrapper from "@/components/toggle-section-wrapper";
+import ToggleSectionWrapper, {
+	RemoveSectionWrapper,
+} from "@/components/toggle-section-wrapper";
 import type { Metadata } from "next";
 
 export const runtime = "edge";
@@ -20,10 +22,14 @@ export const metadata: Metadata = {
 export default function Home() {
 	return (
 		<main>
-			<Hero />
-			<ToggleSectionWrapper showSection sectionName="Logo Clouds">
+			<ToggleSectionWrapper
+				sectionName="Hero"
+				sectionOne={<HeroOne />}
+				sectionTwo={<HeroTwo />}
+			/>
+			<RemoveSectionWrapper showSection sectionName="Logo Clouds">
 				<LogoClouds />
-			</ToggleSectionWrapper>
+			</RemoveSectionWrapper>
 
 			<FeaturesOne />
 			<FeaturesTwo />

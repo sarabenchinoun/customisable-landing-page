@@ -4,11 +4,13 @@ import clsx from "clsx";
 export default function Toggle({
 	id,
 	className,
+	options,
 	enabled,
 	setEnabled,
 }: {
 	id?: string;
 	className?: string;
+	options?: boolean;
 	enabled: boolean;
 	setEnabled: (enabled: boolean) => void;
 }) {
@@ -18,11 +20,20 @@ export default function Toggle({
 			checked={enabled}
 			onChange={setEnabled}
 			className={clsx(
-				"group inline-flex h-6 w-11 items-center rounded-full bg-gray-200 transition data-[checked]:bg-primary-600",
+				"group inline-flex h-6 w-11 items-center rounded-full bg-gray-200 transition",
+				options ? "" : "data-[checked]:bg-primary-600",
 				className,
 			)}
 		>
-			<span className="size-4 translate-x-1 rounded-full bg-white transition group-data-[checked]:translate-x-6" />
+			<span className="size-4 translate-x-1 rounded-full bg-white transition group-data-[checked]:translate-x-6">
+				{options ? (
+					enabled ? (
+						<span className="font-bold text-primary-600">2</span>
+					) : (
+						<span className="font-bold text-primary-600">1</span>
+					)
+				) : null}
+			</span>
 		</Switch>
 	);
 }

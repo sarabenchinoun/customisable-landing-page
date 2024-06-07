@@ -27,7 +27,7 @@ const headingVariants = cva({
 			"6": "text-xl sm:text-2xl",
 			"7": "text-2xl sm:text-3xl",
 			"8": "text-3xl sm:text-4xl",
-			"9": "text-4xl sm:text-5xl",
+			"9": "text-4xl sm:text-6xl",
 			"10": "text-5xl sm:text-7xl",
 			"11": "text-6xl",
 			"12": "text-7xl",

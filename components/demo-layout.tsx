@@ -72,13 +72,17 @@ function CustomizerConfig() {
 	const [enabled, setEnabled] = useState(true);
 
 	const [config, setConfig] = useConfig();
-	const toggleButton = document.getElementById("toggleButton");
-	// hide the toggleWrapper div with the classname toggleWrapper if the Toggle's state enabled is false otherwise show it bydefault it is hidden
+	const toggleButton = document.querySelectorAll("#toggleButton");
+
 	if (toggleButton) {
 		if (!enabled) {
-			toggleButton.classList.add("hidden");
+			for (const button of toggleButton) {
+				button.classList.add("hidden");
+			}
 		} else {
-			toggleButton.classList.remove("hidden");
+			for (const button of toggleButton) {
+				button.classList.remove("hidden");
+			}
 		}
 	}
 

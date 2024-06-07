@@ -279,7 +279,7 @@ export function FeaturesTwo() {
 					<Heading
 						as="h2"
 						align="left"
-						size="9"
+						size="8"
 						theme="gray"
 						letterSpacing="tight"
 						className="md:text-center"
