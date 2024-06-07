@@ -66,7 +66,7 @@ export function HeroTwo() {
 				className="-z-10 -mr-96 sm:-mr-80 lg:-mr-96 absolute inset-y-0 right-1/2 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-primary-600/10 shadow-xl ring-1 ring-primary-50"
 				aria-hidden="true"
 			/>
-			<Container className="pt-24 lg:pt-40 md:pt-32">
+			<Container className="py-24 lg:py-32 md:py-32">
 				<div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 xl:grid-cols-1 xl:grid-rows-1 lg:gap-x-16 xl:gap-x-8 lg:gap-y-6">
 					<Heading
 						size="9"
@@ -115,7 +115,7 @@ export function HeroTwo() {
 						width={1280}
 						height={960}
 						src={hero.image}
-						alt=""
+						alt="Hero Image"
 						className="mt-10 aspect-[6/5] w-full max-w-lg rounded-card-md object-cover xl:row-span-2 xl:row-end-2 lg:mt-0 sm:mt-16 xl:mt-36 lg:max-w-none"
 					/>
 				</div>

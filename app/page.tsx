@@ -1,7 +1,7 @@
 import {} from "@/components/background";
 import { CTA } from "@/components/cta";
 import { Faqs } from "@/components/faqs";
-import { FeaturesOne, FeaturesTwo } from "@/components/features";
+import { FeaturesOne, SecondaryFeatures } from "@/components/features";
 import { HeroOne, HeroTwo } from "@/components/hero";
 import { LogoClouds } from "@/components/logo-clouds";
 import { Pricing } from "@/components/pricing";
@@ -32,7 +32,7 @@ export default function Home() {
 			</RemoveSectionWrapper>
 
 			<FeaturesOne />
-			<FeaturesTwo />
+			<SecondaryFeatures />
 			<CTA />
 			<Testimonials />
 			<Pricing />

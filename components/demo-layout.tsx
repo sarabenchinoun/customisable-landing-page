@@ -368,6 +368,20 @@ const BASE_STYLES_WITH_VARIABLES = `
 
 		--font-heading: var(--<%- font %>-heading);
 		--font-body: var(--<%- font %>-body);
+
+		.stop-primary-dark {
+			stop-color: <%- colors["500"] %>;
+		}
+		.stop-primary-light {
+			stop-color: <%- colors["100"] %>;
+		}
+		.stop-secondary-dark {
+			stop-color: <%- colors["400"] %>;
+		}
+		.stop-secondary-light {
+			stop-color: <%- colors["200"] %>;
+		}
+
 		
   }
 }

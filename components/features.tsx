@@ -116,7 +116,7 @@ export function FeaturesOne() {
 											<Image
 												className="w-full"
 												src={feature.image}
-												alt=""
+												alt={feature.title}
 												priority
 												sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
 											/>
@@ -197,11 +197,11 @@ function FeaturesMobile() {
 					<Feature feature={feature} className="mx-auto max-w-2xl" isActive />
 					<div className="relative mt-10 pb-10">
 						<div className="-inset-x-4 sm:-inset-x-6 absolute top-8 bottom-0 bg-gray-200" />
-						<div className="relative mx-auto w-[52.75rem] overflow-hidden rounded-card-md bg-white shadow-gray-900/5 shadow-lg ring-1 ring-gray-500/10">
+						<div className="relative mx-auto w-[52.75rem] overflow-hidden rounded-card-md bg-white shadow-lg ring-1 ring-gray-200">
 							<Image
 								className="w-full"
 								src={feature.image}
-								alt=""
+								alt={feature.name}
 								sizes="52.75rem"
 							/>
 						</div>
@@ -248,18 +248,18 @@ function FeaturesDesktop() {
 									style={{ transform: `translateX(-${selectedIndex * 100}%)` }}
 									aria-hidden={featureIndex !== selectedIndex}
 								>
-									<div className="w-[52.75rem] overflow-hidden rounded-card-md bg-white shadow-gray-900/5 shadow-lg ring-1 ring-gray-500/10">
+									<div className="w-[52.75rem] overflow-hidden rounded-card-md bg-white shadow-lg ring-1 ring-gray-200">
 										<Image
 											className="w-full"
 											src={feature.image}
-											alt=""
+											alt={feature.name}
 											sizes="52.75rem"
 										/>
 									</div>
 								</TabPanel>
 							))}
 						</div>
-						<div className="pointer-events-none absolute inset-0 rounded-card-lg ring-1 ring-gray-900/10 ring-inset" />
+						<div className="pointer-events-none absolute inset-0 rounded-card-lg ring-1 ring-gray-200 ring-inset" />
 					</TabPanels>
 				</>
 			)}
@@ -267,10 +267,10 @@ function FeaturesDesktop() {
 	);
 }
 
-export function FeaturesTwo() {
+export function SecondaryFeatures() {
 	return (
 		<section
-			id="features-two"
+			id="secondary-features"
 			aria-label="Features for simplifying everyday business tasks"
 			className="pt-20 pb-14 sm:pt-32 lg:pb-32 sm:pb-20"
 		>
