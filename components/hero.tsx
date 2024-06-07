@@ -1,12 +1,13 @@
 import { Button } from "@/components/button";
 import { Container } from "@/components/container";
 import { hero, iconTheme } from "@/lib/config";
+import Link from "next/link";
 import { Heading } from "./heading";
 import { Text } from "./text";
 
 export function Hero() {
 	return (
-		<Container id="hero" className="pt-20 text-center lg:pt-32">
+		<Container id="hero" className="pt-20 pb-16 text-center lg:pt-32 lg:pb-24">
 			<Heading as="h1" weight="medium" size="10" className="mx-auto max-w-4xl">
 				{hero.title.preHighlighted}{" "}
 				<span className="relative whitespace-nowrap text-primary-600">
@@ -50,5 +51,54 @@ export function Hero() {
 				)}
 			</div>
 		</Container>
+	);
+}
+
+export function HeroTwo() {
+	return (
+		<div
+			id="top"
+			className="relative isolate overflow-hidden bg-gradient-to-b from-primary-100/[0.2] pt-14"
+		>
+			<div
+				className="-z-10 -mr-96 sm:-mr-80 lg:-mr-96 absolute inset-y-0 right-1/2 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-primary-600/10 shadow-xl ring-1 ring-primary-50"
+				aria-hidden="true"
+			/>
+			<Container className="pt-24 lg:pt-40 md:pt-32">
+				<div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 xl:grid-cols-1 xl:grid-rows-1 lg:gap-x-16 xl:gap-x-8 lg:gap-y-6">
+					<h1 className="max-w-2xl font-bold text-4xl text-gray-900 tracking-tight lg:col-span-2 xl:col-auto sm:text-6xl">
+						We’re changing the way people connect.
+					</h1>
+					<div className="mt-6 max-w-xl xl:col-end-1 xl:row-start-1 lg:mt-0">
+						<p className="text-gray-600 text-lg leading-8">
+							Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
+							lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
+							fugiat aliqua. Anim aute id magna aliqua ad ad non deserunt sunt.
+							Qui irure qui lorem cupidatat commodo.
+						</p>
+						<div className="mt-10 flex items-center gap-x-6">
+							<Link
+								href="#"
+								className="rounded-md bg-primary-600 px-3.5 py-2.5 font-semibold text-sm text-white shadow-sm hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-600 focus-visible:outline-offset-2"
+							>
+								Get started
+							</Link>
+							<Link
+								href="#"
+								className="font-semibold text-gray-900 text-sm leading-6"
+							>
+								Learn more <span aria-hidden="true">→</span>
+							</Link>
+						</div>
+					</div>
+					<img
+						src="https://images.unsplash.com/photo-1567532900872-f4e906cbf06a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1280&q=80"
+						alt=""
+						className="mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover xl:row-span-2 xl:row-end-2 lg:mt-0 sm:mt-16 xl:mt-36 lg:max-w-none"
+					/>
+				</div>
+			</Container>
+			<div className="-z-10 absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white sm:h-32" />
+		</div>
 	);
 }

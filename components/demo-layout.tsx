@@ -19,10 +19,12 @@ import {
 } from "@headlessui/react";
 import clsx from "clsx";
 import * as React from "react";
+import { useState } from "react";
 import { Button } from "./button";
 import { Heading } from "./heading";
 import { Icons } from "./icons";
 import { ThemeWrapper } from "./theme-wrapper";
+import Toggle from "./toggle";
 
 export function DemoLayout({ children }: { children: React.ReactNode }) {
 	return (
@@ -67,7 +69,18 @@ export function ThemeCustomiser() {
 }
 
 function CustomizerConfig() {
+	const [enabled, setEnabled] = useState(true);
+
 	const [config, setConfig] = useConfig();
+	const toggleButton = document.getElementById("toggleButton");
+	// hide the toggleWrapper div with the classname toggleWrapper if the Toggle's state enabled is false otherwise show it bydefault it is hidden
+	if (toggleButton) {
+		if (!enabled) {
+			toggleButton.classList.add("hidden");
+		} else {
+			toggleButton.classList.remove("hidden");
+		}
+	}
 
 	return (
 		<div className="flex flex-col space-y-4 md:space-y-6">
@@ -206,6 +219,12 @@ function CustomizerConfig() {
 						})}
 					</div>
 				</div>
+				<div className="space-y-1.5">
+					<label className="text-xs">Sections</label>
+					<div className="flex gap-2">
+						<Toggle enabled={enabled} setEnabled={setEnabled} />
+					</div>
+				</div>
 				<div className="mt-2 flex items-center justify-between space-y-1.5">
 					<label className="text-xs">Copy Your Chosen Theme</label>
 					<div className="flex gap-2">
@@ -273,9 +292,9 @@ const eventSchema = z.object({
 		.optional(),
 });
 
-export type Event = z.infer<typeof eventSchema>;
+type Event = z.infer<typeof eventSchema>;
 
-export function trackEvent(input: Event): void {
+function trackEvent(input: Event): void {
 	const event = eventSchema.parse(input);
 	if (event) {
 		event.name;
@@ -345,6 +364,7 @@ const BASE_STYLES_WITH_VARIABLES = `
 
 		--font-heading: var(--<%- font %>-heading);
 		--font-body: var(--<%- font %>-body);
+		
   }
 }
 `;

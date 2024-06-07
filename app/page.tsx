@@ -6,6 +6,7 @@ import { Hero } from "@/components/hero";
 import { LogoClouds } from "@/components/logo-clouds";
 import { Pricing } from "@/components/pricing";
 import { Testimonials } from "@/components/testimonials";
+import ToggleSectionWrapper from "@/components/toggle-section-wrapper";
 import type { Metadata } from "next";
 
 export const runtime = "edge";
@@ -20,7 +21,10 @@ export default function Home() {
 	return (
 		<main>
 			<Hero />
-			<LogoClouds />
+			<ToggleSectionWrapper showSection sectionName="Logo Clouds">
+				<LogoClouds />
+			</ToggleSectionWrapper>
+
 			<FeaturesOne />
 			<FeaturesTwo />
 			<CTA />
