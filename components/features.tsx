@@ -1,18 +1,19 @@
 "use client";
 
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
+import Image, { type ImageProps } from "next/image";
+import { useEffect, useState } from "react";
+
 import { Container } from "@/components/container";
 import {
 	detailedFeaturesSection,
 	featuresSection,
 	iconTheme,
 } from "@/lib/config";
-import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
-import clsx from "clsx";
-import Image, { type ImageProps } from "next/image";
-import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 import { BottomBackground } from "./background";
 import { Heading } from "./heading";
-import type { LucideIcon } from "./icons";
+import { Icons, type LucideIcon } from "./icons";
 import { Text } from "./text";
 
 export function FeaturesOne() {
@@ -61,7 +62,7 @@ export function FeaturesOne() {
 									{featuresSection.features.map((feature, featureIndex) => (
 										<div
 											key={feature.title}
-											className={clsx(
+											className={cn(
 												"group relative rounded-button px-4 py-1 lg:rounded-r-none lg:rounded-l-button lg:p-6",
 												selectedIndex === featureIndex
 													? "bg-white lg:bg-white/10 lg:ring-1 lg:ring-white/10 lg:ring-inset"
@@ -75,7 +76,7 @@ export function FeaturesOne() {
 												className="!text-nowrap"
 											>
 												<Tab
-													className={clsx(
+													className={cn(
 														"ui-not-focus-visible:outline-none",
 														selectedIndex === featureIndex
 															? "text-primary-600 lg:text-white"
@@ -87,7 +88,7 @@ export function FeaturesOne() {
 												</Tab>
 											</Heading>
 											<Text
-												className={clsx(
+												className={cn(
 													"mt-2 hidden lg:block",
 													selectedIndex === featureIndex
 														? "text-white"
@@ -116,7 +117,7 @@ export function FeaturesOne() {
 											<Image
 												className="w-full"
 												src={feature.image}
-												alt=""
+												alt={feature.title}
 												priority
 												sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
 											/>
@@ -152,11 +153,11 @@ function Feature({
 }) {
 	return (
 		<div
-			className={clsx(className, !isActive && "opacity-75 hover:opacity-100")}
+			className={cn(className, !isActive && "opacity-75 hover:opacity-100")}
 			{...props}
 		>
 			<div
-				className={clsx(
+				className={cn(
 					"flex h-9 w-9 items-center justify-center rounded-icon p-2",
 					isActive ? "bg-primary-600" : "bg-gray-300",
 				)}
@@ -164,18 +165,15 @@ function Feature({
 				<feature.icon
 					aria-hidden="true"
 					strokeWidth={iconTheme.strokeWidth}
-					className={clsx("h-8 w-8", isActive ? "text-white" : "text-gray-900")}
+					className={cn("h-8 w-8", isActive ? "text-white" : "text-gray-900")}
 				/>
 			</div>
 			<Heading
 				as="h3"
 				weight="medium"
-				size="2"
+				size="3"
 				align="left"
-				className={clsx(
-					"mt-6",
-					isActive ? "text-primary-600" : "text-gray-600",
-				)}
+				className={cn("mt-6", isActive ? "text-primary-600" : "text-gray-600")}
 			>
 				{feature.name}
 			</Heading>
@@ -197,11 +195,11 @@ function FeaturesMobile() {
 					<Feature feature={feature} className="mx-auto max-w-2xl" isActive />
 					<div className="relative mt-10 pb-10">
 						<div className="-inset-x-4 sm:-inset-x-6 absolute top-8 bottom-0 bg-gray-200" />
-						<div className="relative mx-auto w-[52.75rem] overflow-hidden rounded-card-md bg-white shadow-gray-900/5 shadow-lg ring-1 ring-gray-500/10">
+						<div className="relative mx-auto w-[52.75rem] overflow-hidden rounded-card-md bg-white shadow-lg ring-1 ring-gray-200">
 							<Image
 								className="w-full"
 								src={feature.image}
-								alt=""
+								alt={feature.name}
 								sizes="52.75rem"
 							/>
 						</div>
@@ -241,25 +239,25 @@ function FeaturesDesktop() {
 								<TabPanel
 									static
 									key={feature.summary}
-									className={clsx(
+									className={cn(
 										"px-5 transition duration-500 ease-in-out ui-not-focus-visible:outline-none",
 										featureIndex !== selectedIndex && "opacity-60",
 									)}
 									style={{ transform: `translateX(-${selectedIndex * 100}%)` }}
 									aria-hidden={featureIndex !== selectedIndex}
 								>
-									<div className="w-[52.75rem] overflow-hidden rounded-card-md bg-white shadow-gray-900/5 shadow-lg ring-1 ring-gray-500/10">
+									<div className="w-[52.75rem] overflow-hidden rounded-card-md bg-white shadow-lg ring-1 ring-gray-200">
 										<Image
 											className="w-full"
 											src={feature.image}
-											alt=""
+											alt={feature.name}
 											sizes="52.75rem"
 										/>
 									</div>
 								</TabPanel>
 							))}
 						</div>
-						<div className="pointer-events-none absolute inset-0 rounded-card-lg ring-1 ring-gray-900/10 ring-inset" />
+						<div className="pointer-events-none absolute inset-0 rounded-card-lg ring-1 ring-gray-200 ring-inset" />
 					</TabPanels>
 				</>
 			)}
@@ -267,10 +265,10 @@ function FeaturesDesktop() {
 	);
 }
 
-export function FeaturesTwo() {
+export function SecondaryFeatures() {
 	return (
 		<section
-			id="features-two"
+			id="secondary-features"
 			aria-label="Features for simplifying everyday business tasks"
 			className="pt-20 pb-14 sm:pt-32 lg:pb-32 sm:pb-20"
 		>
@@ -279,7 +277,7 @@ export function FeaturesTwo() {
 					<Heading
 						as="h2"
 						align="left"
-						size="9"
+						size="8"
 						theme="gray"
 						letterSpacing="tight"
 						className="md:text-center"
@@ -294,5 +292,122 @@ export function FeaturesTwo() {
 				<FeaturesDesktop />
 			</Container>
 		</section>
+	);
+}
+
+export function FeaturesTwo() {
+	return (
+		<div id="services" className="bg-primary-700 pt-20 pb-28 sm:py-32">
+			<Container>
+				<div className="mx-auto max-w-2xl lg:text-center">
+					<Heading as="h2" theme="white">
+						{featuresSection.title}
+					</Heading>
+					<Text size="4" theme="primary" className="mt-6" align="center">
+						{featuresSection.description}
+					</Text>
+				</div>
+				<div className="mx-auto mt-16 max-w-2xl lg:mt-24 sm:mt-20 lg:max-w-none">
+					<dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+						{featuresSection.features.map((feature) => (
+							<div key={feature.title} className="flex flex-col">
+								<dt className="flex items-center gap-x-3">
+									<Icons.Check
+										className="h-5 w-5 flex-none text-white"
+										aria-hidden="true"
+									/>
+									<Heading
+										weight="medium"
+										as="h3"
+										size="4"
+										align="left"
+										theme="white"
+									>
+										{feature.title}
+									</Heading>
+								</dt>
+								<dd className="mt-4 flex flex-auto flex-col">
+									<Text theme="primary" className="flex-auto">
+										{feature.description}
+									</Text>
+								</dd>
+							</div>
+						))}
+					</dl>
+				</div>
+			</Container>
+		</div>
+	);
+}
+
+export default function SecondaryFeaturesTwo() {
+	return (
+		<div className="overflow-hidden bg-white py-24 sm:py-32">
+			<Container className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2 lg:items-start sm:gap-y-20">
+				<div className="px-6 lg:px-0 lg:pt-4 lg:pr-4">
+					<div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
+						<Heading
+							as="h2"
+							align="left"
+							size="8"
+							theme="gray"
+							letterSpacing="tight"
+						>
+							{detailedFeaturesSection.title}
+						</Heading>
+						<Text size="4" className="mt-6">
+							{detailedFeaturesSection.description}
+						</Text>
+						<dl className="mt-10 max-w-xl space-y-8 lg:max-w-none">
+							{detailedFeaturesSection.features.map((feature) => (
+								<div key={feature.name} className="relative pl-9">
+									<dt className="flex">
+										<feature.icon
+											className="absolute top-1 left-1 h-5 w-5 text-primary-600"
+											aria-hidden="true"
+										/>
+										<Heading
+											as="span"
+											weight="medium"
+											size="4"
+											align="left"
+											className="text-gray-900"
+										>
+											{feature.name}
+										</Heading>
+									</dt>{" "}
+									<dd className="mt-2">
+										<Text as="p" size="3">
+											{feature.description}
+										</Text>
+									</dd>
+								</div>
+							))}
+						</dl>
+					</div>
+				</div>
+				<div className="lg:px-0 sm:px-6">
+					<div className="relative isolate overflow-hidden bg-primary-500 px-6 pt-8 lg:mx-0 sm:mx-auto lg:max-w-none sm:max-w-2xl sm:rounded-3xl sm:pt-16 sm:pr-0 sm:pl-16">
+						<div
+							className="-inset-y-px -left-3 -z-10 absolute w-full origin-bottom-left skew-x-[-30deg] bg-primary-100 opacity-20 ring-1 ring-white ring-inset"
+							aria-hidden="true"
+						/>
+						<div className="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
+							<Image
+								src={detailedFeaturesSection.image}
+								alt="Detailed Features Image"
+								width={2432}
+								height={1442}
+								className="-mb-12 w-[57rem] max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-gray-50"
+							/>
+						</div>
+						<div
+							className="pointer-events-none absolute inset-0 ring-1 ring-black/10 ring-inset sm:rounded-3xl"
+							aria-hidden="true"
+						/>
+					</div>
+				</div>
+			</Container>
+		</div>
 	);
 }

@@ -1,3 +1,9 @@
+import type { StaticImageData } from "next/image";
+
+// hero
+import hero2 from "@/assets/hero/hero2.jpg";
+
+// logoClouds
 import logoLaravel from "@/assets/logos/laravel.svg";
 import logoMirage from "@/assets/logos/mirage.svg";
 import logoStatamic from "@/assets/logos/statamic.svg";
@@ -11,37 +17,8 @@ import screenshotExpenses from "@/assets/screenshots/expenses.png";
 import screenshotInventory from "@/assets/screenshots/inventory.png";
 import screenshotPayroll from "@/assets/screenshots/payroll.png";
 import screenshotProfitLoss from "@/assets/screenshots/profit-loss.png";
-import screenshotReporting from "@/assets/screenshots/reporting.png";
 import screenshotVatReturns from "@/assets/screenshots/vat-returns.png";
 import { Icons, type LucideIcon } from "@/components/icons";
-import type { StaticImageData } from "next/image";
-
-// export const radiusTheme = {
-// 	fun: {
-// 		1: "8px",
-// 		2: "12px",
-// 		3: "16px",
-// 		4: "24px",
-// 		5: "32px",
-// 		6: "9999px",
-// 	},
-// 	cool: {
-// 		1: "4px",
-// 		2: "6px",
-// 		3: "8px",
-// 		4: "12px",
-// 		5: "16px",
-// 		6: "8px",
-// 	},
-// 	classic: {
-// 		1: "0px",
-// 		2: "0px",
-// 		3: "0px",
-// 		4: "0px",
-// 		5: "0px",
-// 		6: "0px",
-// 	},
-// };
 
 // Change the Logo component or uncomment the image in components/header.tsx and add it to the public folder
 
@@ -96,6 +73,7 @@ export const hero = {
 		href: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
 		icon: Icons.Play,
 	},
+	image: hero2,
 } as const;
 
 export const logoClouds = {
@@ -137,18 +115,13 @@ export const featuresSection = {
 				"We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
 			image: screenshotVatReturns,
 		},
-		{
-			title: "Reporting",
-			description:
-				"Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.",
-			image: screenshotReporting,
-		},
 	],
 };
 
 interface DetailedFeaturesSectionProps {
 	title: string;
 	description: string;
+	image: StaticImageData;
 	features: {
 		name: string;
 		summary: string;
@@ -161,6 +134,7 @@ export const detailedFeaturesSection: DetailedFeaturesSectionProps = {
 	title: "Simplify everyday business tasks.",
 	description:
 		"Because you`d probably be a little confused if we suggested you complicate your everyday business tasks instead.",
+	image: screenshotProfitLoss,
 	features: [
 		{
 			name: "Reporting",
@@ -199,7 +173,7 @@ export const ctaSection = {
 	ctaAction,
 };
 
-export const TestimonialsSection = {
+export const testimonialsSection = {
 	title: "Loved by businesses worldwide.",
 	description:
 		"Our software is so simple that people can’t help but fall in love with it. Simplicity is easy when you just skip tons of mission-critical features.",
@@ -213,14 +187,7 @@ export const TestimonialsSection = {
 					role: "CEO at Lynch LLC",
 				},
 			},
-			{
-				content:
-					"I’m trying to get a hold of someone in support, I’m in a lot of trouble right now and they are saying it has something to do with my books. Please get back to me right away.",
-				author: {
-					name: "Amy Hahn",
-					role: "Director at Velocity Industries",
-				},
-			},
+			// other testimonials
 		],
 		[
 			{
@@ -231,14 +198,7 @@ export const TestimonialsSection = {
 					role: "Founder of Kiehn and Sons",
 				},
 			},
-			{
-				content:
-					"There are so many things I had to do with my old software that I just don’t do at all with TaxPal. Suspicious but I can’t say I don’t love it.",
-				author: {
-					name: "Erin Powlowski",
-					role: "COO at Armstrong Inc",
-				},
-			},
+			// other testimonials
 		],
 		[
 			{
@@ -249,14 +209,7 @@ export const TestimonialsSection = {
 					role: "Founder of West Inc",
 				},
 			},
-			{
-				content:
-					"This is the fourth email I’ve sent to your support team. I am literally being held in jail for tax fraud. Please answer your damn emails, this is important.",
-				author: {
-					name: "Amy Hahn",
-					role: "Director at Velocity Industries",
-				},
-			},
+			// other testimonials
 		],
 	],
 };
@@ -269,6 +222,19 @@ export const pricingSection = {
 	},
 	description:
 		"It doesn’t matter what size your business is, our software won’t work well for you.",
+	plan: {
+		name: "Lifetime membership",
+		catchLine: "Pay once, use forever.",
+		price: "$349",
+		description: "Perfect for small businesses that are looking to grow.",
+		href: ctaAction.href,
+		includedFeatures: [
+			"Private forum access",
+			"Member resources",
+			"Entry to annual conference",
+			"Official member t-shirt",
+		],
+	},
 	plans: [
 		{
 			featured: false,
@@ -297,7 +263,7 @@ export const pricingSection = {
 				"Manual payroll support",
 				"Export up to 10 reports",
 			],
-			href: "/register",
+			href: ctaAction.href,
 		},
 		{
 			featured: false,
@@ -311,7 +277,7 @@ export const pricingSection = {
 				"Manual payroll support",
 				"Export unlimited reports",
 			],
-			href: "/register",
+			href: ctaAction.href,
 		},
 	],
 };
@@ -321,56 +287,52 @@ export const faqsSection = {
 	description:
 		"If you can’t find what you’re looking for, email our support team and if you’re lucky someone will get back to you.",
 	faqs: [
-		[
-			{
-				question: "Does TaxPal handle VAT?",
-				answer:
-					"Well no, but if you move your company offshore you can probably ignore it.",
-			},
-			{
-				question: "Can I pay for my subscription via purchase order?",
-				answer: "Absolutely, we are happy to take your money in all forms.",
-			},
-			{
-				question: "How do I apply for a job at TaxPal?",
-				answer:
-					"We only hire our customers, so subscribe for a minimum of 6 months and then let’s talk.",
-			},
-		],
-		[
-			{
-				question: "What was that testimonial about tax fraud all about?",
-				answer:
-					"TaxPal is just a software application, ultimately your books are your responsibility.",
-			},
-			{
-				question:
-					"TaxPal sounds horrible but why do I still feel compelled to purchase?",
-				answer:
-					"This is the power of excellent visual design. You just can’t resist it, no matter how poorly it actually functions.",
-			},
-			{
-				question:
-					"I found other companies called TaxPal, are you sure you can use this name?",
-				answer:
-					"Honestly not sure at all. We haven’t actually incorporated or anything, we just thought it sounded cool and made this website.",
-			},
-		],
-		[
-			{
-				question: "How do you generate reports?",
-				answer:
-					"You just tell us what data you need a report for, and we get our kids to create beautiful charts for you using only the finest crayons.",
-			},
-			{
-				question: "Can we expect more inventory features?",
-				answer: "In life it’s really better to never expect anything at all.",
-			},
-			{
-				question: "I lost my password, how do I get into my account?",
-				answer:
-					"Send us an email and we will send you a copy of our latest password spreadsheet so you can find your information.",
-			},
-		],
+		{
+			question: "Does TaxPal handle VAT?",
+			answer:
+				"Well no, but if you move your company offshore you can probably ignore it.",
+		},
+		{
+			question: "Can I pay for my subscription via purchase order?",
+			answer: "Absolutely, we are happy to take your money in all forms.",
+		},
+		{
+			question: "How do I apply for a job at TaxPal?",
+			answer:
+				"We only hire our customers, so subscribe for a minimum of 6 months and then let’s talk.",
+		},
+
+		{
+			question: "What was that testimonial about tax fraud all about?",
+			answer:
+				"TaxPal is just a software application, ultimately your books are your responsibility.",
+		},
+		{
+			question:
+				"TaxPal sounds horrible but why do I still feel compelled to purchase?",
+			answer:
+				"This is the power of excellent visual design. You just can’t resist it, no matter how poorly it actually functions.",
+		},
+		{
+			question:
+				"I found other companies called TaxPal, are you sure you can use this name?",
+			answer:
+				"Honestly not sure at all. We haven’t actually incorporated or anything, we just thought it sounded cool and made this website.",
+		},
+
+		{
+			question: "How do you generate reports?",
+			answer:
+				"You just tell us what data you need a report for, and we get our kids to create beautiful charts for you using only the finest crayons.",
+		},
+		{
+			question: "Can we expect more inventory features?",
+			answer: "In life it’s really better to never expect anything at all.",
+		},
+		{
+			question: "I lost my password, how do I get into my account?",
+			answer:
+				"Send us an email and we will send you a copy of our latest password spreadsheet so you can find your information.",
+		},
 	],
 };

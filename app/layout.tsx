@@ -1,23 +1,19 @@
-import clsx from "clsx";
 import type { Metadata } from "next";
-import { Ropa_Sans, Space_Grotesk } from "next/font/google";
-import "./globals.css";
+
 import { DemoLayout } from "@/components/demo-layout";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import {
+	elegantBody,
+	elegantHeading,
+	modernBody,
+	modernHeading,
+	playfullBody,
+	playfullHeading,
+} from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 
-const heading = Space_Grotesk({
-	weight: ["300", "400", "500", "600", "700"],
-	subsets: ["latin"],
-	variable: "--font-heading",
-});
-const body = Ropa_Sans({
-	weight: ["400"],
-	subsets: ["latin"],
-	variable: "--font-body",
-});
-
-export const runtime = "edge";
+import "./globals.css";
 
 export const metadata: Metadata = {
 	title: {
@@ -75,18 +71,16 @@ export default function RootLayout({
 	return (
 		<html
 			lang="en"
-			className={clsx(
+			className={cn(
 				"h-full scroll-smooth bg-white antialiased",
-				heading.variable,
-				body.variable,
+				elegantHeading.variable,
+				elegantBody.variable,
+				modernHeading.variable,
+				modernBody.variable,
+				playfullHeading.variable,
+				playfullBody.variable,
 			)}
 		>
-			<head>
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1, viewport-fit=cover"
-				/>
-			</head>
 			<body className="flex h-full flex-col font-body">
 				<DemoLayout>
 					<Header />

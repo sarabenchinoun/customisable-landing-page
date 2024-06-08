@@ -1,8 +1,7 @@
-import { cva } from "@/lib/utils";
 import { Slot } from "@radix-ui/react-slot";
-import clsx from "clsx";
-import type { VariantProps } from "cva";
-import * as React from "react";
+import { forwardRef } from "react";
+
+import { type VariantProps, cn, cva } from "@/lib/utils";
 
 const textVariants = cva({
 	base: "text-pretty font-body",
@@ -74,7 +73,7 @@ type TextProps = {
 	className?: string;
 } & VariantProps<typeof textVariants>;
 
-const Text = React.forwardRef<React.ElementRef<"span">, TextProps>(
+const Text = forwardRef<React.ElementRef<"span">, TextProps>(
 	(
 		{
 			children,
@@ -95,7 +94,7 @@ const Text = React.forwardRef<React.ElementRef<"span">, TextProps>(
 		return (
 			<Slot
 				ref={ref}
-				className={clsx(
+				className={cn(
 					textVariants({
 						theme,
 						weight,

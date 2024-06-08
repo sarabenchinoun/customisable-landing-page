@@ -15,6 +15,5 @@
 		["tv\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
 		["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
 	],
-	"typescript.tsdk": "node_modules/typescript/lib",
-	"cSpell.words": ["brynglo", "brynglologo", "clsx", "ropa"]
+	"typescript.tsdk": "node_modules/typescript/lib"
 }

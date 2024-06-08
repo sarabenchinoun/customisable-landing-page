@@ -1,14 +1,19 @@
-import {} from "@/components/background";
-import { CTA } from "@/components/cta";
-import { Faqs } from "@/components/faqs";
-import { FeaturesOne, FeaturesTwo } from "@/components/features";
-import { Hero } from "@/components/hero";
-import { LogoClouds } from "@/components/logo-clouds";
-import { Pricing } from "@/components/pricing";
-import { Testimonials } from "@/components/testimonials";
 import type { Metadata } from "next";
 
-export const runtime = "edge";
+import { CTA, CTATwo } from "@/components/cta";
+import { Faqs, FaqsTwo } from "@/components/faqs";
+import SecondaryFeaturesTwo, {
+	FeaturesOne,
+	FeaturesTwo,
+	SecondaryFeatures,
+} from "@/components/features";
+import { HeroOne, HeroTwo } from "@/components/hero";
+import { LogoClouds } from "@/components/logo-clouds";
+import { Pricing, PricingTwo } from "@/components/pricing";
+import { Testimonials, TestimonialsTwo } from "@/components/testimonials";
+import ToggleSectionWrapper, {
+	RemoveSectionWrapper,
+} from "@/components/toggle-section-wrapper";
 
 export const metadata: Metadata = {
 	title: "HoneyCup Labs | Home",
@@ -19,14 +24,44 @@ export const metadata: Metadata = {
 export default function Home() {
 	return (
 		<main>
-			<Hero />
-			<LogoClouds />
-			<FeaturesOne />
-			<FeaturesTwo />
-			<CTA />
-			<Testimonials />
-			<Pricing />
-			<Faqs />
+			<ToggleSectionWrapper
+				sectionName="Hero"
+				sectionOne={<HeroOne />}
+				sectionTwo={<HeroTwo />}
+			/>
+			<RemoveSectionWrapper showSection sectionName="Logo Clouds">
+				<LogoClouds />
+			</RemoveSectionWrapper>
+			<ToggleSectionWrapper
+				sectionName="Features"
+				sectionOne={<FeaturesOne />}
+				sectionTwo={<FeaturesTwo />}
+			/>
+			<ToggleSectionWrapper
+				sectionName="Secondary Features"
+				sectionOne={<SecondaryFeatures />}
+				sectionTwo={<SecondaryFeaturesTwo />}
+			/>
+			<ToggleSectionWrapper
+				sectionName="CTA"
+				sectionOne={<CTA />}
+				sectionTwo={<CTATwo />}
+			/>
+			<ToggleSectionWrapper
+				sectionName="Testimonials"
+				sectionOne={<Testimonials />}
+				sectionTwo={<TestimonialsTwo />}
+			/>
+			<ToggleSectionWrapper
+				sectionName="Pricing"
+				sectionOne={<Pricing />}
+				sectionTwo={<PricingTwo />}
+			/>
+			<ToggleSectionWrapper
+				sectionName="Faqs"
+				sectionOne={<Faqs />}
+				sectionTwo={<FaqsTwo />}
+			/>
 		</main>
 	);
 }

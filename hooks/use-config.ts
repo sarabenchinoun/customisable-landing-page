@@ -5,11 +5,13 @@ import { atomWithStorage } from "jotai/utils";
 type Config = {
 	theme: Theme["name"];
 	radius: number;
+	font: string;
 };
 
 const configAtom = atomWithStorage<Config>("config", {
 	theme: "blue",
-	radius: 3,
+	radius: 1.5,
+	font: "playful",
 });
 
 export function useConfig() {

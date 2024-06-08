@@ -8,12 +8,12 @@ import {
 	Transition,
 	TransitionChild,
 } from "@headlessui/react";
-import clsx from "clsx";
 import Link from "next/link";
 
 import { Button } from "@/components/button";
 import { Logo } from "@/components/logo";
 import { ctaAction, navigation } from "@/lib/config";
+import { cn } from "@/lib/utils";
 import { Container } from "./container";
 import { NavLink } from "./nav-link";
 
@@ -42,14 +42,11 @@ function MobileNavIcon({ open }: { open: boolean }) {
 		>
 			<path
 				d="M0 1H14M0 7H14M0 13H14"
-				className={clsx(
-					"origin-center transition",
-					open && "scale-90 opacity-0",
-				)}
+				className={cn("origin-center transition", open && "scale-90 opacity-0")}
 			/>
 			<path
 				d="M2 2L12 12M12 2L2 12"
-				className={clsx(
+				className={cn(
 					"origin-center transition",
 					!open && "scale-90 opacity-0",
 				)}
