@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 const baseStyles = {
@@ -44,7 +44,7 @@ export function Button({ className, ...props }: ButtonProps) {
 	props.variant ??= "solid";
 	props.color ??= "gray";
 
-	className = clsx(
+	className = cn(
 		baseStyles[props.variant],
 		props.variant === "outline"
 			? variantStyles.outline[props.color]

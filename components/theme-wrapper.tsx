@@ -1,5 +1,5 @@
 import { useConfig } from "@/hooks/use-config";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 interface ThemeWrapperProps extends React.ComponentProps<"div"> {
 	defaultTheme?: string;
@@ -15,12 +15,11 @@ export function ThemeWrapper({
 	className,
 }: ThemeWrapperProps) {
 	const [config] = useConfig();
-	console.log(config);
 	return (
 		<div
 			id="theme-wrapper"
 			data-theme={defaultTheme || config.theme}
-			className={clsx("w-full", className)}
+			className={cn("w-full", className)}
 			data-radius={defaultRadius || config.radius}
 			data-font={defaultFont || config.font}
 		>

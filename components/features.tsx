@@ -1,15 +1,16 @@
 "use client";
 
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
+import Image, { type ImageProps } from "next/image";
+import { useEffect, useState } from "react";
+
 import { Container } from "@/components/container";
 import {
 	detailedFeaturesSection,
 	featuresSection,
 	iconTheme,
 } from "@/lib/config";
-import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
-import clsx from "clsx";
-import Image, { type ImageProps } from "next/image";
-import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 import { BottomBackground } from "./background";
 import { Heading } from "./heading";
 import { Icons, type LucideIcon } from "./icons";
@@ -61,7 +62,7 @@ export function FeaturesOne() {
 									{featuresSection.features.map((feature, featureIndex) => (
 										<div
 											key={feature.title}
-											className={clsx(
+											className={cn(
 												"group relative rounded-button px-4 py-1 lg:rounded-r-none lg:rounded-l-button lg:p-6",
 												selectedIndex === featureIndex
 													? "bg-white lg:bg-white/10 lg:ring-1 lg:ring-white/10 lg:ring-inset"
@@ -75,7 +76,7 @@ export function FeaturesOne() {
 												className="!text-nowrap"
 											>
 												<Tab
-													className={clsx(
+													className={cn(
 														"ui-not-focus-visible:outline-none",
 														selectedIndex === featureIndex
 															? "text-primary-600 lg:text-white"
@@ -87,7 +88,7 @@ export function FeaturesOne() {
 												</Tab>
 											</Heading>
 											<Text
-												className={clsx(
+												className={cn(
 													"mt-2 hidden lg:block",
 													selectedIndex === featureIndex
 														? "text-white"
@@ -152,11 +153,11 @@ function Feature({
 }) {
 	return (
 		<div
-			className={clsx(className, !isActive && "opacity-75 hover:opacity-100")}
+			className={cn(className, !isActive && "opacity-75 hover:opacity-100")}
 			{...props}
 		>
 			<div
-				className={clsx(
+				className={cn(
 					"flex h-9 w-9 items-center justify-center rounded-icon p-2",
 					isActive ? "bg-primary-600" : "bg-gray-300",
 				)}
@@ -164,7 +165,7 @@ function Feature({
 				<feature.icon
 					aria-hidden="true"
 					strokeWidth={iconTheme.strokeWidth}
-					className={clsx("h-8 w-8", isActive ? "text-white" : "text-gray-900")}
+					className={cn("h-8 w-8", isActive ? "text-white" : "text-gray-900")}
 				/>
 			</div>
 			<Heading
@@ -172,10 +173,7 @@ function Feature({
 				weight="medium"
 				size="2"
 				align="left"
-				className={clsx(
-					"mt-6",
-					isActive ? "text-primary-600" : "text-gray-600",
-				)}
+				className={cn("mt-6", isActive ? "text-primary-600" : "text-gray-600")}
 			>
 				{feature.name}
 			</Heading>
@@ -241,7 +239,7 @@ function FeaturesDesktop() {
 								<TabPanel
 									static
 									key={feature.summary}
-									className={clsx(
+									className={cn(
 										"px-5 transition duration-500 ease-in-out ui-not-focus-visible:outline-none",
 										featureIndex !== selectedIndex && "opacity-60",
 									)}

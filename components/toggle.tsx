@@ -1,5 +1,6 @@
 import { Switch } from "@headlessui/react";
-import clsx from "clsx";
+
+import { cn } from "@/lib/utils";
 
 export default function Toggle({
 	id,
@@ -19,7 +20,7 @@ export default function Toggle({
 			id={id}
 			checked={enabled}
 			onChange={setEnabled}
-			className={clsx(
+			className={cn(
 				"group inline-flex h-6 w-11 items-center rounded-full bg-gray-200 transition",
 				options ? "" : "data-[checked]:bg-primary-600",
 				className,

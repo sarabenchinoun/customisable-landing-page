@@ -1,3 +1,5 @@
+import type { StaticImageData } from "next/image";
+
 // hero
 import hero2 from "@/assets/hero/hero2.jpg";
 
@@ -17,7 +19,6 @@ import screenshotPayroll from "@/assets/screenshots/payroll.png";
 import screenshotProfitLoss from "@/assets/screenshots/profit-loss.png";
 import screenshotVatReturns from "@/assets/screenshots/vat-returns.png";
 import { Icons, type LucideIcon } from "@/components/icons";
-import type { StaticImageData } from "next/image";
 
 // Change the Logo component or uncomment the image in components/header.tsx and add it to the public folder
 

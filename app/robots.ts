@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
+	const url = window.location.origin;
 	return {
 		rules: {
 			userAgent: "*",
 			allow: "/",
-			disallow: "/studio/",
 		},
-		sitemap: "https://honeycuplabs.com/sitemap.xml",
+		sitemap: `${url}/sitemap.xml`,
 	};
 }

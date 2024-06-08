@@ -1,4 +1,5 @@
-import {} from "@/components/background";
+import type { Metadata } from "next";
+
 import { CTA } from "@/components/cta";
 import { Faqs } from "@/components/faqs";
 import {
@@ -13,9 +14,6 @@ import { Testimonials } from "@/components/testimonials";
 import ToggleSectionWrapper, {
 	RemoveSectionWrapper,
 } from "@/components/toggle-section-wrapper";
-import type { Metadata } from "next";
-
-export const runtime = "edge";
 
 export const metadata: Metadata = {
 	title: "HoneyCup Labs | Home",

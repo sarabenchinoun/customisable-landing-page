@@ -1,8 +1,7 @@
-import { cva } from "@/lib/utils";
 import { Slot } from "@radix-ui/react-slot";
-import clsx from "clsx";
-import type { VariantProps } from "cva";
-import * as React from "react";
+import { forwardRef } from "react";
+
+import { type VariantProps, cva } from "@/lib/utils";
 
 const headingVariants = cva({
 	base: "text-balance font-heading",
@@ -71,7 +70,7 @@ type HeadingProps = {
 	className?: string;
 } & VariantProps<typeof headingVariants>;
 
-const Heading = React.forwardRef<React.ElementRef<"h1">, HeadingProps>(
+const Heading = forwardRef<React.ElementRef<"h1">, HeadingProps>(
 	(
 		{
 			children,
@@ -91,17 +90,15 @@ const Heading = React.forwardRef<React.ElementRef<"h1">, HeadingProps>(
 		return (
 			<Slot
 				ref={ref}
-				className={clsx(
-					headingVariants({
-						letterSpacing,
-						weight,
-						size,
-						align,
-						lineHeight,
-						theme,
-					}),
+				className={headingVariants({
+					letterSpacing,
+					weight,
+					size,
+					align,
+					lineHeight,
+					theme,
 					className,
-				)}
+				})}
 				{...props}
 			>
 				{asChild ? children : <Tag>{children}</Tag>}

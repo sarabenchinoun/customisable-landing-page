@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 export function BottomBackground({
 	light,
@@ -11,14 +11,14 @@ export function BottomBackground({
 }) {
 	return (
 		<div
-			className={clsx(
+			className={cn(
 				"absolute inset-x-0 top-[calc(100%-13rem)] z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]",
 				className,
 			)}
 		>
 			{/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
 			<svg
-				className={clsx(
+				className={cn(
 					"-translate-x-1/2 relative h-[21.1875rem] max-w-none sm:h-[42.375rem]",
 					left
 						? "left-0 sm:left-0"
@@ -42,13 +42,11 @@ export function BottomBackground({
 						gradientUnits="userSpaceOnUse"
 					>
 						<stop
-							className={clsx(
-								light ? "stop-primary-light" : "stop-primary-dark",
-							)}
+							className={cn(light ? "stop-primary-light" : "stop-primary-dark")}
 						/>
 						<stop
 							offset={1}
-							className={clsx(
+							className={cn(
 								light ? "stop-secondary-light" : "stop-secondary-dark",
 							)}
 						/>
@@ -72,7 +70,7 @@ export function TopBackground({
 }) {
 	return (
 		<div
-			className={clsx(
+			className={cn(
 				"absolute top-[-10rem] transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]",
 				center ? "right-0" : "inset-x-0",
 				className,
@@ -80,7 +78,7 @@ export function TopBackground({
 		>
 			{/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
 			<svg
-				className={clsx(
+				className={cn(
 					"-z-10 -right-1/2 relative left-[calc(50%-11rem)] h-[21.1875rem] max-w-none rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]",
 					right ? "-right-1/2" : "-translate-x-1/2",
 				)}
@@ -102,13 +100,11 @@ export function TopBackground({
 						gradientUnits="userSpaceOnUse"
 					>
 						<stop
-							className={clsx(
-								light ? "stop-primary-light" : "stop-primary-dark",
-							)}
+							className={cn(light ? "stop-primary-light" : "stop-primary-dark")}
 						/>
 						<stop
 							offset={1}
-							className={clsx(
+							className={cn(
 								light ? "stop-secondary-light" : "stop-secondary-dark",
 							)}
 						/>

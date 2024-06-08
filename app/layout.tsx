@@ -1,54 +1,19 @@
-import clsx from "clsx";
 import type { Metadata } from "next";
-import {
-	Cabin,
-	Cormorant_Garamond,
-	Nunito,
-	Proza_Libre,
-	Roboto,
-	Sniglet,
-} from "next/font/google";
-import "./globals.css";
+
 import { DemoLayout } from "@/components/demo-layout";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import {
+	elegantBody,
+	elegantHeading,
+	modernBody,
+	modernHeading,
+	playfullBody,
+	playfullHeading,
+} from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 
-const elegantHeading = Cormorant_Garamond({
-	weight: ["300", "400", "500", "600", "700"],
-	subsets: ["latin"],
-	variable: "--elegant-heading",
-});
-const elegantBody = Proza_Libre({
-	weight: ["400", "500", "600", "700", "800"],
-	subsets: ["latin"],
-	variable: "--elegant-body",
-});
-
-const modernHeading = Roboto({
-	weight: ["100", "300", "400", "500", "700", "900"],
-	subsets: ["latin"],
-	variable: "--modern-heading",
-});
-
-const modernBody = Nunito({
-	weight: ["200", "300", "400", "600", "700", "800", "900", "1000"],
-	subsets: ["latin"],
-	variable: "--modern-body",
-});
-
-const playfullHeading = Sniglet({
-	weight: ["400", "800"],
-	subsets: ["latin"],
-	variable: "--playfull-heading",
-});
-
-const playfullBody = Cabin({
-	weight: ["400", "500", "600", "700"],
-	subsets: ["latin"],
-	variable: "--playfull-body",
-});
-
-export const runtime = "edge";
+import "./globals.css";
 
 export const metadata: Metadata = {
 	title: {
@@ -106,7 +71,7 @@ export default function RootLayout({
 	return (
 		<html
 			lang="en"
-			className={clsx(
+			className={cn(
 				"h-full scroll-smooth bg-white antialiased",
 				elegantHeading.variable,
 				elegantBody.variable,
@@ -116,12 +81,6 @@ export default function RootLayout({
 				playfullBody.variable,
 			)}
 		>
-			<head>
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1, viewport-fit=cover"
-				/>
-			</head>
 			<body className="flex h-full flex-col font-body">
 				<DemoLayout>
 					<Header />

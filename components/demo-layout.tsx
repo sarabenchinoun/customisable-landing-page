@@ -1,5 +1,15 @@
 "use client";
 
+import {
+	Popover,
+	PopoverButton,
+	PopoverPanel,
+	Transition,
+} from "@headlessui/react";
+import template from "lodash.template";
+import { useEffect, useState } from "react";
+import { z } from "zod";
+
 import { useConfig } from "@/hooks/use-config";
 import { iconTheme } from "@/lib/config";
 import {
@@ -8,18 +18,7 @@ import {
 	radiusSystem,
 	themes,
 } from "@/lib/themes";
-import template from "lodash.template";
-import { z } from "zod";
-
-import {
-	Popover,
-	PopoverButton,
-	PopoverPanel,
-	Transition,
-} from "@headlessui/react";
-import clsx from "clsx";
-import * as React from "react";
-import { useState } from "react";
+import { cn } from "@/lib/utils";
 import { Button } from "./button";
 import { Heading } from "./heading";
 import { Icons } from "./icons";
@@ -128,13 +127,13 @@ function CustomizerConfig() {
 											theme: theme.name,
 										});
 									}}
-									className={clsx(
+									className={cn(
 										"!justify-start",
 										isActive && "ring-gray-500 hover:ring-gray-500",
 									)}
 								>
 									<span
-										className={clsx(
+										className={cn(
 											"-translate-x-1 mr-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full",
 											{
 												"bg-red-600": theme.name === "red",
@@ -183,7 +182,7 @@ function CustomizerConfig() {
 											radius: value.value,
 										});
 									}}
-									className={clsx(
+									className={cn(
 										config.radius === value.value &&
 											"ring-gray-500 hover:ring-gray-500",
 									)}
@@ -212,7 +211,7 @@ function CustomizerConfig() {
 											font: value.value,
 										});
 									}}
-									className={clsx(
+									className={cn(
 										config.font === value.value &&
 											"ring-gray-500 hover:ring-gray-500",
 									)}
@@ -243,10 +242,10 @@ function CustomizerConfig() {
 function CopyCodeButton() {
 	const [config] = useConfig();
 	const activeTheme = themes.find((theme) => theme.name === config.theme);
-	const [hasCopied, setHasCopied] = React.useState(false);
+	const [hasCopied, setHasCopied] = useState(false);
 
 	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
-	React.useEffect(() => {
+	useEffect(() => {
 		setTimeout(() => {
 			setHasCopied(false);
 		}, 2000);

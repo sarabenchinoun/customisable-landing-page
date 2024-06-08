@@ -1,51 +1,46 @@
 {
-	"name": "new",
+	"name": "@honeycuplabs/template",
 	"version": "0.1.0",
 	"private": true,
 	"engines": {
 		"node": ">=20"
 	},
 	"scripts": {
-		"dev": "next dev",
+		"dev": "next dev --turbo",
 		"build": "next build",
 		"start": "next start",
-		"lint": "bunx @biomejs/biome check .",
-		"lint:fix": "bunx @biomejs/biome check --apply .",
-		"lint:classes": "bun lint -- --apply-unsafe",
+		"lint": "biome check",
+		"lint:fix": "biome check --write",
+		"lint:classes": "biome check --write --unsafe",
 		"validate": "run-p typecheck lint build",
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"@headlessui/react": "^2.0.3",
-		"@headlessui/tailwindcss": "^0.2.0",
+		"@headlessui/react": "^2.0.4",
+		"@headlessui/tailwindcss": "^0.2.1",
 		"@radix-ui/react-slot": "^1.0.2",
-		"clsx": "^2.1.1",
-		"cva": "beta",
-		"jotai": "^2.8.2",
+		"jotai": "^2.8.3",
 		"lodash.template": "^4.5.0",
-		"lucide-react": "^0.378.0",
-		"next": "14.2.3",
-		"react": "^18",
-		"react-dom": "^18",
-		"sharp": "^0.33.3",
-		"tailwind-merge": "^2.3.0",
+		"lucide-react": "^0.390.0",
+		"next": "^14.2.3",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"sharp": "^0.33.4",
 		"vaul": "^0.9.1",
 		"zod": "^3.23.8"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.7.3",
+		"@biomejs/biome": "^1.8.0",
 		"@types/lodash.template": "^4.5.3",
-		"@types/node": "20.12.2",
-		"@types/react": "^18",
-		"@types/react-dom": "^18",
+		"@types/node": "^20.14.2",
+		"@types/react": "^18.3.3",
+		"@types/react-dom": "^18.3.0",
+		"cva": "^1.0.0-beta.1",
 		"npm-run-all": "^4.1.5",
 		"postcss": "^8.4.38",
-		"tailwindcss": "^3.4.1",
-		"typescript": "^5"
+		"tailwind-merge": "^2.3.0",
+		"tailwindcss": "^3.4.4",
+		"typescript": "^5.4.5"
 	},
-	"trustedDependencies": [
-		"@biomejs/biome",
-		"esbuild",
-		"sharp"
-	]
+	"packageManager": "pnpm@9.2.0"
 }

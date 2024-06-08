@@ -1,8 +1,7 @@
-import clsx from "clsx";
-
 import { Button } from "@/components/button";
 import { Container } from "@/components/container";
 import { pricingSection } from "@/lib/config";
+import { cn } from "@/lib/utils";
 import { Heading } from "./heading";
 import { Text } from "./text";
 
@@ -30,10 +29,7 @@ function CheckIcon({
 	return (
 		<svg
 			aria-hidden="true"
-			className={clsx(
-				"h-6 w-6 flex-none fill-current stroke-current",
-				className,
-			)}
+			className={cn("h-6 w-6 flex-none fill-current stroke-current", className)}
 			{...props}
 		>
 			<path
@@ -70,7 +66,7 @@ function Plan({
 }) {
 	return (
 		<section
-			className={clsx(
+			className={cn(
 				"flex flex-col rounded-card-md px-6 sm:px-8",
 				featured ? "order-first bg-primary-600 py-8 lg:order-none" : "lg:py-8",
 			)}
@@ -78,9 +74,7 @@ function Plan({
 			<Heading align="left" as="h3" size="4" theme="white" className="mt-5">
 				{name}
 			</Heading>
-			<Text
-				className={clsx("mt-2", featured ? "text-white" : "!text-gray-400")}
-			>
+			<Text className={cn("mt-2", featured ? "text-white" : "!text-gray-400")}>
 				{description}
 			</Text>
 			<Text
@@ -93,7 +87,7 @@ function Plan({
 			</Text>
 			<ul
 				role="list"
-				className={clsx(
+				className={cn(
 					"order-last mt-10 flex flex-col gap-y-3 text-sm",
 					featured ? "text-white" : "text-gray-200",
 				)}

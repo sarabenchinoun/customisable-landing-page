@@ -1,7 +1,8 @@
 "use client";
 
-import clsx from "clsx";
 import { useState } from "react";
+
+import { cn } from "@/lib/utils";
 import Toggle from "./toggle";
 
 export default function ToggleSectionWrapper({
@@ -21,7 +22,7 @@ export default function ToggleSectionWrapper({
 		<div className="relative w-full">
 			<div
 				id="toggleButton"
-				className={clsx(
+				className={cn(
 					"absolute inset-x-0 top-0 z-10 m-4 inline-flex w-fit items-center gap-x-1.5 rounded-full px-2 py-1 font-medium text-gray-900 text-xs ring-1 ring-gray-200 ring-inset",
 					2,
 				)}
@@ -45,7 +46,7 @@ export function RemoveSectionWrapper({
 		<div className="relative w-full">
 			<div
 				id="toggleButton"
-				className={clsx(
+				className={cn(
 					"m-4 inline-flex w-fit items-center gap-x-1.5 rounded-full px-2 py-1 font-medium text-gray-900 text-xs ring-1 ring-gray-200 ring-inset",
 					enabled ? "absolute inset-x-0 top-0 z-10" : "",
 				)}
