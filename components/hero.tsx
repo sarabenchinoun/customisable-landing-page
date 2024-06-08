@@ -116,6 +116,8 @@ export function HeroTwo() {
 						height={960}
 						src={hero.image}
 						alt="Hero Image"
+						priority
+						placeholder="blur"
 						className="mt-10 aspect-[6/5] w-full max-w-lg rounded-card-md object-cover xl:row-span-2 xl:row-end-2 lg:mt-0 sm:mt-16 xl:mt-36 lg:max-w-none"
 					/>
 				</div>

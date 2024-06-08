@@ -119,6 +119,7 @@ export function FeaturesOne() {
 												src={feature.image}
 												alt={feature.title}
 												priority
+												placeholder="blur"
 												sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
 											/>
 										</div>
@@ -200,6 +201,7 @@ function FeaturesMobile() {
 								className="w-full"
 								src={feature.image}
 								alt={feature.name}
+								placeholder="blur"
 								sizes="52.75rem"
 							/>
 						</div>
@@ -251,6 +253,7 @@ function FeaturesDesktop() {
 											className="w-full"
 											src={feature.image}
 											alt={feature.name}
+											placeholder="blur"
 											sizes="52.75rem"
 										/>
 									</div>
@@ -398,6 +401,7 @@ export default function SecondaryFeaturesTwo() {
 								alt="Detailed Features Image"
 								width={2432}
 								height={1442}
+								placeholder="blur"
 								className="-mb-12 w-[57rem] max-w-none rounded-tl-xl bg-gray-800 ring-1 ring-gray-50"
 							/>
 						</div>
