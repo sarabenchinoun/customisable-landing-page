@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-
-import { DemoLayout } from "@/components/demo-layout";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { appConfig } from "@/lib/config";
@@ -59,11 +57,9 @@ export default function RootLayout({
 			)}
 		>
 			<body className="flex h-full flex-col font-body">
-				<DemoLayout>
-					<Header />
-					{children}
-					<Footer />
-				</DemoLayout>
+				<Header />
+				{children}
+				<Footer />
 			</body>
 		</html>
 	);

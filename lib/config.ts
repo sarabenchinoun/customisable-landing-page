@@ -73,7 +73,7 @@ export const hero = {
 		"Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.",
 	primaryButton: {
 		label: "Get 6 months free",
-		href: "/register",
+		href: ctaAction.href,
 	},
 	secondaryButton: {
 		visible: true,
