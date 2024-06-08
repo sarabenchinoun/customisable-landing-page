@@ -101,14 +101,16 @@ export function HeroTwo() {
 							>
 								{hero.primaryButton.label}
 							</Button>
-							<Link
-								href={hero.secondaryButton.href}
-								target="_blank"
-								className="flex items-center gap-1 font-semibold text-gray-900 text-sm leading-6"
-							>
-								{hero.secondaryButton.label}
-								<Icons.ArrowRight className="h-3 w-3" strokeWidth={3} />
-							</Link>
+							{hero.secondaryButton.visible && (
+								<Link
+									href={hero.secondaryButton.href}
+									target="_blank"
+									className="flex items-center gap-1 font-semibold text-gray-900 text-sm leading-6"
+								>
+									{hero.secondaryButton.label}
+									<Icons.ArrowRight className="h-3 w-3" strokeWidth={3} />
+								</Link>
+							)}
 						</div>
 					</div>
 					<Image
