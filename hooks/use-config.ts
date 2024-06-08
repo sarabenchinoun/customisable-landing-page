@@ -11,7 +11,7 @@ type Config = {
 const configAtom = atomWithStorage<Config>("config", {
 	theme: "blue",
 	radius: 1.5,
-	font: "playful",
+	font: "playfull",
 });
 
 export function useConfig() {

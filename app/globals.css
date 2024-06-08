@@ -51,7 +51,7 @@
     stop-color: var(--color-primary-200);
   }
 
-  #theme-wrapper[data-font='playful'] {
+  #theme-wrapper[data-font='playfull'] {
     --font-heading: var(--playfull-heading);
     --font-body: var(--playfull-body);
   }

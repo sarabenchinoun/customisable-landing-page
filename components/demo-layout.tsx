@@ -199,7 +199,7 @@ function CustomizerConfig() {
 						{[
 							{ value: "elegant", label: "Elegant" },
 							{ value: "modern", label: "Modern" },
-							{ value: "playful", label: "Playful" },
+							{ value: "playfull", label: "Playfull" },
 						].map((value) => {
 							return (
 								<Button

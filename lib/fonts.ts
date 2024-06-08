@@ -25,7 +25,7 @@ const modernHeading = Roboto({
 });
 
 const modernBody = Nunito({
-	weight: ["200", "300", "400", "600", "700", "800", "900", "1000"],
+	weight: ["200", "300", "400", "600", "700", "800", "900"],
 	subsets: ["latin"],
 	variable: "--modern-body",
 });
