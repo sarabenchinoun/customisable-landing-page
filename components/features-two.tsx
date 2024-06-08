@@ -9,10 +9,10 @@ export function FeaturesTwo() {
 		<div id="features" className="bg-primary-700 pt-20 pb-28 sm:py-32">
 			<Container>
 				<div className="mx-auto max-w-2xl lg:text-center">
-					<Heading as="h2" theme="white">
+					<Heading as="h2" theme="white" className="text-left lg:text-center">
 						{featuresSection.title}
 					</Heading>
-					<Text size="4" theme="primary" className="mt-6" align="center">
+					<Text size="4" theme="primary" className="mt-6 lg:text-center">
 						{featuresSection.description}
 					</Text>
 				</div>
