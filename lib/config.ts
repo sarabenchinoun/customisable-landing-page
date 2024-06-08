@@ -173,7 +173,7 @@ export const ctaSection = {
 	ctaAction,
 };
 
-export const TestimonialsSection = {
+export const testimonialsSection = {
 	title: "Loved by businesses worldwide.",
 	description:
 		"Our software is so simple that people can’t help but fall in love with it. Simplicity is easy when you just skip tons of mission-critical features.",
@@ -187,14 +187,7 @@ export const TestimonialsSection = {
 					role: "CEO at Lynch LLC",
 				},
 			},
-			{
-				content:
-					"I’m trying to get a hold of someone in support, I’m in a lot of trouble right now and they are saying it has something to do with my books. Please get back to me right away.",
-				author: {
-					name: "Amy Hahn",
-					role: "Director at Velocity Industries",
-				},
-			},
+			// other testimonials
 		],
 		[
 			{
@@ -205,14 +198,7 @@ export const TestimonialsSection = {
 					role: "Founder of Kiehn and Sons",
 				},
 			},
-			{
-				content:
-					"There are so many things I had to do with my old software that I just don’t do at all with TaxPal. Suspicious but I can’t say I don’t love it.",
-				author: {
-					name: "Erin Powlowski",
-					role: "COO at Armstrong Inc",
-				},
-			},
+			// other testimonials
 		],
 		[
 			{
@@ -223,14 +209,7 @@ export const TestimonialsSection = {
 					role: "Founder of West Inc",
 				},
 			},
-			{
-				content:
-					"This is the fourth email I’ve sent to your support team. I am literally being held in jail for tax fraud. Please answer your damn emails, this is important.",
-				author: {
-					name: "Amy Hahn",
-					role: "Director at Velocity Industries",
-				},
-			},
+			// other testimonials
 		],
 	],
 };
@@ -243,6 +222,19 @@ export const pricingSection = {
 	},
 	description:
 		"It doesn’t matter what size your business is, our software won’t work well for you.",
+	plan: {
+		name: "Lifetime membership",
+		catchLine: "Pay once, use forever.",
+		price: "$349",
+		description: "Perfect for small businesses that are looking to grow.",
+		href: ctaAction.href,
+		includedFeatures: [
+			"Private forum access",
+			"Member resources",
+			"Entry to annual conference",
+			"Official member t-shirt",
+		],
+	},
 	plans: [
 		{
 			featured: false,
@@ -271,7 +263,7 @@ export const pricingSection = {
 				"Manual payroll support",
 				"Export up to 10 reports",
 			],
-			href: "/register",
+			href: ctaAction.href,
 		},
 		{
 			featured: false,
@@ -285,7 +277,7 @@ export const pricingSection = {
 				"Manual payroll support",
 				"Export unlimited reports",
 			],
-			href: "/register",
+			href: ctaAction.href,
 		},
 	],
 };

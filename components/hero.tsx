@@ -63,7 +63,7 @@ export function HeroTwo() {
 			className="relative isolate overflow-hidden bg-gradient-to-b from-transparent via-primary-50 to-transparent"
 		>
 			<div
-				className="-z-10 -mr-96 sm:-mr-80 lg:-mr-96 absolute inset-y-0 right-1/2 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-primary-600/10 shadow-xl ring-1 ring-primary-50"
+				className="-z-10 -mr-96 sm:-mr-80 lg:-mr-96 absolute inset-y-0 right-1/2 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-primary-200 shadow-xl ring-1 ring-primary-50"
 				aria-hidden="true"
 			/>
 			<Container className="py-24 lg:py-32 md:py-32">

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { CTA } from "@/components/cta";
+import { CTA, CTATwo } from "@/components/cta";
 import { Faqs } from "@/components/faqs";
 import SecondaryFeaturesTwo, {
 	FeaturesOne,
@@ -9,8 +9,8 @@ import SecondaryFeaturesTwo, {
 } from "@/components/features";
 import { HeroOne, HeroTwo } from "@/components/hero";
 import { LogoClouds } from "@/components/logo-clouds";
-import { Pricing } from "@/components/pricing";
-import { Testimonials } from "@/components/testimonials";
+import { Pricing, PricingTwo } from "@/components/pricing";
+import { Testimonials, TestimonialsTwo } from "@/components/testimonials";
 import ToggleSectionWrapper, {
 	RemoveSectionWrapper,
 } from "@/components/toggle-section-wrapper";
@@ -42,9 +42,21 @@ export default function Home() {
 				sectionOne={<SecondaryFeatures />}
 				sectionTwo={<SecondaryFeaturesTwo />}
 			/>
-			<CTA />
-			<Testimonials />
-			<Pricing />
+			<ToggleSectionWrapper
+				sectionName="CTA"
+				sectionOne={<CTA />}
+				sectionTwo={<CTATwo />}
+			/>
+			<ToggleSectionWrapper
+				sectionName="Testimonials"
+				sectionOne={<Testimonials />}
+				sectionTwo={<TestimonialsTwo />}
+			/>
+			<ToggleSectionWrapper
+				sectionName="Pricing"
+				sectionOne={<Pricing />}
+				sectionTwo={<PricingTwo />}
+			/>
 			<Faqs />
 		</main>
 	);
