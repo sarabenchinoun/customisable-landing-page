@@ -1,7 +1,11 @@
 import {} from "@/components/background";
 import { CTA } from "@/components/cta";
 import { Faqs } from "@/components/faqs";
-import { FeaturesOne, SecondaryFeatures } from "@/components/features";
+import {
+	FeaturesOne,
+	FeaturesTwo,
+	SecondaryFeatures,
+} from "@/components/features";
 import { HeroOne, HeroTwo } from "@/components/hero";
 import { LogoClouds } from "@/components/logo-clouds";
 import { Pricing } from "@/components/pricing";
@@ -30,8 +34,11 @@ export default function Home() {
 			<RemoveSectionWrapper showSection sectionName="Logo Clouds">
 				<LogoClouds />
 			</RemoveSectionWrapper>
-
-			<FeaturesOne />
+			<ToggleSectionWrapper
+				sectionName="Features"
+				sectionOne={<FeaturesOne />}
+				sectionTwo={<FeaturesTwo />}
+			/>
 			<SecondaryFeatures />
 			<CTA />
 			<Testimonials />

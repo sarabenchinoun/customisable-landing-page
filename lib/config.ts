@@ -15,7 +15,6 @@ import screenshotExpenses from "@/assets/screenshots/expenses.png";
 import screenshotInventory from "@/assets/screenshots/inventory.png";
 import screenshotPayroll from "@/assets/screenshots/payroll.png";
 import screenshotProfitLoss from "@/assets/screenshots/profit-loss.png";
-import screenshotReporting from "@/assets/screenshots/reporting.png";
 import screenshotVatReturns from "@/assets/screenshots/vat-returns.png";
 import { Icons, type LucideIcon } from "@/components/icons";
 import type { StaticImageData } from "next/image";
@@ -114,12 +113,6 @@ export const featuresSection = {
 			description:
 				"We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
 			image: screenshotVatReturns,
-		},
-		{
-			title: "Reporting",
-			description:
-				"Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.",
-			image: screenshotReporting,
 		},
 	],
 };
