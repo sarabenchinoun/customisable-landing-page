@@ -121,6 +121,7 @@ export const featuresSection = {
 interface DetailedFeaturesSectionProps {
 	title: string;
 	description: string;
+	image: StaticImageData;
 	features: {
 		name: string;
 		summary: string;
@@ -133,6 +134,7 @@ export const detailedFeaturesSection: DetailedFeaturesSectionProps = {
 	title: "Simplify everyday business tasks.",
 	description:
 		"Because you`d probably be a little confused if we suggested you complicate your everyday business tasks instead.",
+	image: screenshotProfitLoss,
 	features: [
 		{
 			name: "Reporting",

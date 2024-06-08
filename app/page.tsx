@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { CTA } from "@/components/cta";
 import { Faqs } from "@/components/faqs";
-import {
+import SecondaryFeaturesTwo, {
 	FeaturesOne,
 	FeaturesTwo,
 	SecondaryFeatures,
@@ -37,7 +37,11 @@ export default function Home() {
 				sectionOne={<FeaturesOne />}
 				sectionTwo={<FeaturesTwo />}
 			/>
-			<SecondaryFeatures />
+			<ToggleSectionWrapper
+				sectionName="Secondary Features"
+				sectionOne={<SecondaryFeatures />}
+				sectionTwo={<SecondaryFeaturesTwo />}
+			/>
 			<CTA />
 			<Testimonials />
 			<Pricing />
