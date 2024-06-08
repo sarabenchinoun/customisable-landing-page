@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { CTA, CTATwo } from "@/components/cta";
-import { Faqs } from "@/components/faqs";
+import { Faqs, FaqsTwo } from "@/components/faqs";
 import SecondaryFeaturesTwo, {
 	FeaturesOne,
 	FeaturesTwo,
@@ -57,7 +57,11 @@ export default function Home() {
 				sectionOne={<Pricing />}
 				sectionTwo={<PricingTwo />}
 			/>
-			<Faqs />
+			<ToggleSectionWrapper
+				sectionName="Faqs"
+				sectionOne={<Faqs />}
+				sectionTwo={<FaqsTwo />}
+			/>
 		</main>
 	);
 }

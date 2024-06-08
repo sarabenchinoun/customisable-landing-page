@@ -152,7 +152,10 @@ export function PricingTwo() {
 						<div className="mt-10 flex items-center gap-x-4">
 							<Heading
 								as="h4"
-								className="flex-none font-semibold text-primary-600 text-sm leading-6"
+								size="5"
+								theme="primary"
+								weight="light"
+								className="flex-none"
 							>
 								What’s included
 							</Heading>
