@@ -33,7 +33,7 @@ export function CTA() {
 
 export function CTATwo() {
 	return (
-		<div className="bg-white">
+		<div id="cta" className="bg-white">
 			<Container className="py-24">
 				<div className="relative isolate overflow-hidden bg-primary-700 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
 					<Heading weight="medium" theme="white" className="mx-auto max-w-2xl">

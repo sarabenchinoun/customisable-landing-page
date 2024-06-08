@@ -124,7 +124,7 @@ export function Pricing() {
 
 export function PricingTwo() {
 	return (
-		<div className="bg-white py-24 sm:py-32">
+		<div id="pricing" className="bg-white py-24 sm:py-32">
 			<Container>
 				<div className="mx-auto max-w-2xl sm:text-center">
 					<Heading as="h2">

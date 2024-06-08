@@ -50,7 +50,10 @@ export function Faqs() {
 
 export function FaqsTwo() {
 	return (
-		<div className="relative overflow-hidden bg-gray-50 py-24 sm:py-32">
+		<div
+			id="faq"
+			className="relative overflow-hidden bg-gray-50 py-24 sm:py-32"
+		>
 			<TopBackground />
 
 			<Container className="relative">

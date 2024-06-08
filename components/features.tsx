@@ -38,7 +38,7 @@ export function FeaturesOne() {
 
 	return (
 		<section
-			id="features-one"
+			id="features"
 			aria-label="Features for running your books"
 			className="relative overflow-hidden bg-primary-700 pt-20 pb-28 sm:py-32"
 		>
@@ -300,7 +300,7 @@ export function SecondaryFeatures() {
 
 export function FeaturesTwo() {
 	return (
-		<div id="services" className="bg-primary-700 pt-20 pb-28 sm:py-32">
+		<div id="features" className="bg-primary-700 pt-20 pb-28 sm:py-32">
 			<Container>
 				<div className="mx-auto max-w-2xl lg:text-center">
 					<Heading as="h2" theme="white">
@@ -345,7 +345,10 @@ export function FeaturesTwo() {
 
 export default function SecondaryFeaturesTwo() {
 	return (
-		<div className="overflow-hidden bg-white py-24 sm:py-32">
+		<div
+			id="secondary-features"
+			className="overflow-hidden bg-white py-24 sm:py-32"
+		>
 			<Container className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2 lg:items-start sm:gap-y-20">
 				<div className="px-6 lg:px-0 lg:pt-4 lg:pr-4">
 					<div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">

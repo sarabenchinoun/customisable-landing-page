@@ -59,7 +59,7 @@ export function HeroOne() {
 export function HeroTwo() {
 	return (
 		<div
-			id="hero-two"
+			id="hero"
 			className="relative isolate overflow-hidden bg-gradient-to-b from-transparent via-primary-50 to-transparent"
 		>
 			<div
