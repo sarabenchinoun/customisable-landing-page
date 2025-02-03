@@ -7,6 +7,7 @@ export default function robots(): MetadataRoute.Robots {
 			allow: "/",
 			disallow: "/studio/",
 		},
-		sitemap: "https://honeycuplabs.com/sitemap.xml",
+		// Replace this with your production URL
+		sitemap: "https://sarabenchinoun.com/sitemap.xml",
 	};
 }

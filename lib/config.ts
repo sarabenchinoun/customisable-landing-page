@@ -25,11 +25,11 @@ import { Icons, type LucideIcon } from "@/components/icons";
 // Change the font in the layout
 
 export const appConfig = {
-	name: "HoneyCup Labs",
-	title: "HoneyCup Labs | Software Engineering Company",
+	name: "Encode Studio",
+	title: "Encode Studio | Software Engineering Company",
 	description:
-		"HoneyCup Labs is a pioneering software engineering company dedicated to empowering startups and businesses, with a special focus on serving the Muslim community, through innovative web solutions. Our expert team specializes in bespoke web development, custom web applications, and full-stack solutions tailored to meet the unique needs of each client. With a commitment to quality, efficiency, and cutting-edge technology, we strive to elevate your online presence and drive success in the digital world. Partner with HoneyCup Labs for transformative digital solutions that propel your business forward in the Muslim market and beyond.",
-	url: "https://honeycuplabs.com/",
+		"Encode Studio is a pioneering software engineering company dedicated to empowering startups and businesses, with a special focus on serving the Muslim community, through innovative web solutions. Our expert team specializes in bespoke web development, custom web applications, and full-stack solutions tailored to meet the unique needs of each client. With a commitment to quality, efficiency, and cutting-edge technology, we strive to elevate your online presence and drive success in the digital world. Partner with Encode Studio for transformative digital solutions that propel your business forward in the Muslim market and beyond.",
+	url: "https://sarabenchinoun.com/",
 };
 
 export const navigation = [
@@ -39,7 +39,7 @@ export const navigation = [
 ];
 
 export const ctaAction = {
-	href: "mailto:info@honeycuplabs.com",
+	href: "mailto:me@sarabenchinoun.com",
 	label: "Get in touch",
 };
 
