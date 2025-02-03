@@ -25,7 +25,7 @@ export function Testimonials() {
 						{testimonialsSection.description}
 					</Text>
 				</div>
-				<ul className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 lg:mt-20 lg:max-w-none lg:grid-cols-3 sm:gap-8">
+				<ul className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3">
 					{testimonialsSection.testimonials.map((column, columnIndex) => (
 						<li key={`${columnIndex * 1}`}>
 							<ul className="flex flex-col gap-y-6 sm:gap-y-8">
@@ -74,8 +74,8 @@ export function TestimonialsTwo() {
 			id="testimonials"
 			className="relative isolate overflow-hidden bg-white py-24 sm:py-32"
 		>
-			<div className="-z-10 absolute inset-0 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.primary.100),white)] opacity-20" />
-			<div className="-z-10 absolute inset-y-0 right-1/2 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-primary-200 shadow-xl ring-1 ring-primary-50 lg:mr-0 sm:mr-28 xl:mr-16 xl:origin-center" />
+			<div className="-z-10 absolute inset-0 bg-[radial-gradient(45rem_50rem_at_top,var(--color-primary-100),white)] opacity-20" />
+			<div className="-z-10 absolute inset-y-0 right-1/2 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-primary-200 shadow-xl ring-1 ring-primary-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
 			<div className="mx-auto max-w-2xl lg:max-w-4xl">
 				<figure className="mt-10">
 					<blockquote>

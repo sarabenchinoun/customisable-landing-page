@@ -30,7 +30,7 @@ export function Faqs() {
 					</Text>
 				</div>
 				<div className="mt-20">
-					<dl className="space-y-16 sm:grid lg:grid-cols-3 sm:grid-cols-2 lg:gap-x-10 sm:gap-x-6 sm:gap-y-16 sm:space-y-0">
+					<dl className="space-y-16 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-16 sm:space-y-0 lg:grid-cols-3 lg:gap-x-10">
 						{faqsSection.faqs.map((faq) => (
 							<div key={faq.question}>
 								<Heading as="h3" size="5" align="left" weight="medium">

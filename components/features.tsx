@@ -43,7 +43,7 @@ export function FeaturesOne() {
 			className="relative overflow-hidden bg-primary-700 pt-20 pb-28 sm:py-32"
 		>
 			<Container className="relative z-20">
-				<div className="max-w-2xl md:mx-auto xl:max-w-none md:text-center">
+				<div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
 					<Heading as="h2" theme="white">
 						{featuresSection.title}
 					</Heading>
@@ -52,13 +52,13 @@ export function FeaturesOne() {
 					</Text>
 				</div>
 				<TabGroup
-					className="mt-16 grid grid-cols-1 items-center gap-y-2 pt-10 md:mt-20 lg:grid-cols-12 sm:gap-y-6 lg:pt-0"
+					className="mt-16 grid grid-cols-1 items-center gap-y-2 pt-10 sm:gap-y-6 md:mt-20 lg:grid-cols-12 lg:pt-0"
 					vertical={tabOrientation === "vertical"}
 				>
 					{({ selectedIndex }) => (
 						<>
-							<div className="-mx-4 flex overflow-x-auto pb-4 lg:col-span-5 sm:mx-0 sm:overflow-visible sm:pb-0">
-								<TabList className="relative z-10 flex gap-x-4 whitespace-nowrap px-4 lg:mx-0 sm:mx-auto lg:block lg:gap-x-0 lg:gap-y-1 lg:whitespace-normal sm:px-0">
+							<div className="-mx-4 flex overflow-x-auto pb-4 sm:mx-0 sm:overflow-visible sm:pb-0 lg:col-span-5">
+								<TabList className="relative z-10 flex gap-x-4 whitespace-nowrap px-4 sm:mx-auto sm:px-0 lg:mx-0 lg:block lg:gap-x-0 lg:gap-y-1 lg:whitespace-normal">
 									{featuresSection.features.map((feature, featureIndex) => (
 										<div
 											key={feature.title}
@@ -73,11 +73,11 @@ export function FeaturesOne() {
 												as="h3"
 												size="4"
 												align="left"
-												className="!text-nowrap"
+												className="text-nowrap!"
 											>
 												<Tab
 													className={cn(
-														"ui-not-focus-visible:outline-none",
+														"ui-not-focus-visible:outline-hidden",
 														selectedIndex === featureIndex
 															? "text-primary-600 lg:text-white"
 															: "text-primary-100 hover:text-white lg:text-white",
@@ -104,7 +104,7 @@ export function FeaturesOne() {
 							<TabPanels className="lg:col-span-7">
 								{featuresSection.features.map((feature) => (
 									<TabPanel key={feature.title} unmount={false}>
-										<div className="relative lg:hidden sm:px-6">
+										<div className="relative sm:px-6 lg:hidden">
 											<div className="-inset-x-4 absolute top-[-6.5rem] bottom-[-4.25rem] bg-white/10 ring-1 ring-white/10 ring-inset sm:inset-x-0 sm:rounded-t-card-lg" />
 											<Text
 												theme="white"
@@ -113,7 +113,7 @@ export function FeaturesOne() {
 												{feature.description}
 											</Text>
 										</div>
-										<div className="mt-10 w-[45rem] overflow-hidden rounded-card-md bg-gray-50 shadow-primary-800 shadow-xl lg:mt-0 lg:w-[67.8125rem] sm:w-auto">
+										<div className="mt-10 w-[45rem] overflow-hidden rounded-card-md bg-gray-50 shadow-primary-800 shadow-xl sm:w-auto lg:mt-0 lg:w-[67.8125rem]">
 											<Image
 												className="w-full"
 												src={feature.image}
@@ -190,7 +190,7 @@ function Feature({
 
 function FeaturesMobile() {
 	return (
-		<div className="-mx-4 sm:-mx-6 mt-20 flex flex-col gap-y-10 overflow-hidden px-4 lg:hidden sm:px-6">
+		<div className="-mx-4 sm:-mx-6 mt-20 flex flex-col gap-y-10 overflow-hidden px-4 sm:px-6 lg:hidden">
 			{detailedFeaturesSection.features.map((feature) => (
 				<div key={feature.summary}>
 					<Feature feature={feature} className="mx-auto max-w-2xl" isActive />
@@ -224,7 +224,7 @@ function FeaturesDesktop() {
 								feature={{
 									...feature,
 									name: (
-										<Tab className="ui-not-focus-visible:outline-none">
+										<Tab className="ui-not-focus-visible:outline-hidden">
 											<span className="absolute inset-0" />
 											{feature.name}
 										</Tab>
@@ -242,7 +242,7 @@ function FeaturesDesktop() {
 									static
 									key={feature.summary}
 									className={cn(
-										"px-5 transition duration-500 ease-in-out ui-not-focus-visible:outline-none",
+										"px-5 ui-not-focus-visible:outline-hidden transition duration-500 ease-in-out",
 										featureIndex !== selectedIndex && "opacity-60",
 									)}
 									style={{ transform: `translateX(-${selectedIndex * 100}%)` }}
@@ -273,7 +273,7 @@ export function SecondaryFeatures() {
 		<section
 			id="secondary-features"
 			aria-label="Features for simplifying everyday business tasks"
-			className="pt-20 pb-14 sm:pt-32 lg:pb-32 sm:pb-20"
+			className="pt-20 pb-14 sm:pt-32 sm:pb-20 lg:pb-32"
 		>
 			<Container>
 				<div className="mx-auto max-w-2xl">
@@ -310,7 +310,7 @@ export function FeaturesTwo() {
 						{featuresSection.description}
 					</Text>
 				</div>
-				<div className="mx-auto mt-16 max-w-2xl lg:mt-24 sm:mt-20 lg:max-w-none">
+				<div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
 					<dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
 						{featuresSection.features.map((feature) => (
 							<div key={feature.title} className="flex flex-col">
@@ -349,7 +349,7 @@ export default function SecondaryFeaturesTwo() {
 			id="secondary-features"
 			className="overflow-hidden bg-white py-24 sm:py-32"
 		>
-			<Container className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2 lg:items-start sm:gap-y-20">
+			<Container className="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
 				<div className="px-6 lg:px-0 lg:pt-4 lg:pr-4">
 					<div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
 						<Heading
@@ -392,8 +392,8 @@ export default function SecondaryFeaturesTwo() {
 						</dl>
 					</div>
 				</div>
-				<div className="lg:px-0 sm:px-6">
-					<div className="relative isolate overflow-hidden bg-primary-500 px-6 pt-8 lg:mx-0 sm:mx-auto lg:max-w-none sm:max-w-2xl sm:rounded-3xl sm:pt-16 sm:pr-0 sm:pl-16">
+				<div className="sm:px-6 lg:px-0">
+					<div className="relative isolate overflow-hidden bg-primary-500 px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pt-16 sm:pr-0 sm:pl-16 lg:mx-0 lg:max-w-none">
 						<div
 							className="-inset-y-px -left-3 -z-10 absolute w-full origin-bottom-left skew-x-[-30deg] bg-primary-100 opacity-20 ring-1 ring-white ring-inset"
 							aria-hidden="true"

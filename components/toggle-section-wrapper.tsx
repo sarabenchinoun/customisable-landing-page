@@ -27,7 +27,7 @@ export default function ToggleSectionWrapper({
 					2,
 				)}
 			>
-				<label className="font-medium">{sectionName}:</label>
+				<p className="font-medium">{sectionName}:</p>
 				<Toggle enabled={enabled} setEnabled={setEnabled} options />
 			</div>
 			<div>{enabled ? sectionTwo : sectionOne}</div>
@@ -51,7 +51,7 @@ export function RemoveSectionWrapper({
 					enabled ? "absolute inset-x-0 top-0 z-10" : "",
 				)}
 			>
-				<label className="font-medium">{sectionName}:</label>
+				<p className="font-medium">{sectionName}:</p>
 				<Toggle enabled={enabled} setEnabled={setEnabled} />
 			</div>
 			<div>{enabled ? <>{children}</> : null}</div>

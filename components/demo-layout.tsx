@@ -40,7 +40,7 @@ export function ThemeCustomiser() {
 	return (
 		<div className="fixed right-4 bottom-4 z-50">
 			<Popover>
-				<PopoverButton className="relative inline-flex items-center ui-not-focus-visible:outline-none">
+				<PopoverButton className="relative inline-flex items-center ui-not-focus-visible:outline-hidden">
 					<div className="rounded-icon bg-primary-600 p-2">
 						<Icons.Paintbrush
 							strokeWidth={iconTheme.strokeWidth}
@@ -112,7 +112,7 @@ function CustomizerConfig() {
 			</div>
 			<div className="flex flex-1 flex-col space-y-4 md:space-y-6">
 				<div className="space-y-1.5">
-					<label className="text-xs">Color</label>
+					<p className="text-xs">Color</p>
 					<div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
 						{themes.map((theme) => {
 							const isActive = config.theme === theme.name;
@@ -128,7 +128,7 @@ function CustomizerConfig() {
 										});
 									}}
 									className={cn(
-										"!justify-start",
+										"justify-start!",
 										isActive && "ring-gray-500 hover:ring-gray-500",
 									)}
 								>
@@ -165,7 +165,7 @@ function CustomizerConfig() {
 					</div>
 				</div>
 				<div className="space-y-1.5">
-					<label className="text-xs">Radius</label>
+					<p className="text-xs">Radius</p>
 					<div className="flex gap-2">
 						{[
 							{ value: 0, label: "None" },
@@ -194,7 +194,7 @@ function CustomizerConfig() {
 					</div>
 				</div>
 				<div className="space-y-1.5">
-					<label className="text-xs">Font</label>
+					<p className="text-xs">Font</p>
 					<div className="flex gap-2">
 						{[
 							{ value: "elegant", label: "Elegant" },
@@ -223,13 +223,13 @@ function CustomizerConfig() {
 					</div>
 				</div>
 				<div className="space-y-1.5">
-					<label className="text-xs">Sections</label>
+					<p className="text-xs">Sections</p>
 					<div className="flex gap-2">
 						<Toggle enabled={enabled} setEnabled={setEnabled} />
 					</div>
 				</div>
 				<div className="mt-2 flex items-center justify-between space-y-1.5">
-					<label className="text-xs">Copy Your Chosen Theme</label>
+					<p className="text-xs">Copy Your Chosen Theme</p>
 					<div className="flex gap-2">
 						<CopyCodeButton />
 					</div>

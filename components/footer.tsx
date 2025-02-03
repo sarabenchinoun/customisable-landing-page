@@ -39,7 +39,7 @@ export function Footer() {
 							</Link>
 						))}
 					</div>
-					<Text size="2" className="!text-gray-500 mt-6 sm:mt-0">
+					<Text size="2" className="mt-6 text-gray-500! sm:mt-0">
 						Copyright &copy; {new Date().getFullYear()} {footer.companyName}.
 						All rights reserved.
 					</Text>

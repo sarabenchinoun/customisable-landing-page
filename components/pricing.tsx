@@ -48,7 +48,7 @@ function Plan({
 			<Heading align="left" as="h3" size="4" theme="white" className="mt-5">
 				{name}
 			</Heading>
-			<Text className={cn("mt-2", featured ? "text-white" : "!text-gray-400")}>
+			<Text className={cn("mt-2", featured ? "text-white" : "text-gray-400!")}>
 				{description}
 			</Text>
 			<Text
@@ -60,7 +60,6 @@ function Plan({
 				{price}
 			</Text>
 			<ul
-				role="list"
 				className={cn(
 					"order-last mt-10 flex flex-col gap-y-3 text-sm",
 					featured ? "text-white" : "text-gray-200",
@@ -108,11 +107,11 @@ export function Pricing() {
 						</span>
 						{pricingSection.title.postHighlighted}
 					</Heading>
-					<Text align="center" size="4" className="!text-gray-400 mt-4">
+					<Text align="center" size="4" className="mt-4 text-gray-400!">
 						{pricingSection.description}
 					</Text>
 				</div>
-				<div className="-mx-4 lg:-mx-8 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto xl:mx-0 lg:max-w-none lg:grid-cols-3 xl:gap-x-8">
+				<div className="-mx-4 lg:-mx-8 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8">
 					{pricingSection.plans.map((plan, index) => (
 						<Plan key={`${plan.name}-${index}`} {...plan} />
 					))}
@@ -141,8 +140,8 @@ export function PricingTwo() {
 						{pricingSection.description}
 					</Text>
 				</div>
-				<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 lg:mx-0 sm:mt-20 lg:flex lg:max-w-none">
-					<div className="p-8 lg:flex-auto sm:p-10">
+				<div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+					<div className="p-8 sm:p-10 lg:flex-auto">
 						<Heading align="left" as="h3" size="6">
 							{pricingSection.plan.name}
 						</Heading>
@@ -173,7 +172,7 @@ export function PricingTwo() {
 							))}
 						</ul>
 					</div>
-					<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+					<div className="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:shrink-0">
 						<div className="h-full rounded-2xl bg-gray-50 py-10 text-center ring-1 ring-gray-200 ring-inset lg:flex lg:flex-col lg:justify-center lg:py-16">
 							<div className="mx-auto max-w-xs px-8">
 								<Text lowContrast weight="medium">

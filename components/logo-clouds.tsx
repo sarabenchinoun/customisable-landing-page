@@ -10,7 +10,7 @@ export function LogoClouds() {
 			<Text highContrast align="center">
 				{logoClouds.title}
 			</Text>
-			<ul className="mt-8 flex items-center justify-center gap-x-8 xl:flex-row sm:flex-col sm:gap-x-0 xl:gap-x-12 sm:gap-y-10 xl:gap-y-0">
+			<ul className="mt-8 flex items-center justify-center gap-x-8 sm:flex-col sm:gap-x-0 sm:gap-y-10 xl:flex-row xl:gap-x-12 xl:gap-y-0">
 				{logoClouds.companies.map((group, groupIndex) => (
 					<li key={`group ${groupIndex * 1}`}>
 						<ul className="flex flex-col items-center gap-y-8 sm:flex-row sm:gap-x-12 sm:gap-y-0">

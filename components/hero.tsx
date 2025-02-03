@@ -60,14 +60,14 @@ export function HeroTwo() {
 	return (
 		<div
 			id="hero"
-			className="relative isolate overflow-hidden bg-gradient-to-b from-transparent via-primary-50 to-transparent"
+			className="relative isolate overflow-hidden bg-linear-to-b from-transparent via-primary-50 to-transparent"
 		>
 			<div
 				className="-z-10 -mr-96 sm:-mr-80 lg:-mr-96 absolute inset-y-0 right-1/2 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-primary-200 shadow-xl ring-1 ring-primary-50"
 				aria-hidden="true"
 			/>
-			<Container className="py-24 lg:py-32 md:py-32">
-				<div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 xl:grid-cols-1 xl:grid-rows-1 lg:gap-x-16 xl:gap-x-8 lg:gap-y-6">
+			<Container className="py-24 md:py-32 lg:py-32">
+				<div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
 					<Heading
 						size="9"
 						align="left"
@@ -89,7 +89,7 @@ export function HeroTwo() {
 						</span>{" "}
 						{hero.title.postHighlighted}
 					</Heading>
-					<div className="mt-6 max-w-xl xl:col-end-1 xl:row-start-1 lg:mt-0">
+					<div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
 						<Text size="4" lowContrast lineHeight="loose">
 							{hero.description}
 						</Text>
@@ -120,11 +120,11 @@ export function HeroTwo() {
 						alt="Hero Image"
 						priority
 						placeholder="blur"
-						className="mt-10 aspect-[6/5] w-full max-w-lg rounded-card-md object-cover xl:row-span-2 xl:row-end-2 lg:mt-0 sm:mt-16 xl:mt-36 lg:max-w-none"
+						className="mt-10 aspect-6/5 w-full max-w-lg rounded-card-md object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36"
 					/>
 				</div>
 			</Container>
-			<div className="-z-10 absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white sm:h-32" />
+			<div className="-z-10 absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-white sm:h-32" />
 		</div>
 	);
 }
