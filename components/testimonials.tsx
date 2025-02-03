@@ -29,8 +29,8 @@ export function Testimonials() {
 					{testimonialsSection.testimonials.map((column, columnIndex) => (
 						<li key={`${columnIndex * 1}`}>
 							<ul className="flex flex-col gap-y-6 sm:gap-y-8">
-								{column.map((testimonial, testimonialIndex) => (
-									<li key={`${testimonialIndex * 1}`}>
+								{column.map((testimonial) => (
+									<li key={testimonial.id}>
 										<figure className="relative rounded-card-md bg-white p-6 shadow-gray-900/10 shadow-xl">
 											<QuoteIcon className="absolute top-6 left-6 fill-gray-100" />
 											<blockquote className="relative">

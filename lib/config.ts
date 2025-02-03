@@ -188,6 +188,7 @@ export const testimonialsSection = {
 	testimonials: [
 		[
 			{
+				id: "1",
 				content:
 					"TaxPal is so easy to use I can’t help but wonder if it’s really doing the things the government expects me to do.",
 				author: {
@@ -199,6 +200,7 @@ export const testimonialsSection = {
 		],
 		[
 			{
+				id: "2",
 				content:
 					"The best part about TaxPal is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.",
 				author: {
@@ -210,6 +212,7 @@ export const testimonialsSection = {
 		],
 		[
 			{
+				id: "3",
 				content:
 					"I used to have to remit tax to the EU and with TaxPal I somehow don’t have to do that anymore. Nervous to travel there now though.",
 				author: {
