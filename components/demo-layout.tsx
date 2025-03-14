@@ -102,7 +102,7 @@ function CustomizerConfig() {
 					onClick={() => {
 						setConfig({
 							...config,
-							theme: "blue",
+							theme: "red",
 						});
 					}}
 				>
